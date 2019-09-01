@@ -11,32 +11,7 @@ namespace UsingExtendedConsole
         {
             while (true)
             {
-                var result = exConsole.Menu(
-                    "Demonstraiting ExConsole",
-                    false,
-                    "<c f='red'>Quit</c>",
-                    "WriteLine",
-                    "Read DateTime",
-                    "Read int",
-                    "Clear lines"
-                    );
-                switch (result)
-                {
-                    case 1:
-                        WriteLineMethods();
-                        break;
-                    case 2:
-                        ReadDateTimeMethods();
-                        break;
-                    case 3:
-                        ReadIntMethods();
-                        break;
-                    case 4:
-                        ClearLines();
-                        break;
-                    default:
-                        return;
-                }
+                StringsMenu();
                 Console.WriteLine();
                 if(exConsole.ReadBool(ConsoleKey.Q, "Press <c f='black' b='white'>Q (or q)</c> to quit, or any other key to go again"))
                 {
@@ -44,6 +19,50 @@ namespace UsingExtendedConsole
                 }
                 Console.Clear();
             }
+        }
+        
+        private static void StringsMenu()
+        {
+            var result = exConsole.Menu(
+                "Demonstraiting ExConsole",
+                false,
+                "<c f='red'>Quit</c>",
+                "WriteLine",
+                "Read DateTime",
+                "Read int",
+                "Clear lines"
+            );
+
+            switch (result)
+            {
+                case 1:
+                    WriteLineMethods();
+                    break;
+                case 2:
+                    ReadDateTimeMethods();
+                    break;
+                case 3:
+                    ReadIntMethods();
+                    break;
+                case 4:
+                    ClearLines();
+                    break;
+                default:
+                    return;
+            }
+        }
+
+        private static void ActionsMenu()
+        {
+            exConsole.Menu(
+                "Demonstraiting ExConsole",
+                true,
+                ("<c f='red'>Quit</c>", () => { /* a no-op */ }),
+                ("WriteLine", WriteLineMethods),
+                ("Read DateTime", ReadDateTimeMethods),
+                ("Read int", ReadIntMethods),
+                ("Clear lines", ClearLines)
+            );
         }
 
         private static void ClearLines()
