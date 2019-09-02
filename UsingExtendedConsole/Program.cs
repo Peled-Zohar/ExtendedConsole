@@ -11,7 +11,7 @@ namespace UsingExtendedConsole
         {
             while (true)
             {
-                StringsMenu();
+                if(StringsMenu() == 0) return;
                 Console.WriteLine();
                 if(exConsole.ReadBool(ConsoleKey.Q, "Press <c f='black' b='white'>Q (or q)</c> to quit, or any other key to go again"))
                 {
@@ -21,7 +21,7 @@ namespace UsingExtendedConsole
             }
         }
         
-        private static void StringsMenu()
+        private static int StringsMenu()
         {
             var result = exConsole.Menu(
                 "Demonstraiting ExConsole",
@@ -47,14 +47,13 @@ namespace UsingExtendedConsole
                 case 4:
                     ClearLines();
                     break;
-                default:
-                    return;
             }
+            return result;
         }
 
-        private static void ActionsMenu()
+        private static int ActionsMenu()
         {
-            exConsole.Menu(
+            return exConsole.Menu(
                 "Demonstraiting ExConsole",
                 true,
                 ("<c f='red'>Quit</c>", () => { /* a no-op */ }),
