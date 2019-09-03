@@ -7,14 +7,6 @@ namespace ExtendedConsole
     {
         internal static TextBuilder ParseMarkeup(string markup)
         {
-            //markup = @"This is a test. 
-            //<C F='Yellow'>This should have a yellow foreground,
-            //<C B='Blue'>and this should have a blue background.</C> This should be yellow again,</C>
-            //And this should have regular colors. <C B='Red'>This should have a red background 
-            //<C F='Green'> and a green foreground.</C> now normal foreground again.</C> 
-            //<C F='Black' B='White'> Now it should be black text on a white background</C>
-            //and now nomral colors again.";
-
             var textBuilder = new TextBuilder();
 
             markup = $"<ExtendedConsoleMarkup>{markup}</ExtendedConsoleMarkup>";
