@@ -103,6 +103,7 @@ namespace ExtendedConsole
             self.Write(title + " ");
 
             var key = Console.ReadKey().Key;
+            Console.WriteLine();
             self.ClearLastLine();
             return key == keyForTrue;
         }
