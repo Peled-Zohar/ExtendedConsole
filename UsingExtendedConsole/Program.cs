@@ -60,7 +60,7 @@ namespace UsingExtendedConsole
             return exConsole.Menu(
                 "Demonstraiting ExConsole - actions menu, clearWhenSelected = true",
                 true,
-                ("<c f='red'>Quit</c>", () => { /* a no-op */ }),
+                ("<c f='red'>Quit</c>", null),
                 ("WriteLine", WriteLineMethods),
                 ("Read DateTime", ReadDateTimeMethods),
                 ("Read int", ReadIntMethods),
