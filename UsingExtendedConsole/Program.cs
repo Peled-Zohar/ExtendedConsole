@@ -1,4 +1,4 @@
-﻿using ExtendedConsole;
+using ExtendedConsole;
 using System;
 
 namespace UsingExtendedConsole
@@ -9,28 +9,29 @@ namespace UsingExtendedConsole
 
         static void Main(string[] args)
         {
+            var menus = new Func<int>[] { StringsMenu, ActionsMenu };
+            var index = 0;
             while (true)
             {
-                if(StringsMenu() == 0) return;
+                if(menus[index]() == 0) return;
+                index = (index + 1) % menus.Length;
                 Console.WriteLine();
-                if(exConsole.ReadBool(ConsoleKey.Q, "Press <c f='black' b='white'>Q (or q)</c> to quit, or any other key to go again"))
-                {
-                    return;
-                }
+                exConsole.Pause();
                 Console.Clear();
             }
         }
-        
+
         private static int StringsMenu()
         {
             var result = exConsole.Menu(
-                "Demonstraiting ExConsole",
+                "Demonstraiting ExConsole - strings menu, clearWhenSelected = false",
                 false,
                 "<c f='red'>Quit</c>",
                 "WriteLine",
                 "Read DateTime",
                 "Read int",
-                "Clear lines"
+                "Clear lines",
+                "Try it yourself"
             );
 
             switch (result)
@@ -47,20 +48,49 @@ namespace UsingExtendedConsole
                 case 4:
                     ClearLines();
                     break;
+                case 5:
+                    TryItYourself();
+                    break;
             }
             return result;
+        }
+
+        private static void TryItYourself()
+        {
+            do
+            {
+                exConsole.WriteLine("Enter free text with markup to see how it's displayed:");
+                Console.WriteLine();
+                var input = Console.ReadLine();
+                Console.WriteLine();
+                try
+                {
+                    exConsole.WriteLine(input);
+                }
+                catch(System.Xml.XmlException ex)
+                {
+                    Console.WriteLine();
+                    exConsole.WriteLine("<c f='magenta'>The content you've entered can't be parsed to a valid xml.</c>");
+                    Console.WriteLine();
+                    Console.WriteLine(input);
+                    Console.WriteLine();
+                    exConsole.WriteLine($"<c f='yellow'>Exception message:</c>\n {ex.Message}");
+                }
+                Console.WriteLine();
+            } while(exConsole.ReadBool(ConsoleKey.Y, "Press <c f='green'>Y</c> to go again"));
         }
 
         private static int ActionsMenu()
         {
             return exConsole.Menu(
-                "Demonstraiting ExConsole",
+                "Demonstraiting ExConsole - actions menu, clearWhenSelected = true",
                 true,
                 ("<c f='red'>Quit</c>", () => { /* a no-op */ }),
                 ("WriteLine", WriteLineMethods),
                 ("Read DateTime", ReadDateTimeMethods),
                 ("Read int", ReadIntMethods),
-                ("Clear lines", ClearLines)
+                ("Clear lines", ClearLines),
+                ("Try it yourself", TryItYourself)
             );
         }
 
@@ -88,7 +118,7 @@ namespace UsingExtendedConsole
             {
                 exConsole.WriteLine("User canceled.");
             }
-            
+
         }
 
         private static void ReadIntMethods()
@@ -106,9 +136,10 @@ namespace UsingExtendedConsole
 
             exConsole.WriteLine("Testing some <c b='darkRed'>unrelated</c> <xml att='val' at2='val2'>tags</xml>.");
 
-            exConsole.WriteLine("And another <tag></tag> with no text in it");
+            exConsole.WriteLine("And another <tag> </tag> with no text in it");
 
             exConsole.WriteLine("And another <tag>with <c f='yellow'>yellow</c> text in it</tag>.");
+
         }
     }
 }
