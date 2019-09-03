@@ -28,14 +28,15 @@ namespace ExtendedConsole
         /// </summary>
         /// <param name="title">The title of the menu.</param>
         /// <param name="items">The items of the menu. 
-        /// Each item contains a title and an action to perform, should the user choses this item.</param>
+        /// Each item contains a title and an action to perform, should the user choses this item.
+        /// null can be passed in as the action if the item selection should perform no action.</param>
         /// <returns>An integer representing the user's choice.</returns>
         public static int Menu(this ExConsole self, string title, bool clearWhenSelected, params (string Title, Action Action)[] items)
         {
             var result = self.ShowMenu(title, clearWhenSelected, items.Select(i => i.Title).ToArray());
             if (result >= 0)
             {
-                items[result].Action.Invoke();
+                items[result].Action?.Invoke();
             }
             return result;
         }
