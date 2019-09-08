@@ -41,6 +41,22 @@ namespace ExtendedConsole
             return result;
         }
 
+        /// <summary>
+        /// Displays enum members as a menu for the user to choose from.
+        /// </summary>
+        /// <typeparam name="T">The type of the enum.</typeparam>
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="title">The title of the menu.</param>
+        /// <param name="clearWhenSelected">A boolean value to determine 
+        /// whether the menu should still be displayed after the user have chosen an option.</param>
+        /// <returns>The member of the enum the user selected</returns>
+        public static T ChooseFromEnum<T>(this ExConsole self, string title, bool clearWhenSelected) where T : Enum
+        {
+            var names = Enum.GetNames(typeof(T));
+            var result = self.Menu(title, clearWhenSelected, names);
+            return (T)Enum.Parse(typeof(T), names[result]);
+        }        
+        
         #region private methods
 
         /// <summary>
