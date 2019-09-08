@@ -50,7 +50,7 @@ namespace ExtendedConsole
         /// <param name="clearWhenSelected">A boolean value to determine 
         /// whether the menu should still be displayed after the user have chosen an option.</param>
         /// <returns>The member of the enum the user selected</returns>
-        public static T ChooseFromEnum<T>(this ExConsole self, string title, bool clearWhenSelected) where T : Enum
+        public static T ChooseFromEnum<T>(this ExConsole self, string title, bool clearWhenSelected) where T : Enum // C# 7.3 or higher!
         {
             var names = Enum.GetNames(typeof(T));
             var result = self.Menu(title, clearWhenSelected, names);
