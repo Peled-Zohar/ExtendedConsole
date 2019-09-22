@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ExtendedConsole
 {
@@ -7,6 +7,7 @@ namespace ExtendedConsole
     /// </summary>
     public static class ExConsoleRead
     {
+        #region general
 
         /// <summary>
         /// Pause the console application until the user press a key.
@@ -92,6 +93,40 @@ namespace ExtendedConsole
         }
 
         /// <summary>
+        /// Reads an input line from the user and attempt to convert it to T.
+        /// Repeats until conversion succeeds or the user enters ^Z.
+        /// </summary>
+        /// <typeparam name="T">The target type of the conversion.</typeparam>
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="title">The title to show the user before asking for input.</param>
+        /// <param name="errorMessage">The error message to show the user if the conversion failed.</param>
+        /// <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
+        /// <returns>
+        /// A value tuple of bool Success and T Value.
+        /// If the user enters ^Z, Success will be false and Value will be default(T).
+        /// Otherwise, Success will be true and Value will contain the T value converted from the input string.
+        /// </returns>
+        private static (bool Success, T Value) Read<T>(this ExConsole self, string title, string errorMessage, Func<string, (bool Success, T Value)> converter)
+        {
+            self.WriteLine(title);
+            string input;
+            while ((input = Console.ReadLine()) != null)
+            {
+                var (Success, Value) = converter(input);
+                if (Success)
+                {
+                    return (true, Value);
+                }
+                self.WriteLine(errorMessage);
+            }
+            return (false, default(T));
+        }
+
+        #endregion general
+
+        #region bool
+
+        /// <summary>
         /// Covnverts the user input to a boolean value.
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
@@ -107,6 +142,36 @@ namespace ExtendedConsole
             self.ClearLastLine();
             return key == keyForTrue;
         }
+
+        /// <summary>
+        /// Covnverts the user input to a boolean value.
+        /// Will keep waiting until the user press a correct key.
+        /// </summary>
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="keyForTrue">The key the user should press to return true.</param>
+        /// <param name="keyForFalse">The key the user should press to return false.</param>
+        /// <param name="title">The title to show on the console.</param>
+        /// <returns>True or false based on the key the user pressed.</returns>
+        public static bool ReadBool(this ExConsole self, ConsoleKey keyForTrue, ConsoleKey keyForFalse, string title)
+        {
+            self.Write(title + " ");
+            while (true)
+            {
+                var key = Console.ReadKey().Key;
+                if (key == keyForTrue || key == keyForFalse)
+                {
+                    Console.WriteLine();
+                    self.ClearLastLine();
+                    return key == keyForTrue;
+                }
+                Console.CursorLeft--;
+                Console.Write(" ");
+                Console.CursorLeft--;            }
+        }
+
+        #endregion bool
+
+        #region int
 
         /// <summary>
         /// Covnverts the user input to an integer value.
@@ -148,6 +213,10 @@ namespace ExtendedConsole
                 );
         }
 
+        #endregion int
+
+        #region datetime
+
         /// <summary>
         /// Converts the user input into an instance of the DateTime struct.
         /// </summary>
@@ -183,38 +252,6 @@ namespace ExtendedConsole
             );
         }
 
-        #region private methods
-
-        /// <summary>
-        /// Reads an input line from the user and attempt to convert it to T.
-        /// Repeats until conversion succeeds or the user enters ^Z.
-        /// </summary>
-        /// <typeparam name="T">The target type of the conversion.</typeparam>
-        /// <param name="self">The current instance of ExConsole.</param>
-        /// <param name="title">The title to show the user before asking for input.</param>
-        /// <param name="errorMessage">The error message to show the user if the conversion failed.</param>
-        /// <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
-        /// <returns>
-        /// A value tuple of bool Success and T Value.
-        /// If the user enters the quit value, Success will be false and Value will be default(T).
-        /// Otherwise, Success will be true and Value will contain the T value converted from the input string.
-        /// </returns>
-        private static (bool Success, T Value) Read<T>(this ExConsole self, string title, string errorMessage, Func<string, (bool Success, T Value)> converter)
-        {
-            self.WriteLine(title);
-            string input;
-            while ((input = Console.ReadLine()) != null)
-            {
-                var (Success, Value) = converter(input);
-                if (Success)
-                {
-                    return (true, Value);
-                }
-                self.WriteLine(errorMessage);
-            }
-            return (false, default(T));
-        }
-
-        #endregion private methods
+        #endregion datetime
     }
 }
