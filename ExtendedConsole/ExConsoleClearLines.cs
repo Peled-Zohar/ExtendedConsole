@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ExtendedConsole
 {
@@ -12,19 +12,21 @@ namespace ExtendedConsole
         /// <summary>
         /// Clears all text from a specific line.
         /// </summary>
-        /// <param name="cursorTop">Line index to clear.</param>
-        public static void ClearLine(this ExConsole self, int cursorTop)
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="lineIndex">Line index to clear.</param>
+        public static void ClearLine(this ExConsole self, int lineIndex)
         {
-            if (cursorTop < 0) throw new ArgumentException($"{nameof(cursorTop)} can't be a negative value.");
+            if (lineIndex < 0) throw new ArgumentException($"{nameof(lineIndex)} can't be a negative value.");
 
-            Console.SetCursorPosition(0, cursorTop);
+            Console.SetCursorPosition(0, lineIndex);
             Console.WriteLine(new string(' ', Console.BufferWidth));
-            Console.SetCursorPosition(0, cursorTop);
+            Console.SetCursorPosition(0, lineIndex);
         }
 
         /// <summary>
         /// Clears all text from the last line.
         /// </summary>
+        /// <param name="self">The current instance of ExConsole.</param>
         public static void ClearLastLine(this ExConsole self)
         {
             if (Console.CursorTop > 0)
@@ -36,10 +38,11 @@ namespace ExtendedConsole
         /// <summary>
         /// Clears all text from the last lines.
         /// </summary>
+        /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="numberOfLines">The number of lines to clear (count up from last line)</param>
         public static void ClearLastLines(this ExConsole self, int numberOfLines)
         {
-            if (numberOfLines < 1) throw new ArgumentException($"{nameof(numberOfLines)} must be positive.");
+            if (numberOfLines < 1) throw new ArgumentException($"{nameof(numberOfLines)} must be a positive value.");
 
             for (var i = 0; i < numberOfLines; i++)
             {
