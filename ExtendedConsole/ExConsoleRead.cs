@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 
 namespace ExtendedConsole
 {
@@ -181,14 +182,15 @@ namespace ExtendedConsole
         /// <returns>The integer value the user entered.</returns>
         public static int ReadInt(this ExConsole self, string title)
         {
-            return self.ReadInt(title, "Please enter an integer value.", i => true);
+            return self.ReadInt(title, "Please enter an integer value.", null);
         }
 
         /// <summary>
         /// Covnverts the user input to an integer value that meets a specific condition.
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
-        /// <param name="title">The title to show on the console.</param>
+        /// <param name="title">The title to show on the console. 
+        /// This will be shown repeatedly until the user enters a valid value.</param>
         /// <param name="condition">The condition the integer value must meet.</param>
         /// <returns>The integer value the user entered.</returns>
         public static int ReadInt(this ExConsole self, string title, Func<int, bool> condition)
@@ -209,7 +211,7 @@ namespace ExtendedConsole
             return self.ReadUntilConverted(
                 title,
                 errorMessage,
-                str => (int.TryParse(str, out int res) && condition(res), res)
+                str => (int.TryParse(str, out var res) && (condition?.Invoke(res) ?? true), res)
                 );
         }
 
@@ -223,13 +225,13 @@ namespace ExtendedConsole
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="title">The title to show on the console.</param>
         /// <param name="errorMessage">The error message to show the user in case the input value is invalid.</param>
-        /// <returns></returns>
+        /// <returns>A nullable DateTime instance that will have no value if the user entered ^Z.</returns>
         public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage)
         {
             return self.ReadStruct(
                 title,
                 errorMessage,
-                str => (DateTime.TryParse(str, out DateTime res), res)
+                str => (DateTime.TryParse(str, out var res), res)
             );
         }
 
@@ -243,12 +245,12 @@ namespace ExtendedConsole
         /// <param name="formatProvider">An object that supplies culture-specific formatting information.</param>
         /// <param name="dateTimeStyles">A bitwise combination of one or more enumeration values that indicate the permitted format.</param>
         /// <returns>A nullable DateTime instance that will have no value if the user entered ^Z.</returns>
-        public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage, string format, IFormatProvider formatProvider, System.Globalization.DateTimeStyles dateTimeStyles)
+        public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage, string format, IFormatProvider formatProvider, DateTimeStyles dateTimeStyles)
         {
             return self.ReadStruct(
                 title,
                 errorMessage,
-                str => (DateTime.TryParseExact(str, format, formatProvider, dateTimeStyles, out DateTime res), res)
+                str => (DateTime.TryParseExact(str, format, formatProvider, dateTimeStyles, out var res), res)
             );
         }
 
