@@ -86,6 +86,7 @@ namespace ExtendedConsole
         /// <summary>
         /// Displays a menu to the user and returns the index of the item the user chooses.
         /// </summary>
+        /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="title">The title of the menu.</param>
         /// <param name="clearWhenSelected">A boolean value to determine 
         /// whether the menu should still be displayed after the user have chosen an option.</param>
