@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ExtendedConsole
 {
@@ -32,6 +32,18 @@ namespace ExtendedConsole
         }
 
         /// <summary>
+        /// Writes multiple lines to the console. 
+        /// </summary>
+        /// <param name="lines">lines of markup text to write.</param>
+        public void WriteLines(params string[] lines)
+        {
+            foreach(var line in lines)
+            {
+                WriteLine(line);
+            }
+        }
+
+        /// <summary>
         /// Writes a line with the specified colors.
         /// </summary>
         /// <param name="text">Line of text to write.</param>
@@ -57,7 +69,7 @@ namespace ExtendedConsole
         /// Writes the specified text with the specified colors, 
         /// either as a complete line or as a part of one.
         /// </summary>
-        /// <param name="text">Text to write.</param>
+        /// <param name="action">Action to execute.</param>
         /// <param name="foregroundColor">Foreground color.</param>
         /// <param name="backgroundColor">Background color.</param>
         private void WriteInColor(Action action, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
