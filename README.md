@@ -10,4 +10,6 @@ This repository also contains a project called `UsingExtendedConsole` that conta
 The `ExtendedConsole` project is licenced with the MIT licence, meaning you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of this project free of charge, on an "AS IS" basis. For more information, read the LICENSE file (Don't worry, it's short and easy to understand). 
 
+`ExtendedConsole` is available on Nuget - https://www.nuget.org/packages/ExtendedConsole
+
 More information is available on the project's Wiki pages.
