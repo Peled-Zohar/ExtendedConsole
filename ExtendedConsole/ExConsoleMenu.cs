@@ -9,21 +9,6 @@ namespace ExtendedConsole
     /// </summary>
     public static class ExConsoleMenu
     {
-
-        /// <summary>
-        /// Displays a menu to the user and returns the index of the item the user chooses.
-        /// </summary>
-        /// <param name="self">The current instance of ExConsole.</param>
-        /// <param name="title">The title of the menu.</param>
-        /// <param name="clearWhenSelected">A boolean value to determine 
-        /// whether the menu should still be displayed after the user have chosen an option.</param>
-        /// <param name="items">The items of the menu.</param>
-        /// <returns>An integer representing the user's choice.</returns>
-        public static int Menu(this ExConsole self, string title, bool clearWhenSelected, params string[] items)
-        {
-            return Math.Max(self.ShowMenu(title, clearWhenSelected, items), 0);
-        }
-
         /// <summary>
         /// Displays a menu to the user and invokes the action the user chooses.
         /// </summary>
@@ -37,7 +22,7 @@ namespace ExtendedConsole
         /// <returns>An integer representing the user's choice.</returns>
         public static int Menu(this ExConsole self, string title, bool clearWhenSelected, params (string Title, Action Action)[] items)
         {
-            var result = self.ShowMenu(title, clearWhenSelected, items.Select(i => i.Title).ToArray());
+            var result = self.Menu(title, clearWhenSelected, items.Select(i => i.Title).ToArray());
             if (result >= 0)
             {
                 items[result].Action?.Invoke();
@@ -81,8 +66,6 @@ namespace ExtendedConsole
             return (T?)Enum.Parse(typeof(T), names[result]);
         }
 
-        #region private methods
-
         /// <summary>
         /// Displays a menu to the user and returns the index of the item the user chooses.
         /// </summary>
@@ -90,9 +73,27 @@ namespace ExtendedConsole
         /// <param name="title">The title of the menu.</param>
         /// <param name="clearWhenSelected">A boolean value to determine 
         /// whether the menu should still be displayed after the user have chosen an option.</param>
+        /// <param name="items">The items of the menu.</param>
+        /// <returns>An integer representing the user's choice.</returns>
+        public static int Menu(this ExConsole self, string title, bool clearWhenSelected, params string[] items)
+        {
+            return Math.Max(self.ShowMenu(title, "Please select an item from the menu.", "Invalid value entered.", clearWhenSelected, items), 0);
+        }
+
+        #region private methods
+
+        /// <summary>
+        /// Displays a menu to the user and returns the index of the item the user chooses.
+        /// </summary>
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="title">The title of the menu.</param>
+        /// <param name="pleaseSelectText">The text to show below the menu.</param>
+        /// <param name="invalidSelectionText">The text to show if the user entered an invalid selection.</param>
+        /// <param name="clearWhenSelected">A boolean value to determine 
+        /// whether the menu should still be displayed after the user have chosen an option.</param>
         /// <param name="itemTitles">The items of the menu.</param>
         /// <returns>An integer representing the user's choice.</returns>
-        private static int ShowMenu(this ExConsole self, string title, bool clearWhenSelected, params string[] itemTitles)
+        private static int ShowMenu(this ExConsole self, string title, string pleaseSelectText, string invalidSelectionText, bool clearWhenSelected, params string[] itemTitles)
         {
             if (itemTitles.Length == 0)
             {
@@ -104,7 +105,7 @@ namespace ExtendedConsole
             {
                 self.WriteLine($"{i}. {itemTitles[i]}");
             }
-            var result = self.ReadInt("Please select an item from the menu.", "Invalid value entered.", i => i > -1 && i < itemTitles.Length);
+            var result = self.ReadInt(pleaseSelectText, invalidSelectionText, i => i > -1 && i < itemTitles.Length);
             if (clearWhenSelected)
             {
                 self.ClearLastLines(Console.CursorTop - cursorTop);

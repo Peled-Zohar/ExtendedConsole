@@ -16,7 +16,7 @@ namespace ExtendedConsole
         /// <param name="self">The current instance of ExConsole.</param>
         public static void Pause(this ExConsole self)
         {
-            self.Pause("Press any key to continue");
+            self.Pause("Press any key to continue.");
         }
 
         /// <summary>
@@ -167,7 +167,8 @@ namespace ExtendedConsole
                 }
                 Console.CursorLeft--;
                 Console.Write(" ");
-                Console.CursorLeft--;            }
+                Console.CursorLeft--;
+            }
         }
 
         #endregion bool
