@@ -16,7 +16,7 @@ namespace ExtendedConsole
         /// <param name="lineIndex">Line index to clear.</param>
         public static void ClearLine(this ExConsole self, int lineIndex)
         {
-            if (lineIndex < 0) throw new ArgumentException($"{nameof(lineIndex)} can't be a negative value.");
+            if (lineIndex < 0) throw new ArgumentOutOfRangeException($"{nameof(lineIndex)} can't be a negative value.");
 
             Console.SetCursorPosition(0, lineIndex);
             Console.WriteLine(new string(' ', Console.BufferWidth));
@@ -42,7 +42,7 @@ namespace ExtendedConsole
         /// <param name="numberOfLines">The number of lines to clear (count up from last line)</param>
         public static void ClearLastLines(this ExConsole self, int numberOfLines)
         {
-            if (numberOfLines < 1) throw new ArgumentException($"{nameof(numberOfLines)} must be a positive value.");
+            if (numberOfLines < 1) throw new ArgumentOutOfRangeException($"{nameof(numberOfLines)} must be a positive value.");
 
             for (var i = 0; i < numberOfLines; i++)
             {
