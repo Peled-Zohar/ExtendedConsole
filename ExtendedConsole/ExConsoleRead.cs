@@ -93,20 +93,21 @@ namespace ExtendedConsole
             return Success ? Value : null;
         }
 
-        /// <summary>
-        /// Reads an input line from the user and attempt to convert it to T.
-        /// Repeats until conversion succeeds or the user enters ^Z.
-        /// </summary>
-        /// <typeparam name="T">The target type of the conversion.</typeparam>
-        /// <param name="self">The current instance of ExConsole.</param>
-        /// <param name="title">The title to show the user before asking for input.</param>
-        /// <param name="errorMessage">The error message to show the user if the conversion failed.</param>
-        /// <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
-        /// <returns>
-        /// A value tuple of bool Success and T Value.
-        /// If the user enters ^Z, Success will be false and Value will be default(T).
-        /// Otherwise, Success will be true and Value will contain the T value converted from the input string.
-        /// </returns>
+        // <summary>
+        // Reads an input line from the user and attempt to convert it to T.
+        // Repeats until conversion succeeds or the user enters ^Z.
+        // </summary>
+        // <typeparam name="T">The target type of the conversion.</typeparam>
+        // <param name="self">The current instance of ExConsole.</param>
+        // <param name="title">The title to show the user before asking for input.</param>
+        // <param name="errorMessage">The error message to show the user if the conversion failed.</param>
+        // <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
+        // <returns>
+        // A value tuple of bool Success and T Value.
+        // If the user enters ^Z, Success will be false and Value will be default(T).
+        // Otherwise, Success will be true and Value will contain the T value converted from the input string.
+        // </returns>
+        // The documentation above is not a an xml documentaion because the method is private.
         private static (bool Success, T Value) Read<T>(this ExConsole self, string title, string errorMessage, Func<string, (bool Success, T Value)> converter)
         {
             self.WriteLine(title);
@@ -180,10 +181,12 @@ namespace ExtendedConsole
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="title">The title to show on the console.</param>
+        /// <remarks>If the user enters a value that can't be parsed as int, 
+        /// the title will show again until the user enters an int value.</remarks>
         /// <returns>The integer value the user entered.</returns>
         public static int ReadInt(this ExConsole self, string title)
         {
-            return self.ReadInt(title, "Please enter an integer value.", null);
+            return self.ReadInt(title, title, null);
         }
 
         /// <summary>
