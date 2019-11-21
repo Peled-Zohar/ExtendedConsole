@@ -78,21 +78,21 @@
                         <p>
                             The <strong>ExtendedConsole</strong> project is here to provide easy-to-use solutions to these tasks.<br /><br />
 
-                            First and foremost, it supports a super-simple xml markup for determining the foreground and background color of the text being written to the Console. No more breaking up your strings to multiple `Console.Write` commands just to color a specific part of your code - using <strong>ExtendedConsole</strong> it's as simple as <pre><code>exConsole.WriteLine("&lt;c b='darkRed' f='white'&gt;This text is white on a dark red background&lt;/c&gt;");</code></pre><br />
+                            First and foremost, it supports a super-simple xml markup for determining the foreground and background color of the text being written to the Console. No more breaking up your strings to multiple `Console.Write` commands just to color a specific part of your code - using <strong>ExtendedConsole</strong> it's as simple as <code>exConsole.WriteLine("&lt;c b='darkRed' f='white'&gt;This text is white on a dark red background&lt;/c&gt;");</code><br />
 
-                            One more feature is the <pre><code>Menu</code></pre> methods<br />
+                            One more feature is the <code>Menu</code> methods<br />
 
                             Also, ever had to get an int value from the user?
                             Your code can get quite cumbersome if any input from the user must be handled in it's own loop - <strong>ExtendedConsole</strong> provides methods for that too: <br />
-                            A few <pre><code>ReadInt</code></pre> overloads, <pre><code>ReadBool</code></pre>,
-                            a couple of <pre><code>ReadDateTime</code></pre>,
+                            A few <code>ReadInt</code> overloads, <code>ReadBool</code>,
+                            a couple of <code>ReadDateTime</code>,
                             as well as methods that you can hook up your own types for parsing user input directly -
-                            <pre><code>ReadClass&lt;T&gt;</code></pre>, <pre><code>ReadStruct&lt;T&gt;</code></pre> and <pre><code>ReadUntilConverted&lt;T&gt;</code></pre> -
+                            <code>ReadClass&lt;T&gt;</code>, <code>ReadStruct&lt;T&gt;</code> and <code>ReadUntilConverted&lt;T&gt;</code> -
                             for those times when you just can't let the user continue without entering a value (this method will not allow the users to escape the read loop even using `^Z`).
 
                             And the best thing about this project - it's super easy to extend. <br />
                             All you need to do is write extension methods, most of them can use the already existing extension methods
-                            (that's what the <pre><code>ReadClass&lt;T&gt;</code></pre>, <pre><code>ReadStruct&lt;T&gt;</code></pre> and <pre><code>ReadUntilConverted&lt;T&gt;</code></pre> are there for).
+                            (that's what the <code>ReadClass&lt;T&gt;</code>, <code>ReadStruct&lt;T&gt;</code> and <code>ReadUntilConverted&lt;T&gt;</code> are there for).
                         </p>
                         <!-- *********************** Actual content ends here   *********************** -->
                     </article>
