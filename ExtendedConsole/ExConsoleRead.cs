@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Globalization;
 
 namespace ExtendedConsole
@@ -14,9 +14,10 @@ namespace ExtendedConsole
         /// Pause the console application until the user press a key.
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
         public static void Pause(this ExConsole self)
         {
-            self.Pause("Press any key to continue.");
+            Pause(self, "Press any key to continue.");
         }
 
         /// <summary>
@@ -24,8 +25,15 @@ namespace ExtendedConsole
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="title">The title to show the user before asking for input.</param>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         public static void Pause(this ExConsole self, string title)
         {
+            if (self is null) throw new ArgumentNullException(nameof(self));
+            if (title is null) throw new ArgumentNullException(nameof(title));
+            if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
+
             self.WriteLine(title);
             Console.ReadKey();
         }
@@ -42,15 +50,20 @@ namespace ExtendedConsole
         /// <param name="errorMessage">The error message to show the user if the conversion failed.</param>
         /// <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
         /// <returns>The T value converted from the input string.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty.</exception>        
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
         public static T ReadUntilConverted<T>(this ExConsole self, string title, string errorMessage, Func<string, (bool Success, T Value)> converter)
         {
             var (Success, Value) = (false, default(T));
             do
             {
-                (Success, Value) = self.Read<T>(
-                title,
-                errorMessage,
-                converter);
+                (Success, Value) = Read<T>(
+                    self,
+                    title,
+                    errorMessage,
+                    converter
+                );
             } while (!Success);
             return Value;
         }
@@ -64,9 +77,13 @@ namespace ExtendedConsole
         /// <param name="errorMessage">The error message to show the user if the conversion failed.</param>
         /// <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
         /// <returns>An instance of T? that has a value unless the user entered ^Z.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty.</exception>        
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
         public static T? ReadStruct<T>(this ExConsole self, string title, string errorMessage, Func<string, (bool Success, T Value)> converter) where T : struct
         {
-            var (Success, Value) = self.Read(
+            var (Success, Value) = Read(
+                self,
                 title,
                 errorMessage,
                 converter
@@ -83,9 +100,13 @@ namespace ExtendedConsole
         /// <param name="errorMessage">The error message to show the user if the conversion failed.</param>
         /// <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
         /// <returns>The T value converted from the input string, or null if the user entered ^Z.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty.</exception>        
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
         public static T ReadClass<T>(this ExConsole self, string title, string errorMessage, Func<string, (bool Success, T Value)> converter) where T : class
         {
-            var (Success, Value) = self.Read(
+            var (Success, Value) = Read(
+                self,
                 title,
                 errorMessage,
                 converter
@@ -107,9 +128,20 @@ namespace ExtendedConsole
         // If the user enters ^Z, Success will be false and Value will be default(T).
         // Otherwise, Success will be true and Value will contain the T value converted from the input string.
         // </returns>
+        // <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
+        // <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
+        // <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are null or empty.</exception>
         // The documentation above is not a an xml documentaion because the method is private.
         private static (bool Success, T Value) Read<T>(this ExConsole self, string title, string errorMessage, Func<string, (bool Success, T Value)> converter)
         {
+            if (self is null) throw new ArgumentNullException(nameof(self));
+            if (title is null) throw new ArgumentNullException(nameof(title));
+            if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
+            if (errorMessage is null) throw new ArgumentNullException(nameof(errorMessage));
+            if (errorMessage == "") throw new ArgumentException(nameof(errorMessage) + " can't be empty.", nameof(title));
+
+            if (converter is null) throw new ArgumentNullException(nameof(converter));
+
             self.WriteLine(title);
             string input;
             while ((input = Console.ReadLine()) != null)
@@ -135,8 +167,15 @@ namespace ExtendedConsole
         /// <param name="keyForTrue">The key the user should press to return true.</param>
         /// <param name="title">The title to show on the console.</param>
         /// <returns>True if the user pressed the key specified in keyForTrue, false otherwise.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         public static bool ReadBool(this ExConsole self, ConsoleKey keyForTrue, string title)
         {
+            if (self is null) throw new ArgumentNullException(nameof(self));
+            if (title is null) throw new ArgumentNullException(nameof(title));
+            if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
+
             self.Write(title + " ");
 
             var key = Console.ReadKey().Key;
@@ -154,8 +193,15 @@ namespace ExtendedConsole
         /// <param name="keyForFalse">The key the user should press to return false.</param>
         /// <param name="title">The title to show on the console.</param>
         /// <returns>True or false based on the key the user pressed.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         public static bool ReadBool(this ExConsole self, ConsoleKey keyForTrue, ConsoleKey keyForFalse, string title)
         {
+            if (self is null) throw new ArgumentNullException(nameof(self));
+            if (title is null) throw new ArgumentNullException(nameof(title));
+            if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
+
             self.Write(title + " ");
             while (true)
             {
@@ -184,9 +230,12 @@ namespace ExtendedConsole
         /// <remarks>If the user enters a value that can't be parsed as int, 
         /// the title will show again until the user enters an int value.</remarks>
         /// <returns>The integer value the user entered.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         public static int ReadInt(this ExConsole self, string title)
         {
-            return self.ReadInt(title, title, null);
+            return ReadInt(self, title, title, null);
         }
 
         /// <summary>
@@ -197,9 +246,12 @@ namespace ExtendedConsole
         /// This will be shown repeatedly until the user enters a valid value.</param>
         /// <param name="condition">The condition the integer value must meet.</param>
         /// <returns>The integer value the user entered.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         public static int ReadInt(this ExConsole self, string title, Func<int, bool> condition)
         {
-            return self.ReadInt(title, title, condition);
+            return ReadInt(self, title, title, condition);
         }
 
         /// <summary>
@@ -210,9 +262,13 @@ namespace ExtendedConsole
         /// <param name="errorMessage">The error message to show the user in case the input value is invalid.</param>
         /// <param name="condition">The condition the integer value must meet.</param>
         /// <returns>The integer value the user entered.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/> or <paramref name="errorMessage"/> are null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty.</exception>        
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
         public static int ReadInt(this ExConsole self, string title, string errorMessage, Func<int, bool> condition)
         {
-            return self.ReadUntilConverted(
+            return ReadUntilConverted(
+                self,
                 title,
                 errorMessage,
                 str => (int.TryParse(str, out var res) && (condition?.Invoke(res) ?? true), res)
@@ -230,9 +286,14 @@ namespace ExtendedConsole
         /// <param name="title">The title to show on the console.</param>
         /// <param name="errorMessage">The error message to show the user in case the input value is invalid.</param>
         /// <returns>A nullable DateTime instance that will have no value if the user entered ^Z.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>        
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
+
         public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage)
         {
-            return self.ReadStruct(
+            return ReadStruct(
+                self,
                 title,
                 errorMessage,
                 str => (DateTime.TryParse(str, out var res), res)
@@ -249,9 +310,13 @@ namespace ExtendedConsole
         /// <param name="formatProvider">An object that supplies culture-specific formatting information.</param>
         /// <param name="dateTimeStyles">A bitwise combination of one or more enumeration values that indicate the permitted format.</param>
         /// <returns>A nullable DateTime instance that will have no value if the user entered ^Z.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/> or <paramref name="errorMessage"/> are null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty, or if dateTimeStyles is not a member of the DateTimeStyles enum.</exception>
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
         public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage, string format, IFormatProvider formatProvider, DateTimeStyles dateTimeStyles)
         {
-            return self.ReadStruct(
+            return ReadStruct(
+                self,
                 title,
                 errorMessage,
                 str => (DateTime.TryParseExact(str, format, formatProvider, dateTimeStyles, out var res), res)

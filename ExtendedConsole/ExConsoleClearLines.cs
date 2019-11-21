@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace ExtendedConsole
 {
@@ -14,6 +14,7 @@ namespace ExtendedConsole
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="lineIndex">Line index to clear.</param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="lineIndex"/> is less than zero.</exception>
         public static void ClearLine(this ExConsole self, int lineIndex)
         {
             if (lineIndex < 0) throw new ArgumentOutOfRangeException($"{nameof(lineIndex)} can't be a negative value.");
@@ -31,7 +32,7 @@ namespace ExtendedConsole
         {
             if (Console.CursorTop > 0)
             {
-                self.ClearLine(Console.CursorTop - 1);
+                ClearLine(self, Console.CursorTop - 1);
             }
         }
 
@@ -40,13 +41,14 @@ namespace ExtendedConsole
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="numberOfLines">The number of lines to clear (count up from last line)</param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="numberOfLines"/> is less than one.</exception>
         public static void ClearLastLines(this ExConsole self, int numberOfLines)
         {
             if (numberOfLines < 1) throw new ArgumentOutOfRangeException($"{nameof(numberOfLines)} must be a positive value.");
 
             for (var i = 0; i < numberOfLines; i++)
             {
-                self.ClearLastLine();
+                ClearLastLine(self);
             }
         }
     }

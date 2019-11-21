@@ -1,24 +1,40 @@
-using ExtendedConsole;
+﻿using ExtendedConsole;
 using System;
 
 namespace UsingExtendedConsole
 {
+
     class Program
     {
         private static ExConsole exConsole = new ExConsole();
 
         static void Main(string[] args)
         {
+
+            Console.Title = "Using Extended Console";
+            //ShowLogo(exConsole);
+            
             var menus = new Func<int>[] { StringsMenu, ActionsMenu };
             var index = 0;
             while (true)
             {
-                if(menus[index]() == 0) return;
+                if (menus[index]() == 0) return;
                 index = (index + 1) % menus.Length;
                 Console.WriteLine();
                 exConsole.Pause();
                 Console.Clear();
             }
+        }
+
+        private static void ShowLogo(ExConsole exConsole)
+        {
+            exConsole.WriteLines(
+                "",
+                ".    <c f='white'>E</c><c f='gray'>x</c><c f='red'>t</c><c f='yellow'>e</c><c f='cyan'>n</c><c f='gray'>d</c><c f='darkgray'>e</c><c f='green'>d</c>",
+                ".    <c b='blue'>C</c><c b='darkgray'>o</c><c b='darkred'>n</c><c b='darkblue'>s</c><c b='darkgreen'>o</c><c b='darkmagenta'>l</c><c b='darkyellow'>e</c>",
+                ""
+            );
+            Console.ReadKey();
         }
 
         private static int StringsMenu()
@@ -76,7 +92,7 @@ namespace UsingExtendedConsole
             exConsole.WriteLine("And another <tag> </tag> with no text in it");
             exConsole.WriteLine("And another <tag>with <c f='yellow'>yellow</c> text in it</tag>.");
         }
-		
+
         private static void ReadDateTimeMethods()
         {
             var datetime = exConsole.ReadDateTime("Please enter a datetime value.", "Can't parse datetime value under the current culture settings.");
@@ -124,7 +140,7 @@ namespace UsingExtendedConsole
                 {
                     exConsole.WriteLine(input);
                 }
-                catch(System.Xml.XmlException ex)
+                catch (System.Xml.XmlException ex)
                 {
                     Console.WriteLine();
                     exConsole.WriteLine("<c f='magenta'>The content you've entered can't be parsed to a valid xml.</c>");
@@ -134,7 +150,7 @@ namespace UsingExtendedConsole
                     exConsole.WriteLine($"<c f='yellow'>Exception message:</c>\n {ex.Message}");
                 }
                 Console.WriteLine();
-            } while(exConsole.ReadBool(ConsoleKey.Y, "Press <c f='green'>Y</c> to go again"));
+            } while (exConsole.ReadBool(ConsoleKey.Y, "Press <c f='green'>Y</c> to go again"));
         }
-	}
+    }
 }

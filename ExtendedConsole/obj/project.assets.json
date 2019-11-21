@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.2",
     "restore": {
-      "projectUniqueName": "C:\\Users\\support\\Documents\\GitHub\\ExtendedConsole\\ExtendedConsole\\ExtendedConsole.csproj",
+      "projectUniqueName": "C:\\Development\\ExtendedConsole\\ExtendedConsole\\ExtendedConsole.csproj",
       "projectName": "ExtendedConsole",
-      "projectPath": "C:\\Users\\support\\Documents\\GitHub\\ExtendedConsole\\ExtendedConsole\\ExtendedConsole.csproj",
+      "projectPath": "C:\\Development\\ExtendedConsole\\ExtendedConsole\\ExtendedConsole.csproj",
       "packagesPath": "C:\\Users\\support\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\support\\Documents\\GitHub\\ExtendedConsole\\ExtendedConsole\\obj\\",
+      "outputPath": "C:\\Development\\ExtendedConsole\\ExtendedConsole\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
