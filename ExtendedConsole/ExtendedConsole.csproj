@@ -7,7 +7,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <Description>Provides a set of methods to make your life as a programmer easier when writing a Console application.</Description>
     <PackageLicenseUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/Peled-Zohar/ExtendedConsole</PackageProjectUrl>
+    <PackageProjectUrl>https://peled-zohar.github.io/ExtendedConsole/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Peled-Zohar/ExtendedConsole</RepositoryUrl>
     <Copyright />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
