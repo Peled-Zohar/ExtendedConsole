@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ExtendedConsole</id>
+    <version>1.0.1</version>
+    <authors>Zohar Peled</authors>
+    <owners>Zohar Peled</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Peled-Zohar/ExtendedConsole</projectUrl>
+    <iconUrl>https://camo.githubusercontent.com/fd7832a59106c96e2ddb0c43af4b376c56c0901c/68747470733a2f2f74686570726163746963616c6465762e73332e616d617a6f6e6177732e636f6d2f692f776763693536713974346e6e766f3671657372672e706e67</iconUrl>
+    <description>Provides a set of methods to make your life as a programmer easier when writing a Console application.</description>
+    <repository url="https://github.com/Peled-Zohar/ExtendedConsole" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Development\ExtendedConsole\ExtendedConsole\bin\Release\netstandard2.0\ExtendedConsole.dll" target="lib\netstandard2.0\ExtendedConsole.dll" />
+    <file src="C:\Development\ExtendedConsole\ExtendedConsole\bin\Release\netstandard2.0\ExtendedConsole.xml" target="lib\netstandard2.0\ExtendedConsole.xml" />
+  </files>
+</package>
