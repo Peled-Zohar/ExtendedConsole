@@ -12,9 +12,13 @@
     <Copyright />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>7.3</LangVersion>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageReleaseNotes>Changes from previous version:
+
+1. Added argument checks for all methods
+
+2. Improved documentation.</PackageReleaseNotes>
     <Version>1.0.2</Version>
-    <PackageIconUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/extendedconsole.ico</PackageIconUrl>
+    <PackageIconUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/docs/favicon.ico</PackageIconUrl>
     <ApplicationIcon>extendedconsole.ico</ApplicationIcon>
   </PropertyGroup>
 
