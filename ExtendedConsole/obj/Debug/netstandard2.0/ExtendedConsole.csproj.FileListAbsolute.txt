@@ -1,0 +1,10 @@
+C:\Development\ExtendedConsole\ExtendedConsole\bin\Debug\netstandard2.0\ExtendedConsole.deps.json
+C:\Development\ExtendedConsole\ExtendedConsole\bin\Debug\netstandard2.0\ExtendedConsole.dll
+C:\Development\ExtendedConsole\ExtendedConsole\bin\Debug\netstandard2.0\ExtendedConsole.pdb
+C:\Development\ExtendedConsole\ExtendedConsole\bin\Debug\netstandard2.0\ExtendedConsole.xml
+C:\Development\ExtendedConsole\ExtendedConsole\obj\Debug\netstandard2.0\ExtendedConsole.csproj.CoreCompileInputs.cache
+C:\Development\ExtendedConsole\ExtendedConsole\obj\Debug\netstandard2.0\ExtendedConsole.AssemblyInfoInputs.cache
+C:\Development\ExtendedConsole\ExtendedConsole\obj\Debug\netstandard2.0\ExtendedConsole.AssemblyInfo.cs
+C:\Development\ExtendedConsole\ExtendedConsole\obj\Debug\netstandard2.0\ExtendedConsole.dll
+C:\Development\ExtendedConsole\ExtendedConsole\obj\Debug\netstandard2.0\ExtendedConsole.pdb
+C:\Development\ExtendedConsole\ExtendedConsole\obj\Debug\netstandard2.0\ExtendedConsole.csprojAssemblyReference.cache
