@@ -3,3 +3,5 @@
 *.ide-shm
 *.cache
 *.ide-wal
+*..suo
+.vs/config/applicationhost.config
