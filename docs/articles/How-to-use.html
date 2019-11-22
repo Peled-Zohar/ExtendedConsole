@@ -70,38 +70,161 @@
                         <!-- *********************** Actual content starts here *********************** -->
                         <h1 style="text-align:center">How to use ExtendedConsole</h1>
                         <p>
+                            <ul>
+                                <li><a href="#Initialize">Initialize</a></li>
+                                <li><a href="#Write">Write colorful text to the console</a></li>
+                                <li><a href="#Menus">Create and run menus</a></li>
+                                <li><a href="#Read">read and parse user input</a></li>
+                                <li><a href="#ClearRows">Clear rows</a></li>
+                            </ul>
+                        </p>
+                        <p>
+                            <h4 style="text-align:center;" id="Initialize">Initialize</h4>
                             To use <strong>ExtendedConsole</strong> you must create an instance of the <strong>ExConsole</strong> class.<br />
                             It's recommended to create a single instance of the <strong>ExConsole</strong> class, as a static member of the <code>Program</code> class,
                             but it is not mandatory.<br />
                             Here's a typical initialization example:
                         </p>
                         <p>
-<pre><code>
-    class Program
-    {
-        private static ExConsole exConsole = new ExConsole();
+<pre><code>class Program
+{
+    private static ExConsole exConsole = new ExConsole();
 
-        static void Main(string[] args)
-        {
-            // implementation code
-        }
+    static void Main(string[] args)
+    {
+        // implementation code
     }
+}
 </code></pre>
+                            <div style="text-align:center;"><a href="#">Back to the top</a></div>
                         </p>
                         <p>
-                            Using <strong>ExtendedConsole</strong> to write colorful text to the console:<br />
+                            <h4 style="text-align:center;" id="Write">Using <strong>ExtendedConsole</strong> to write colorful text to the console</h4>
+                            All methods in the <strong>ExtendedConsole</strong> project that writes to the console supports the following xml-based markup<br />
+                            A <strong><code>c</code></strong> tag with <strong><code>f</code></strong> or <strong><code>b</code></strong> attributes (or a combination of both)
+                            with a value that is the name of a member of the <strong><code>ConsoleColor</code></strong> enum.<br />
+                            <strong>Code examples:</strong>
+<pre><code>// Write a markup line:
+exConsole.WriteLine("Hello &lt;c f='magenta'&gt;world!&lt;/c&gt;");
+
+// Write markup text (without ending the line):
+exConsole.Write("Supports &lt;c b='darkRed'&gt;unrelated&lt;/c&gt; &lt;xml att='val' at2='val2'&gt;xml tags&lt;/xml&gt;.");
+
+// Write multiple markup lines:
+exConsole.WriteLines(
+    "This method writes multiple lines to the Console",
+    "As any other method in the ExtendedConsole project, it also &lt;c f='black' b='Yellow'&gt;supports markup.&lt;c&gt;"
+);
+</code></pre>
+                            <div style="text-align:center;"><a href="#">Back to the top</a></div>
                         </p>
                         <p>
+                            <h4 style="text-align:center;" id="Menus">Using <strong>ExtendedConsole</strong> to create and run menus</h4>
+                            <strong>ExtendedConsole</strong> supports two types of menus: <br />
+                            One that allows you to specify the menu items, and ones that displays the members of an enum to the user as menu items.<br /><br />
+                            Create and run a menu specifying the menu items:
+<pre><code>// create and run a menu, specifying both the item name and the action to take:
+var result = exConsole.Menu(
+    "What to do next?",
+    true, // hide the menu once the user selected an option
+    ("&lt;c f='red'&gt;Do nothing&lt;/c&gt;", null),
+    ("Do this", DoThis),
+    ("Do that", () => DoThat()),
+    ("Go here", () => GoHere(withVariables))
+);
+
+// create and run a menu, specifying only the item names.
+var result = exConsole.Menu(
+    "What to do next?",
+    false, // leave the menu visible once the user selected an option
+    "&lt;c f='red'&gt;Do nothing&lt;/c&gt;",
+    "Do this",
+    "Do that",
+    "Go here"
+);
+// Do something with the result (which is the index of the menu item the user selected) later in code.
+</code></pre>
+                            Create, show and run a menu using enum members as your menu items:
+
+<pre><code>// Create and run a menu from an enum:
+var color = exConsole.ChooseFromEnum<ConsoleColor>
+(
+    "Please choose a color",
+    true
+);
+// Create and run a menu from an enum:
+var nullableColor = exConsole.ChooseFromEnum<ConsoleColor>
+(
+    "Please choose a color",
+    "none", // If the user choose this item (shown first in the menu), the result would be null.
+    true
+);
+</code></pre>
+                            <div style="text-align:center;"><a href="#">Back to the top</a></div>
                         </p>
                         <p>
+                            <h4 style="text-align:center;" id="Read">Using <strong>ExtendedConsole</strong> to read and parse user input</h4>
+                            Currently, <strong>ExtendedConsole</strong> supports reading and parsing int, bool and DateTime values from the user.<br />
+                            It also contains methods to help you read and parse your own data types.<br /><br />
+                            Reading int values:
+<pre><code>// Read an int:
+var result = exConsole.ReadInt("Please enter an integer value");
+
+// Read an int that meets a specific condition:
+var result = exConsole.ReadInt(
+    "Please enter an integer value between 0 and 5", 
+    i => i > 0 && i < 5
+);
+
+// Read an int that meets a specific condition, with a specific error message:
+var result = exConsole.ReadInt(
+    "Please enter a positive integer", 
+    "I've asked for a &lt;c f='yellow'&gt;positive&lt;c&gt; integer!", 
+    i => i > 0
+);
+</code></pre>
+                            Reading datetime values:
+<pre><code>// Read a DateTime:
+var nullableDateTime = exConsole.ReadDateTime(
+    "Please enter a datetime value.", 
+    "Can't parse datetime value under the current culture settings."
+);
+</code></pre>
+                            Reading byte values:<br />
+                            ReadByte is currently not implemented on ExtendedConsole.<br />
+                            This means that to read byte values you need to either use the <code>ReadStruct&lt;T&gt;</code> method or the <code>ReadUntilConverted&lt;T&gt;</code> method.<br />
+                            The difference between these two methods is that <code>ReadStruct&lt;T&gt;</code> returns <code>Nullable&lt;T&gt;</code> - if the user enters ^Z it will return null,<br />
+                            While the <code>ReadUntilConverted&lt;T&gt;</code> will return a non-nullable value of <code>T</code>.
+                            The <code>ReadStruct&lt;T&gt;</code> method also has a reference-type counterpart called <code>ReadClass&lt;T&gt;</code>.
+<pre><code>// read a byte:
+var myByte = exConsole.ReadUntilConverted(
+    "Please enter a number between 0 and 255.",
+    "Invalid input.",
+    str => (byte.TryParse(str, out var res) , res)
+);
+
+// read a nullable byte:
+var nullableByte = exConsole.ReadStruct(
+    "Please enter a number between 0 and 255.",
+    "Invalid input.",
+    str => (byte.TryParse(str, out var res) , res)
+);
+</code></pre>
+                            <div style="text-align:center;"><a href="#">Back to the top</a></div>
                         </p>
                         <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
-                        </p>
-                        <p>
+                            <h4 style="text-align:center;" id="ClearRows">Using <strong>ExtendedConsole</strong> to clear rows</h4>
+
+<pre><code>// Clear the last row:
+exConsole.ClearLastLine();
+
+// Clear a specific line:
+exConsole.ClearLine(lineIndex); // lineIndex being an int >= 0. A Negative value will throw an ArgumentOutOfRangeExcepton.
+
+// clear a spefied number of lines (from the last line displayed)
+exConsole.ClearLastLines(numberOfLines); // numberOfLines being an int > 0. A value less than 1 will throw an ArgumentOutOfRangeExcepton.
+</code></pre>
+                            <div style="text-align:center;"><a href="#">Back to the top</a></div>
                         </p>
                         <!-- *********************** Actual content ends here   *********************** -->
                     </article>
