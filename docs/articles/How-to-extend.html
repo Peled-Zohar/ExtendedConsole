@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>An introduction to ExtendedConsole</title>
+    <title>How to use ExtendedConsole</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Add your introductions here! ">
     <meta name="generator" content="docfx 2.47.0.0">
@@ -68,36 +68,80 @@
                 <div class="col-md-10">
                     <article class="content wrap" id="_content" data-uid="">
                         <!-- *********************** Actual content starts here *********************** -->
-                        <h1 style="text-align:center">An introduction to ExtendedConsole</h1>
+                        <h1 style="text-align:center">How to extend ExtendedConsole</h1>
                         <p>
-                            The <strong>ExtendedConsole</strong> project was created after writing many .Net console applications, and finding myself spending way too much time and effort on doing what should be, in my humble opinion, simple and trivial tasks.
+                            The <strong>ExtendedConsole</strong> project probably does not contain all the methods you will need.<br />
+                            This is the main reason why <strong><code>exConsole</code></strong> class is not a static class - to enable anyone that use it to add extension methods to it.<br />
+                            This is also one of the two reasons why the <strong><code>exConsole</code></strong> contains only the <code>Write</code> methods, and everything else is on other classes.<br />
                         </p>
                         <p>
-                            Things like highlighting parts of the output text, validating and parsing user inputs, and creating simple menus - all of these tasks seems to have been, for the lack of a better term, neglected when it comes to console applications.
+                            Let's take for example adding a couple of methods: <br />
+                            One to read a <code>byte</code> from the user,<br />
+                            and one to read a <code>Nullable&lt;byte&gt;</code>, that allows the user to escape it by entering ^Z.
                         </p>
                         <p>
-                            The <strong>ExtendedConsole</strong> project is here to provide easy-to-use solutions to these tasks.
+                            The <strong><code>ExConsoleRead</code></strong> class contains a couple of methods that already do most of the work:<br />
+                            <ul>
+                                <li><strong><code>ReadStruct&lt;T&gt;</code></strong> (and it's counterpart <strong><code>ReadClass&lt;T&gt;</code></strong>, for reference types)</li>
+                                <li><strong><code>ReadUntilConverted&lt;T&gt;</code></strong></li>
+                            </ul>
+
+                            All of these methods takes in the same arguments list:<br />
+                            <ul>
+                                <li>
+                                    <code>this ExConsole self</code>
+                                    which is the current instance of ExConsole.
+                                </li>
+                                <li>
+                                    <code>string title</code>
+                                    which is the title to show the user before asking for input.
+                                </li>
+                                <li>
+                                    <code>string errorMessage</code>
+                                    which is the error message to show the user if the conversion failed.
+                                </li>
+                                <li>
+                                    <code>Func&lt;string, (bool Success, T Value)&gt; converter</code>
+                                    which is a function that takes in a string and returns a value tuple of bool success and T value.
+                                </li>
+                            </ul>
+
+                            All of these arguments are mandatory,
+                            and all of these methods will throw either an <code>ArgumentNullException</code>
+                            or an <code>ArgumentException</code> (in case one of the strings is empty).<br />
+
+                            So, our new <code>ReadByte</code> method will use the <strong><code>ReadUntilConverted&lt;T&gt;</code></strong> method:
+<pre><code>public static byte ReadByte(this ExConsole self, string title, string errorMessage)
+{
+    return ExConsoleRead.ReadUntilConverted(
+        self,
+        title,
+        errorMessage,
+        str => (byte.TryParse(str, out var res), res)
+    );
+}
+</code></pre><br />
+                            And that's it! We now have a method that validates it's arguments,
+                            displays the title to the user, waits for the user to enter a line,
+                            tries to parse it, display an error message and repeat if parse failed,
+                            and return the type we wanted - all in a single line of code.
                         </p>
                         <p>
-                            First and foremost, it supports a super-simple xml markup 
-                            for setting the foreground and background color of the text being written to the Console. <br />
-                            No more breaking up your strings to multiple <code>Console.Write</code> commands 
-                            just to color a specific part of your code - using <strong>ExtendedConsole</strong> it's as simple as <br />
-                            <code>exConsole.WriteLine("&lt;c b='darkRed' f='white'&gt;This text is white on a dark red background&lt;/c&gt;");</code><br /></br>
-
-                            One more feature is the <code>Menu</code> methods.<br />
-                            <strong>ExtendedConsole</strong> makes creating, displaying and executing menus easy - Just call a single method.<br/><br/>
-
-                            Also, ever had to get an int value from the user?<br />
-                            Your code can get quite cumbersome if any input from the user must be handled in it's own loop - <strong>ExtendedConsole</strong> provides methods for that too: <br />
-                            A few methods such as <code>ReadInt</code>, <code>ReadBool</code> and <code>ReadDateTime</code>,
-                            as well as methods that you can hook up your own types for parsing user input directly -
-                            <code>ReadClass&lt;T&gt;</code>, <code>ReadStruct&lt;T&gt;</code> and <code>ReadUntilConverted&lt;T&gt;</code> -
-                            for those times when you just can't let the user continue without entering a value (this method will not allow the users to escape the read loop even using `^Z`).
-
-                            And the best thing about this project - it's super easy to extend. <br />
-                            All you need to do is write extension methods, most of them can use the already existing extension methods
-                            (that's what the <code>ReadClass&lt;T&gt;</code>, <code>ReadStruct&lt;T&gt;</code> and <code>ReadUntilConverted&lt;T&gt;</code> are there for).
+                            The <code>ReadNullableByte</code> implementation is just as simple,
+                            only instead of using the <strong><code>ReadUntilConverted&lt;T&gt;</code></strong> method,
+                            it uses the <strong><code>ReadStruct&lt;T&gt;</code></strong> method:
+<pre><code>public static byte? ReadNullableByte(this ExConsole self, string title, string errorMessage)
+{
+    return ExConsoleRead.ReadStruct(
+        self,
+        title,
+        errorMessage,
+        str => (byte.TryParse(str, out var res), res)
+    );
+}
+</code></pre><br />
+                            And as you probably already guessed it, doing that with a reference type is just as simple,
+                            only use the <strong><code>ReadClass&lt;T&gt;</code></strong> method instead.
                         </p>
                         <!-- *********************** Actual content ends here   *********************** -->
                     </article>
