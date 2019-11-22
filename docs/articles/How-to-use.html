@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>An introduction to ExtendedConsole</title>
+    <title>How to use ExtendedConsole</title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Add your introductions here! ">
     <meta name="generator" content="docfx 2.47.0.0">
@@ -68,36 +68,40 @@
                 <div class="col-md-10">
                     <article class="content wrap" id="_content" data-uid="">
                         <!-- *********************** Actual content starts here *********************** -->
-                        <h1 style="text-align:center">An introduction to ExtendedConsole</h1>
+                        <h1 style="text-align:center">How to use ExtendedConsole</h1>
                         <p>
-                            The <strong>ExtendedConsole</strong> project was created after writing many .Net console applications, and finding myself spending way too much time and effort on doing what should be, in my humble opinion, simple and trivial tasks.
+                            To use <strong>ExtendedConsole</strong> you must create an instance of the <strong>ExConsole</strong> class.<br />
+                            It's recommended to create a single instance of the <strong>ExConsole</strong> class, as a static member of the <code>Program</code> class,
+                            but it is not mandatory.<br />
+                            Here's a typical initialization example:
                         </p>
                         <p>
-                            Things like highlighting parts of the output text, validating and parsing user inputs, and creating simple menus - all of these tasks seems to have been, for the lack of a better term, neglected when it comes to console applications.
+<pre><code>
+    class Program
+    {
+        private static ExConsole exConsole = new ExConsole();
+
+        static void Main(string[] args)
+        {
+            // implementation code
+        }
+    }
+</code></pre>
                         </p>
                         <p>
-                            The <strong>ExtendedConsole</strong> project is here to provide easy-to-use solutions to these tasks.
+                            Using <strong>ExtendedConsole</strong> to write colorful text to the console:<br />
                         </p>
                         <p>
-                            First and foremost, it supports a super-simple xml markup 
-                            for determining the foreground and background color of the text being written to the Console. <br />
-                            No more breaking up your strings to multiple <code>Console.Write</code> commands 
-                            just to color a specific part of your code - using <strong>ExtendedConsole</strong> it's as simple as <br />
-                            <code>exConsole.WriteLine("&lt;c b='darkRed' f='white'&gt;This text is white on a dark red background&lt;/c&gt;");</code><br /></br>
-
-                            One more feature is the <code>Menu</code> methods.<br />
-                            <strong>ExtendedConsole</strong> makes creating, displaying and executing menus easy - Just call a single method.<br/><br/>
-
-                            Also, ever had to get an int value from the user?<br />
-                            Your code can get quite cumbersome if any input from the user must be handled in it's own loop - <strong>ExtendedConsole</strong> provides methods for that too: <br />
-                            A few methods such as <code>ReadInt</code>, <code>ReadBool</code> and <code>ReadDateTime</code>,
-                            as well as methods that you can hook up your own types for parsing user input directly -
-                            <code>ReadClass&lt;T&gt;</code>, <code>ReadStruct&lt;T&gt;</code> and <code>ReadUntilConverted&lt;T&gt;</code> -
-                            for those times when you just can't let the user continue without entering a value (this method will not allow the users to escape the read loop even using `^Z`).
-
-                            And the best thing about this project - it's super easy to extend. <br />
-                            All you need to do is write extension methods, most of them can use the already existing extension methods
-                            (that's what the <code>ReadClass&lt;T&gt;</code>, <code>ReadStruct&lt;T&gt;</code> and <code>ReadUntilConverted&lt;T&gt;</code> are there for).
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
+                        </p>
+                        <p>
                         </p>
                         <!-- *********************** Actual content ends here   *********************** -->
                     </article>
