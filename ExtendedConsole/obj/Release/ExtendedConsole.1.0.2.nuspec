@@ -7,7 +7,7 @@
     <owners>Zohar Peled</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/Peled-Zohar/ExtendedConsole</projectUrl>
+    <projectUrl>https://peled-zohar.github.io/ExtendedConsole/</projectUrl>
     <iconUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/docs/favicon.ico</iconUrl>
     <description>Provides a set of methods to make your life as a programmer easier when writing a Console application.</description>
     <releaseNotes>Changes from previous version:
