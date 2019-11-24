@@ -131,7 +131,7 @@ namespace ExtendedConsole
         // <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
         // <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
         // <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are null or empty.</exception>
-        // The documentation above is not a an xml documentaion because the method is private.
+        // The documentation above is not a three slashes documentaion because the method is private.
         private static (bool Success, T Value) Read<T>(this ExConsole self, string title, string errorMessage, Func<string, (bool Success, T Value)> converter)
         {
             if (self is null) throw new ArgumentNullException(nameof(self));

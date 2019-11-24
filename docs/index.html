@@ -77,13 +77,13 @@
                         <strong>Markup support:</strong><br />
                         ExtendedConsole provides a super simple, xml based markup support for writing text to the Console.<br />
                         No more breaking up your strings to multiple Console.Write commands just to color parts of your text - With ExtendedConsole it's as easy as <br />
-                        <pre><code>exConsole.Write("&lt;c b='darkRed' f='white'&gt;White text on a dark red background&lt;/c&gt;");</code></pre>
+                        <pre><code class="lang-csharp">exConsole.Write("&lt;c b='darkRed' f='white'&gt;White text on a dark red background&lt;/c&gt;");</code></pre>
                     </li>
                     <li>
                         <strong>Menus:</strong><br />
                         ExtendedConsole provides methods to generate console menus.<br />
                         Creating a menu with ExtendedConsole is as simple as this:<br />
-<pre><code>var selected = exConsole.Menu(
+<pre><code class="lang-csharp">var selected = exConsole.Menu(
 	"What to do next?",
 	true,
 	("<c f='red'>Quit</c>", null),
@@ -98,7 +98,7 @@
                         ExtendedConsole provides methods to help you read and parse user input.<br />
                         It supports int, boolean, DateTime, and custom classes and structs.<br />
                         For instance, to get a number between 0 and 5 from your users, use this:<br />
-<pre><code>var result = exConsole.ReadInt(
+<pre><code class="lang-csharp">var result = exConsole.ReadInt(
 	"Please enter an int between <c f='green'>0</c> and <c f='yellow'>5</c>, inclusive.", 
 	i => i >= 0 && i <= 5
 );
@@ -108,7 +108,7 @@
                         <strong>Clear lines:</strong><br />
                         ExtendedConsole provides methods to clear a specific line or lines.<br />
                         For instance, to clear the last three lines of the console, use this:<br />
-                        <pre><code>exConsole.ClearLastLines(3);</code></pre>
+                        <pre><code class="lang-csharp">exConsole.ClearLastLines(3);</code></pre>
                     </li>
                 </ul>
             </p>

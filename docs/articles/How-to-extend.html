@@ -71,47 +71,47 @@
                         <h1 style="text-align:center">How to extend ExtendedConsole</h1>
                         <p>
                             The <strong>ExtendedConsole</strong> project probably does not contain all the methods you will need.<br />
-                            This is the main reason why <strong><code>exConsole</code></strong> class is not a static class - to enable anyone that use it to add extension methods to it.<br />
-                            This is also one of the two reasons why the <strong><code>exConsole</code></strong> contains only the <code>Write</code> methods, and everything else is on other classes.<br />
+                            This is the main reason why <strong><code class="lang-csharp">exConsole</code></strong> class is not a static class - to enable anyone that use it to add extension methods to it.<br />
+                            This is also one of the two reasons why the <strong><code class="lang-csharp">exConsole</code></strong> contains only the <code class="lang-csharp">Write</code> methods, and everything else is on other classes.<br />
                         </p>
                         <p>
                             Let's take for example adding a couple of methods: <br />
-                            One to read a <code>byte</code> from the user,<br />
-                            and one to read a <code>Nullable&lt;byte&gt;</code>, that allows the user to escape it by entering ^Z.
+                            One to read a <code class="lang-csharp">byte</code> from the user,<br />
+                            and one to read a <code class="lang-csharp">Nullable&lt;byte&gt;</code>, that allows the user to escape it by entering ^Z.
                         </p>
                         <p>
-                            The <strong><code>ExConsoleRead</code></strong> class contains a couple of methods that already do most of the work:<br />
+                            The <strong><code class="lang-csharp">ExConsoleRead</code></strong> class contains a couple of methods that already do most of the work:<br />
                             <ul>
-                                <li><strong><code>ReadStruct&lt;T&gt;</code></strong> (and it's counterpart <strong><code>ReadClass&lt;T&gt;</code></strong>, for reference types)</li>
-                                <li><strong><code>ReadUntilConverted&lt;T&gt;</code></strong></li>
+                                <li><strong><code class="lang-csharp">ReadStruct&lt;T&gt;</code></strong> (and it's counterpart <strong><code class="lang-csharp">ReadClass&lt;T&gt;</code></strong>, for reference types)</li>
+                                <li><strong><code class="lang-csharp">ReadUntilConverted&lt;T&gt;</code></strong></li>
                             </ul>
 
                             All of these methods takes in the same arguments list:<br />
                             <ul>
                                 <li>
-                                    <code>this ExConsole self</code>
+                                    <code class="lang-csharp">this ExConsole self</code>
                                     which is the current instance of ExConsole.
                                 </li>
                                 <li>
-                                    <code>string title</code>
+                                    <code class="lang-csharp">string title</code>
                                     which is the title to show the user before asking for input.
                                 </li>
                                 <li>
-                                    <code>string errorMessage</code>
+                                    <code class="lang-csharp">string errorMessage</code>
                                     which is the error message to show the user if the conversion failed.
                                 </li>
                                 <li>
-                                    <code>Func&lt;string, (bool Success, T Value)&gt; converter</code>
+                                    <code class="lang-csharp">Func&lt;string, (bool Success, T Value)&gt; converter</code>
                                     which is a function that takes in a string and returns a value tuple of bool success and T value.
                                 </li>
                             </ul>
 
                             All of these arguments are mandatory,
-                            and all of these methods will throw either an <code>ArgumentNullException</code>
-                            or an <code>ArgumentException</code> (in case one of the strings is empty).<br />
+                            and all of these methods will throw either an <code class="lang-csharp">ArgumentNullException</code>
+                            or an <code class="lang-csharp">ArgumentException</code> (in case one of the strings is empty).<br />
 
-                            So, our new <code>ReadByte</code> method will use the <strong><code>ReadUntilConverted&lt;T&gt;</code></strong> method:
-<pre><code>public static byte ReadByte(this ExConsole self, string title, string errorMessage)
+                            So, our new <code class="lang-csharp">ReadByte</code> method will use the <strong><code class="lang-csharp">ReadUntilConverted&lt;T&gt;</code></strong> method:
+<pre><code class="lang-csharp">public static byte ReadByte(this ExConsole self, string title, string errorMessage)
 {
     return ExConsoleRead.ReadUntilConverted(
         self,
@@ -127,10 +127,10 @@
                             and return the type we wanted - all in a single line of code.
                         </p>
                         <p>
-                            The <code>ReadNullableByte</code> implementation is just as simple,
-                            only instead of using the <strong><code>ReadUntilConverted&lt;T&gt;</code></strong> method,
-                            it uses the <strong><code>ReadStruct&lt;T&gt;</code></strong> method:
-<pre><code>public static byte? ReadNullableByte(this ExConsole self, string title, string errorMessage)
+                            The <code class="lang-csharp">ReadNullableByte</code> implementation is just as simple,
+                            only instead of using the <strong><code class="lang-csharp">ReadUntilConverted&lt;T&gt;</code></strong> method,
+                            it uses the <strong><code class="lang-csharp">ReadStruct&lt;T&gt;</code></strong> method:
+<pre><code class="lang-csharp">public static byte? ReadNullableByte(this ExConsole self, string title, string errorMessage)
 {
     return ExConsoleRead.ReadStruct(
         self,
@@ -141,7 +141,7 @@
 }
 </code></pre><br />
                             And as you probably already guessed it, doing that with a reference type is just as simple,
-                            only use the <strong><code>ReadClass&lt;T&gt;</code></strong> method instead.
+                            only use the <strong><code class="lang-csharp">ReadClass&lt;T&gt;</code></strong> method instead.
                         </p>
                         <!-- *********************** Actual content ends here   *********************** -->
                     </article>

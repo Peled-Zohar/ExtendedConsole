@@ -81,12 +81,12 @@
                         <p>
                             <h4 style="text-align:center;" id="Initialize">Initialize</h4>
                             To use <strong>ExtendedConsole</strong> you must create an instance of the <strong>ExConsole</strong> class.<br />
-                            It's recommended to create a single instance of the <strong>ExConsole</strong> class, as a static member of the <code>Program</code> class,
+                            It's recommended to create a single instance of the <strong>ExConsole</strong> class, as a static member of the <code class="lang-csharp">Program</code> class,
                             but it is not mandatory.<br />
                             Here's a typical initialization example:
                         </p>
                         <p>
-<pre><code>class Program
+<pre><code class="lang-csharp">class Program
 {
     private static ExConsole exConsole = new ExConsole();
 
@@ -101,10 +101,10 @@
                         <p>
                             <h4 style="text-align:center;" id="Write">Using <strong>ExtendedConsole</strong> to write colorful text to the console</h4>
                             All methods in the <strong>ExtendedConsole</strong> project that writes to the console supports the following xml-based markup<br />
-                            A <strong><code>c</code></strong> tag with <strong><code>f</code></strong> or <strong><code>b</code></strong> attributes (or a combination of both)
-                            with a value that is the name of a member of the <strong><code>ConsoleColor</code></strong> enum.<br />
+                            A <strong><code class="lang-csharp">c</code></strong> tag with <strong><code class="lang-csharp">f</code></strong> or <strong><code class="lang-csharp">b</code></strong> attributes (or a combination of both)
+                            with a value that is the name of a member of the <strong><code class="lang-csharp">ConsoleColor</code></strong> enum.<br />
                             <strong>Code examples:</strong>
-<pre><code>// Write a markup line:
+<pre><code class="lang-csharp">// Write a markup line:
 exConsole.WriteLine("Hello &lt;c f='magenta'&gt;world!&lt;/c&gt;");
 
 // Write markup text (without ending the line):
@@ -123,7 +123,7 @@ exConsole.WriteLines(
                             <strong>ExtendedConsole</strong> supports two types of menus: <br />
                             One that allows you to specify the menu items, and ones that displays the members of an enum to the user as menu items.<br /><br />
                             Create and run a menu specifying the menu items:
-<pre><code>// create and run a menu, specifying both the item name and the action to take:
+<pre><code class="lang-csharp">// create and run a menu, specifying both the item name and the action to take:
 var result = exConsole.Menu(
     "What to do next?",
     true, // hide the menu once the user selected an option
@@ -146,7 +146,7 @@ var result = exConsole.Menu(
 </code></pre>
                             Create, show and run a menu using enum members as your menu items:
 
-<pre><code>// Create and run a menu from an enum:
+<pre><code class="lang-csharp">// Create and run a menu from an enum:
 var color = exConsole.ChooseFromEnum<ConsoleColor>
 (
     "Please choose a color",
@@ -167,7 +167,7 @@ var nullableColor = exConsole.ChooseFromEnum<ConsoleColor>
                             Currently, <strong>ExtendedConsole</strong> supports reading and parsing int, bool and DateTime values from the user.<br />
                             It also contains methods to help you read and parse your own data types.<br /><br />
                             Reading int values:
-<pre><code>// Read an int:
+<pre><code class="lang-csharp">// Read an int:
 var result = exConsole.ReadInt("Please enter an integer value");
 
 // Read an int that meets a specific condition:
@@ -184,7 +184,7 @@ var result = exConsole.ReadInt(
 );
 </code></pre>
                             Reading datetime values:
-<pre><code>// Read a DateTime:
+<pre><code class="lang-csharp">// Read a DateTime:
 var nullableDateTime = exConsole.ReadDateTime(
     "Please enter a datetime value.", 
     "Can't parse datetime value under the current culture settings."
@@ -192,11 +192,11 @@ var nullableDateTime = exConsole.ReadDateTime(
 </code></pre>
                             Reading byte values:<br />
                             ReadByte is currently not implemented on ExtendedConsole.<br />
-                            This means that to read byte values you need to either use the <code>ReadStruct&lt;T&gt;</code> method or the <code>ReadUntilConverted&lt;T&gt;</code> method.<br />
-                            The difference between these two methods is that <code>ReadStruct&lt;T&gt;</code> returns <code>Nullable&lt;T&gt;</code> - if the user enters ^Z it will return null,<br />
-                            While the <code>ReadUntilConverted&lt;T&gt;</code> will return a non-nullable value of <code>T</code>.
-                            The <code>ReadStruct&lt;T&gt;</code> method also has a reference-type counterpart called <code>ReadClass&lt;T&gt;</code>.
-<pre><code>// read a byte:
+                            This means that to read byte values you need to either use the <code class="lang-csharp">ReadStruct&lt;T&gt;</code> method or the <code class="lang-csharp">ReadUntilConverted&lt;T&gt;</code> method.<br />
+                            The difference between these two methods is that <code class="lang-csharp">ReadStruct&lt;T&gt;</code> returns <code class="lang-csharp">Nullable&lt;T&gt;</code> - if the user enters ^Z it will return null,<br />
+                            While the <code class="lang-csharp">ReadUntilConverted&lt;T&gt;</code> will return a non-nullable value of <code class="lang-csharp">T</code>.
+                            The <code class="lang-csharp">ReadStruct&lt;T&gt;</code> method also has a reference-type counterpart called <code class="lang-csharp">ReadClass&lt;T&gt;</code>.
+<pre><code class="lang-csharp">// read a byte:
 var myByte = exConsole.ReadUntilConverted(
     "Please enter a number between 0 and 255.",
     "Invalid input.",
@@ -215,7 +215,7 @@ var nullableByte = exConsole.ReadStruct(
                         <p>
                             <h4 style="text-align:center;" id="ClearRows">Using <strong>ExtendedConsole</strong> to clear rows</h4>
 
-<pre><code>// Clear the last row:
+<pre><code class="lang-csharp">// Clear the last row:
 exConsole.ClearLastLine();
 
 // Clear a specific line:

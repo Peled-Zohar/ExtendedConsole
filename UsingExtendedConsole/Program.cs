@@ -13,7 +13,7 @@ namespace UsingExtendedConsole
 
             Console.Title = "Using Extended Console";
             //ShowLogo(exConsole);
-            
+
             var menus = new Func<int>[] { StringsMenu, ActionsMenu };
             var index = 0;
             while (true)

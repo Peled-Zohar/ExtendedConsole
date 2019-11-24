@@ -23,6 +23,11 @@
             </summary>
             <param name="markup">Markup text to write.</param>
             <exception cref="T:System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+            <example>
+            <code class="lang-csharp">
+            exConsole.Write("&lt;c f='cyan' b='darkgray'&gt;Hello World!&lt;c&gt;");
+            </code>
+            </example>
         </member>
         <member name="M:ExtendedConsole.ExConsole.WriteLine(System.String)">
             <summary>
@@ -31,6 +36,11 @@
             </summary>
             <param name="markup">Markup text to write.</param>
             <exception cref="T:System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+            <example>
+            <code>
+            exConsole.WriteLine("&lt;c b='white' f='black'&gt;Hello World!&lt;c&gt;");
+            </code>
+            </example>
         </member>
         <member name="M:ExtendedConsole.ExConsole.WriteLines(System.String[])">
             <summary>
@@ -39,6 +49,15 @@
             </summary>
             <param name="lines">Lines of markup text to write.</param>
             <exception cref="T:System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+            <example>
+            <code>
+            exConsole.WriteLines(
+                "&lt;c f='Yellow'&gt;Hello World!&lt;c&gt;",
+                "This is &lt;c f='green'&gt;exConsole&lt;c&gt; writing multiple markup lines",
+                "To the Console."
+            );
+            </code>
+            </example>
         </member>
         <member name="M:ExtendedConsole.ExConsole.WriteLine(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">
             <summary>
@@ -49,6 +68,11 @@
             <param name="foregroundColor">Foreground color.</param>
             <param name="backgroundColor">Background color.</param>
             <exception cref="T:System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+            <example>
+            <code>
+            exConsole.WriteLine("Hello world! &lt;c b='white' f='black'&gt;How are you?&lt;c&gt;", ConsoleColor.Magenta, null);
+            </code>
+            </example>
         </member>
         <member name="M:ExtendedConsole.ExConsole.Write(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">
             <summary>
@@ -58,6 +82,11 @@
             <param name="foregroundColor">Foreground color.</param>
             <param name="backgroundColor">Background color.</param>
             <exception cref="T:System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+            <example>
+            <code>
+            exConsole.Write("Hello world! &lt;c b='white' f='black'&gt;How are you?&lt;c&gt;", ConsoleColor.Black, ConsoleColor.Magenta);
+            </code>
+            </example>
         </member>
         <member name="T:ExtendedConsole.ExConsoleClearLines">
             <summary>
@@ -107,6 +136,24 @@
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> is empty or when <paramref name="items"/> are not supplied.</exception>
             <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         </member>
+        <member name="M:ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Boolean,System.ValueTuple{System.String,System.Action}[])">
+            <summary>
+            Displays a menu to the user and invokes the action the user chooses.
+            </summary>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="title">The title of the menu.</param>
+            <param name="pleaseSelectText">The text to show below the menu.</param>
+            <param name="invalidSelectionText">The text to show when the user enters an invalid value.</param>
+            <param name="clearWhenSelected">A boolean value to determine 
+            whether the menu should still be displayed after the user have chosen an option.</param>
+            <param name="items">The items of the menu. 
+            Each item contains a title and an action to perform, should the user choses this item.
+            null can be passed in as the action if the item selection should perform no action.</param>
+            <returns>An integer representing the user's choice.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are not properly formatted xml.</exception>
+        </member>
         <member name="M:ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.Boolean,System.String[])">
             <summary>
             Displays a menu to the user and returns the index of the item the user chooses.
@@ -120,6 +167,22 @@
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> is empty or when <paramref name="items"/> are not supplied.</exception>
             <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Boolean,System.String[])">
+            <summary>
+            Displays a menu to the user and returns the index of the item the user chooses.
+            </summary>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="title">The title of the menu.</param>
+            <param name="pleaseSelectText">The text to show below the menu.</param>
+            <param name="invalidSelectionText">The text to show when the user enters an invalid value.</param>
+            <param name="clearWhenSelected">A boolean value to determine 
+            whether the menu should still be displayed after the user have chosen an option.</param>
+            <param name="items">The items of the menu.</param>
+            <returns>An integer representing the user's choice.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are not properly formatted xml.</exception>
         </member>
         <member name="M:ExtendedConsole.ExConsoleMenu.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.Boolean)">
             <summary>
@@ -135,6 +198,22 @@
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
             <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         </member>
+        <member name="M:ExtendedConsole.ExConsoleMenu.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Displays enum members as a menu for the user to choose from.
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="title">The title of the menu.</param>
+            <param name="pleaseSelectText">The text to show below the menu.</param>
+            <param name="invalidSelectionText">The text to show when the user enters an invalid value.</param>
+            <param name="clearWhenSelected">A boolean value to determine 
+            whether the menu should still be displayed after the user have chosen an option.</param>
+            <returns>The member of the enum the user selected.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are not properly formatted xml.</exception>
+        </member>
         <member name="M:ExtendedConsole.ExConsoleMenu.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.Boolean)">
             <summary>
             Displays enum members as a menu for the user to choose from.
@@ -149,6 +228,23 @@
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
             <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleMenu.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Displays enum members as a menu for the user to choose from.
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="title">The title of the menu.</param>
+            <param name="pleaseSelectText">The text to show below the menu.</param>
+            <param name="invalidSelectionText">The text to show when the user enters an invalid value.</param>
+            <param name="quitText">The title of a menu item that isn't a member of the enum, to enable the user to return without choosing.</param>
+            <param name="clearWhenSelected">A boolean value to determine 
+            whether the menu should still be displayed after the user have chosen an option.</param>
+            <returns>The member of the enum the user selected.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are not properly formatted xml.</exception>
         </member>
         <member name="T:ExtendedConsole.ExConsoleRead">
             <summary>

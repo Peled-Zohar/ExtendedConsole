@@ -15,6 +15,11 @@ namespace ExtendedConsole
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="lineIndex">Line index to clear.</param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="lineIndex"/> is less than zero.</exception>
+        /// <example>
+        /// <code>
+        /// exConsole.ClearLine(1);
+        /// </code>
+        /// </example>
         public static void ClearLine(this ExConsole self, int lineIndex)
         {
             if (lineIndex < 0) throw new ArgumentOutOfRangeException($"{nameof(lineIndex)} can't be a negative value.");
@@ -28,6 +33,11 @@ namespace ExtendedConsole
         /// Clears all text from the last line.
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
+        /// <example>
+        /// <code>
+        /// exConsole.ClearLastLine();
+        /// </code>
+        /// </example>
         public static void ClearLastLine(this ExConsole self)
         {
             if (Console.CursorTop > 0)
@@ -42,6 +52,11 @@ namespace ExtendedConsole
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="numberOfLines">The number of lines to clear (count up from last line)</param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="numberOfLines"/> is less than one.</exception>
+        /// <example>
+        /// <code>
+        /// exConsole.ClearLastLines(3);
+        /// </code>
+        /// </example>
         public static void ClearLastLines(this ExConsole self, int numberOfLines)
         {
             if (numberOfLines < 1) throw new ArgumentOutOfRangeException($"{nameof(numberOfLines)} must be a positive value.");
