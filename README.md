@@ -12,4 +12,4 @@ copies of this project free of charge, on an "AS IS" basis. For more information
 
 `ExtendedConsole` is available on Nuget - https://www.nuget.org/packages/ExtendedConsole.
 
-[Official documentation](https://peled-zohar.github.io/ExtendedConsole/)
+[Official documentation](https://peled-zohar.github.io/ExtendedConsole/) includes full documentation with code examples and articles.
