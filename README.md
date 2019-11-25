@@ -14,6 +14,11 @@ copies of this project free of charge, on an "AS IS" basis. For more information
 
 More information is available on the project's Wiki pages.
 
+Release notes for 1.0.2 version:
+
+1. Added argument checks for all methods
+2. Improved documentation.
+
 Release notes for 1.0.1 version:
 
 1. Changed `ArgumentException` thrown from the `ClearLine` and `ClearLastLines` methods to `ArgumentOutOfRangeException`.
