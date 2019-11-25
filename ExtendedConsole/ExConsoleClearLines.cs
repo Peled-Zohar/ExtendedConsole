@@ -16,6 +16,7 @@ namespace ExtendedConsole
         /// <param name="lineIndex">Line index to clear.</param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="lineIndex"/> is less than zero.</exception>
         /// <example>
+        /// Clear the second line from the top.
         /// <code>
         /// exConsole.ClearLine(1);
         /// </code>
@@ -34,6 +35,7 @@ namespace ExtendedConsole
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
         /// <example>
+        /// Clear the last line.
         /// <code>
         /// exConsole.ClearLastLine();
         /// </code>
@@ -53,6 +55,7 @@ namespace ExtendedConsole
         /// <param name="numberOfLines">The number of lines to clear (count up from last line)</param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="numberOfLines"/> is less than one.</exception>
         /// <example>
+        /// Clear the last three lines.
         /// <code>
         /// exConsole.ClearLastLines(3);
         /// </code>

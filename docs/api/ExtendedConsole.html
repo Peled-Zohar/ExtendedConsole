@@ -78,9 +78,15 @@
     <h3 id="classes">Classes
   </h3>
       <h4><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></h4>
-      <section><p>Provides support for using an xml based markup text in console applications.
-Markup contains text and control tags to set the text and background color.
-Color names are limited to members of the ConsoleColor enum, but are case insensitive.</p>
+      <section><p>Provides support for using an xml based markup text in console applications.</p>
+<p>
+Markup contains text and control tags to set the foreground and background color of the text. 
+Color names are limited to members of the ConsoleColor enum, but are case insensitive.
+</p>
+<p>
+Markup example: 
+<pre><code>&lt;c f=&apos;Yellow&apos;>yellow text&lt;c b=&apos;blue&apos;> on blue background.&lt;/c>&lt;/c></code></pre>
+</p>
 </section>
       <h4><a class="xref" href="ExtendedConsole.ExConsoleClearLines.html">ExConsoleClearLines</a></h4>
       <section><p>Provides extension methods for ExConsole for clearing specific console lines.</p>

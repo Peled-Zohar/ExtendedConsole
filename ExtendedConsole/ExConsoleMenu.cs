@@ -24,14 +24,15 @@ namespace ExtendedConsole
         /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty or when <paramref name="items"/> are not supplied.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         ///<example>
+        /// Create and run a menu with the specified title and items, that will disapear after the user selected an item.
         ///<code>
-        ///var selection = exConsole.Menu(
-        ///    "What to do next?",
-        ///    false,
-        ///    ("&lt;&lt;c f='Yellow'&gt;quit&lt;c&gt;", null),
-        ///    ("Do this", () => DoThis(3)),
-        ///    ("Do that", DoThat)
-        ///);
+        /// var selection = exConsole.Menu(
+        ///     "What to do next?",
+        ///     true,
+        ///     ("&lt;c f='Yellow'&gt;quit&lt;c&gt;", null),
+        ///     ("Do this", () => DoThis(3)),
+        ///     ("Do that", DoThat)
+        /// );
         ///</code>
         ///</example>
         public static int Menu(this ExConsole self, string title, bool clearWhenSelected, params (string Title, Action Action)[] items)
@@ -58,13 +59,17 @@ namespace ExtendedConsole
         /// <exception cref="ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are not properly formatted xml.</exception>
         ///<example>
+        /// Create and run a menu with the specified items, "What to do next?" as a title,  
+        /// "Please select an item from the menu." displayed below the items,
+        /// and "Invalid value entered.", if the user enters an invalid value.
+        /// This menu will still be visible after the user selects an item.
         ///<code>
         ///var selection = exConsole.Menu(
         ///    "What to do next?",
         ///    "Please select an item from the menu.",
         ///    "Invalid value entered.",
         ///    false,
-        ///    ("&lt;&lt;c f='Yellow'&gt;quit&lt;c&gt;", null),
+        ///    ("&lt;c f='Yellow'&gt;quit&lt;c&gt;", null),
         ///    ("Do this", () => DoThis(3)),
         ///    ("Do that", DoThat)
         ///);
@@ -90,14 +95,17 @@ namespace ExtendedConsole
         /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty or when <paramref name="items"/> are not supplied.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         ///<example>
+        /// Create and run a menu with the specified title and items.
+        /// This menu does not execute anything, it only returns the zero-based index of the item selected by the user
         ///<code>
         ///var selection = exConsole.Menu(
         ///    "What to do next?",
         ///    false,
-        ///    "&lt;&lt;c f='Yellow'&gt;quit&lt;c&gt;",
+        ///    "&lt;c f='Yellow'&gt;quit&lt;c&gt;",
         ///    "Do this",
         ///    "Do that"
         ///);
+        /// // Do something with the selection here.
         ///</code>
         ///</example>
         public static int Menu(this ExConsole self, string title, bool clearWhenSelected, params string[] items)
@@ -120,16 +128,21 @@ namespace ExtendedConsole
         /// <exception cref="ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are not properly formatted xml.</exception>
         ///<example>
+        /// Create and run a menu with the specified items, "What to do next?" as a title,  
+        /// "Please select an item from the menu." displayed below the items,
+        /// and "Invalid value entered.", if the user enters an invalid value.
+        /// This menu does not execute anything, it only returns the zero-based index of the item selected by the user
         ///<code>
         ///var selection = exConsole.Menu(
         ///    "What to do next?",
         ///    "Please select an item from the menu.",
         ///    "Invalid value entered.",
         ///    false,
-        ///    "&lt;&lt;c f='Yellow'&gt;quit&lt;c&gt;",
+        ///    "&lt;c f='Yellow'&gt;quit&lt;c&gt;",
         ///    "Do this",
         ///    "Do that"
         ///);
+        /// // Do something with the selection here.
         ///</code>
         ///</example>
         public static int Menu(this ExConsole self, string title, string pleaseSelectText, string invalidSelectionText, bool clearWhenSelected, params string[] items)
@@ -150,6 +163,9 @@ namespace ExtendedConsole
         /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         /// <example>
+        /// Display the names of the members of the ConsoleColor enum,
+        /// asking the user to choose a color from the list. 
+        /// the color variable is of type ConsoleColor.
         /// <code>
         /// var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
         ///    "Choose a foreground color",
@@ -179,6 +195,9 @@ namespace ExtendedConsole
         /// <exception cref="ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are not properly formatted xml.</exception>
         /// <example>
+        /// Display the names of the members of the ConsoleColor enum,
+        /// asking the user to choose a color from the list. 
+        /// the color variable is of type ConsoleColor.
         /// <code>
         /// var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
         ///    "Choose a foreground color",
@@ -209,6 +228,9 @@ namespace ExtendedConsole
         /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
         /// <example>
+        /// Display the names of the members of the ConsoleColor enum,
+        /// asking the user to choose a color from the list, or "none".
+        /// the color variable is of type Nullable&lt;ConsoleColor&gt; and will be null if the user choose "none".
         /// <code>
         /// var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
         ///    "Choose a foreground color, or &lt;c f='red&gt;none&lt;/c&gt; to keep current color.",
@@ -243,6 +265,9 @@ namespace ExtendedConsole
         /// <exception cref="ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are not properly formatted xml.</exception>
         /// <example>
+        /// Display the names of the members of the ConsoleColor enum,
+        /// asking the user to choose a color from the list, or "none".
+        /// the color variable is of type Nullable&lt;ConsoleColor&gt; and will be null if the user choose "none".
         /// <code>
         /// var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
         ///    "Choose a foreground color",

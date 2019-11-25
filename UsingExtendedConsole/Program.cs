@@ -1,5 +1,6 @@
 ﻿using ExtendedConsole;
 using System;
+using System.Linq;
 
 namespace UsingExtendedConsole
 {
@@ -10,7 +11,6 @@ namespace UsingExtendedConsole
 
         static void Main(string[] args)
         {
-
             Console.Title = "Using Extended Console";
             //ShowLogo(exConsole);
 

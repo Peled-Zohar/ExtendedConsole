@@ -142,6 +142,11 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole__examples">Examples</h5>
+  <p>Write &quot;Press any key to continue.&quot; to the console,
+and wait for the user to press a key. Advance the cursor to the next line.</p>
+<pre><code>exConsole.Pause();</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -193,6 +198,11 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_System_String__examples">Examples</h5>
+  <p>Write &quot;Press any key to continue.&quot; to the console, where &quot;any key&quot; is in yellow,
+and wait for the user to press a key. Advance the cursor to the next line.</p>
+<pre><code>exConsole.Pause(&quot;Press &lt;c f=&apos;yellow&apos;>any key&lt;c> to continue.&quot;);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -283,6 +293,15 @@ Will keep waiting until the user press a correct key.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_ConsoleKey_System_String__examples">Examples</h5>
+  <p>Askes the user a yes/no question, returns true if they pressed &quot;Y&quot; or false if they press &quot;N&quot;.
+Repeats until the user press either &quot;Y&quot; or &quot;N&quot;.</p>
+<pre><code>var result = exConsole.ReadBool(
+    ConsoleKey.Y,
+    ConsoleKey.N,
+    &quot;Are you happy (y/n)?&quot;
+);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -366,6 +385,10 @@ Will keep waiting until the user press a correct key.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_String__examples">Examples</h5>
+  <p>Askes the user to press &quot;q&quot; to quit, returns true if the user pressed &quot;q&quot;, false otherwise:</p>
+<pre><code>var result = exConsole.ReadBool(ConsoleKey.Q, &quot;Press &apos;Q&apos; to quit&quot;);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -472,6 +495,21 @@ Will keep waiting until the user press a correct key.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadClass__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h5>
+  <p>Parse and get an array of int values from comma-separated integers entered by the user.</p>
+<pre><code>var ints = exConsole.ReadClass(
+    &quot;Please enter a list of comma-separated integers&quot;,
+    &quot;Invalid value entered&quot;,
+    str => {
+        var arr = str.Split(&apos;,&apos;);
+        if (arr.All(s => int.TryParse(s, out var i)))
+        {
+            return (true, arr.Select(s => int.Parse(s)).ToArray());
+        }
+        return (false, default(int[]));
+    }
+);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -502,7 +540,7 @@ Will keep waiting until the user press a correct key.</p>
   
   <a id="ExtendedConsole_ExConsoleRead_ReadDateTime_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime*"></a>
   <h4 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String)">ReadDateTime(ExConsole, String, String)</h4>
-  <div class="markdown level1 summary"><p>Converts the user input into an instance of the DateTime struct.</p>
+  <div class="markdown level1 summary"><p>Converts the user input into an instance of Nullable&lt;DateTime&gt;.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -555,6 +593,12 @@ Will keep waiting until the user press a correct key.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String__examples">Examples</h5>
+  <p>Reads the user input and tries to parse it as a DateTime based on the current thread culture.
+Returns an instance of Nullalble&lt;DateTime&gt; which is null if the user entered ctrl+Z.
+Repeats untill successful conversion or user abort.</p>
+<pre><code>var result = exConsole.ReadDateTime(&quot;Please enter a date.&quot;, &quot;failed to convert to date.&quot;);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -585,7 +629,7 @@ Will keep waiting until the user press a correct key.</p>
   
   <a id="ExtendedConsole_ExConsoleRead_ReadDateTime_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime*"></a>
   <h4 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.IFormatProvider,System.Globalization.DateTimeStyles)">ReadDateTime(ExConsole, String, String, String, IFormatProvider, DateTimeStyles)</h4>
-  <div class="markdown level1 summary"><p>Converts the user input to an instance of a nullable DateTime.</p>
+  <div class="markdown level1 summary"><p>Converts the user input to an instance of Nullable&lt;DateTime&gt;.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -656,6 +700,18 @@ Will keep waiting until the user press a correct key.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles__examples">Examples</h5>
+  <p>Reads the user input and tries to parse it as DateTime based on the specified parameters.
+Returns an instance of Nullalble&lt;DateTime&gt; which is null if the user entered ctrl+Z.
+Repeats untill successful conversion or user abort.</p>
+<pre><code>var result = exConsole.ReadDateTime(
+    &quot;Please enter a date (dd/MM/yyyy).&quot;,
+    &quot;failed to convert to date.&quot;,
+    &quot;dd/MM/yyyy&quot;,
+    CultureInfo.InvariantCulture,
+    DateTimeStyles.AssumeLocal
+);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -737,6 +793,11 @@ Will keep waiting until the user press a correct key.</p>
   <div class="markdown level1 remarks"><p>If the user enters a value that can't be parsed as int,
 the title will show again until the user enters an int value.</p>
 </div>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String__examples">Examples</h5>
+  <p>Parse and return an int from the user input.
+Repeats until the user enters a value that can be parsed as int.</p>
+<pre><code>var result = exConsole.ReadInt(&quot;Please enter an integer value.&quot;);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -821,6 +882,11 @@ This will be shown repeatedly until the user enters a valid value.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_Func_System_Int32_System_Boolean___examples">Examples</h5>
+  <p>Parse and return an int from the user input.
+Repeats until the value meets the specified condition.</p>
+<pre><code>var result = exConsole.ReadInt(&quot;Please enter a positive integer value.&quot;, i => i > 0);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -910,6 +976,13 @@ This will be shown repeatedly until the user enters a valid value.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_Int32_System_Boolean___examples">Examples</h5>
+  <p>Parse and return an int from the user input.
+If the user enters a value that can't be parsed or doesn't meet the specified condition,
+display &quot;Invalid input.&quot;
+Repeats until the value meets the specified condition.</p>
+<pre><code>var result = exConsole.ReadInt(&quot;Please enter a positive integer value.&quot;, &quot;Invalid input.&quot;, i => i > 0);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -940,8 +1013,7 @@ This will be shown repeatedly until the user enters a valid value.</p>
   
   <a id="ExtendedConsole_ExConsoleRead_ReadStruct_" data-uid="ExtendedConsole.ExConsoleRead.ReadStruct*"></a>
   <h4 id="ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadStruct``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadStruct&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
-  <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to a nullable T.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -961,26 +1033,22 @@ This will be shown repeatedly until the user enters a valid value.</p>
       <tr>
         <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
         <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">title</span></td>
-        <td><p>The title to show the user before asking for input.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">errorMessage</span></td>
-        <td><p>The error message to show the user if the conversion failed.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Boolean</span>, T&gt;&gt;</td>
         <td><span class="parametername">converter</span></td>
-        <td><p>A function that takes in a string and returns a value tuple of bool success and T value.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -995,8 +1063,7 @@ This will be shown repeatedly until the user enters a valid value.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;T&gt;</td>
-        <td><p>An instance of T? that has a value unless the user entered ^Z.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1011,34 +1078,7 @@ This will be shown repeatedly until the user enters a valid value.</p>
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td><p>The underlying type of the nullable to convert to.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when any of the parameters is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1047,9 +1087,11 @@ This will be shown repeatedly until the user enters a valid value.</p>
   <a id="ExtendedConsole_ExConsoleRead_ReadUntilConverted_" data-uid="ExtendedConsole.ExConsoleRead.ReadUntilConverted*"></a>
   <h4 id="ExtendedConsole_ExConsoleRead_ReadUntilConverted__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadUntilConverted``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadUntilConverted&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
   <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to T.
-Repeats until conversion succeeds (even if the user entered ^Z).
-Use with caution -
-The user can't exit this method without either providing a convertible value or exiting the entire program!</p>
+Repeats until conversion succeeds (even if the user entered ^Z).</p>
+<p>
+Use with caution!  
+The user can&apos;t exit this method without either providing a convertible value or exiting the entire program!
+</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1124,6 +1166,14 @@ The user can't exit this method without either providing a convertible value or 
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadUntilConverted__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h5>
+  <p>Parse and get an instance of the <code>TimeSpan</code> struct from user input.</p>
+<pre><code>var duration = exConsole.ReadUntilConverted(
+    &quot;Please enter estimated time (HH:mm:ss)&quot;,
+    &quot;Invalid value entered&quot;,
+    str => (TimeSpan.TryParse(str, out var result), result)
+);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>

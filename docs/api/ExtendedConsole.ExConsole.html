@@ -73,9 +73,15 @@
   
   <h1 id="ExtendedConsole_ExConsole" data-uid="ExtendedConsole.ExConsole" class="text-break">Class ExConsole
   </h1>
-  <div class="markdown level0 summary"><p>Provides support for using an xml based markup text in console applications.
-Markup contains text and control tags to set the text and background color.
-Color names are limited to members of the ConsoleColor enum, but are case insensitive.</p>
+  <div class="markdown level0 summary"><p>Provides support for using an xml based markup text in console applications.</p>
+<p>
+Markup contains text and control tags to set the foreground and background color of the text. 
+Color names are limited to members of the ConsoleColor enum, but are case insensitive.
+</p>
+<p>
+Markup example: 
+<pre><code>&lt;c f=&apos;Yellow&apos;>yellow text&lt;c b=&apos;blue&apos;> on blue background.&lt;/c>&lt;/c></code></pre>
+</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -120,7 +126,6 @@ Color names are limited to members of the ConsoleColor enum, but are case insens
   <a id="ExtendedConsole_ExConsole_Write_" data-uid="ExtendedConsole.ExConsole.Write*"></a>
   <h4 id="ExtendedConsole_ExConsole_Write_System_String_" data-uid="ExtendedConsole.ExConsole.Write(System.String)">Write(String)</h4>
   <div class="markdown level1 summary"><p>Writes the specified markup to the console.</p>
-<p>Markup example: &lt;c f=&apos;Yellow&apos;>yellow text&lt;c b=&apos;blue&apos;> on blue background.&lt;/c>&lt;/c></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -145,6 +150,10 @@ Color names are limited to members of the ConsoleColor enum, but are case insens
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsole_Write_System_String__examples">Examples</h5>
+  <p>Write &quot;Hello World!&quot;, cyan on a dark gray background.</p>
+<pre><code>exConsole.Write(&quot;&lt;c f=&apos;cyan&apos; b=&apos;darkgray&apos;>Hello World!&lt;c>&quot;);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -202,6 +211,10 @@ Color names are limited to members of the ConsoleColor enum, but are case insens
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsole_Write_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor___examples">Examples</h5>
+  <p>Write &quot;Hello World!&quot; in black on a magenta background, followed by &quot;How are you?&quot; in black on a white background.</p>
+<pre><code>exConsole.Write(&quot;Hello world! &lt;c b=&apos;white&apos; f=&apos;black&apos;>How are you?&lt;c>&quot;, ConsoleColor.Black, ConsoleColor.Magenta);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -223,7 +236,6 @@ Color names are limited to members of the ConsoleColor enum, but are case insens
   <a id="ExtendedConsole_ExConsole_WriteLine_" data-uid="ExtendedConsole.ExConsole.WriteLine*"></a>
   <h4 id="ExtendedConsole_ExConsole_WriteLine_System_String_" data-uid="ExtendedConsole.ExConsole.WriteLine(System.String)">WriteLine(String)</h4>
   <div class="markdown level1 summary"><p>Writes the specified markup to the console, advances the cursor to the next line.</p>
-<p>Markup example: &lt;c f=&apos;Yellow&apos;>yellow text&lt;c b=&apos;blue&apos;> on blue background.&lt;/c>&lt;/c></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -248,6 +260,11 @@ Color names are limited to members of the ConsoleColor enum, but are case insens
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsole_WriteLine_System_String__examples">Examples</h5>
+  <p>Write &quot;Hello World!&quot;, black on a white background,
+and advance the cursor to the next line.</p>
+<pre><code>exConsole.WriteLine(&quot;&lt;c b=&apos;white&apos; f=&apos;black&apos;>Hello World!&lt;c>&quot;);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -306,6 +323,10 @@ Advances the cursor to the next line.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsole_WriteLine_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor___examples">Examples</h5>
+  <p>Write &quot;Hello World!&quot; in magenta, followed by &quot;How are you?&quot; in black on a white background. Advance the cursor to the next line.</p>
+<pre><code>exConsole.WriteLine(&quot;Hello world! &lt;c b=&apos;white&apos; f=&apos;black&apos;>How are you?&lt;c>&quot;, ConsoleColor.Magenta, null);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -327,7 +348,6 @@ Advances the cursor to the next line.</p>
   <a id="ExtendedConsole_ExConsole_WriteLines_" data-uid="ExtendedConsole.ExConsole.WriteLines*"></a>
   <h4 id="ExtendedConsole_ExConsole_WriteLines_System_String___" data-uid="ExtendedConsole.ExConsole.WriteLines(System.String[])">WriteLines(String[])</h4>
   <div class="markdown level1 summary"><p>Writes multiple markup lines to the console.</p>
-<p>Markup example: &lt;c f=&apos;Yellow&apos;>yellow text&lt;c b=&apos;blue&apos;> on blue background.&lt;/c>&lt;/c></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -352,6 +372,16 @@ Advances the cursor to the next line.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="ExtendedConsole_ExConsole_WriteLines_System_String____examples">Examples</h5>
+  <p>Write &quot;Hello World!&quot; in yellow,
+&quot;This is exConsole writing multiple markup lines&quot; in the next line, with exConsole in green, and
+&quot;To the Console.&quot; in the last line. Advance the cursor to the next line.</p>
+<pre><code>exConsole.WriteLines(
+    &quot;&lt;c f=&apos;Yellow&apos;>Hello World!&lt;c>&quot;,
+    &quot;This is &lt;c f=&apos;green&apos;>exConsole&lt;c> writing multiple markup lines&quot;,
+    &quot;To the Console.&quot;
+);</code></pre>
+
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -382,13 +412,25 @@ Advances the cursor to the next line.</p>
       <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_Boolean_System_ValueTuple_System_String_System_Action____">ExConsoleMenu.Menu(ExConsole, String, Boolean, (String Title, Action Action)[])</a>
   </div>
   <div>
+      <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Boolean_System_ValueTuple_System_String_System_Action____">ExConsoleMenu.Menu(ExConsole, String, String, String, Boolean, (String Title, Action Action)[])</a>
+  </div>
+  <div>
       <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_Boolean_System_String___">ExConsoleMenu.Menu(ExConsole, String, Boolean, String[])</a>
+  </div>
+  <div>
+      <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Boolean_System_String___">ExConsoleMenu.Menu(ExConsole, String, String, String, Boolean, String[])</a>
   </div>
   <div>
       <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_Boolean_">ExConsoleMenu.ChooseFromEnum&lt;T&gt;(ExConsole, String, Boolean)</a>
   </div>
   <div>
+      <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Boolean_">ExConsoleMenu.ChooseFromEnum&lt;T&gt;(ExConsole, String, String, String, Boolean)</a>
+  </div>
+  <div>
       <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_String_System_Boolean_">ExConsoleMenu.ChooseFromEnum&lt;T&gt;(ExConsole, String, String, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_String_System_Boolean_">ExConsoleMenu.ChooseFromEnum&lt;T&gt;(ExConsole, String, String, String, String, Boolean)</a>
   </div>
   <div>
       <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_">ExConsoleRead.Pause(ExConsole)</a>
