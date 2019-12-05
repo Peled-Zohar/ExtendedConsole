@@ -109,6 +109,7 @@
                             All of these arguments are mandatory,
                             and all of these methods will throw either an <code class="lang-csharp">ArgumentNullException</code>
                             or an <code class="lang-csharp">ArgumentException</code> (in case one of the strings is empty).<br />
+                            They will also throw a <code class="lang-csharp">System.Xml.XmlException</code> if title or errorMessage aren't propert formatted xml.<br />
 
                             So, our new <code class="lang-csharp">ReadByte</code> method will use the <strong><code class="lang-csharp">ReadUntilConverted&lt;T&gt;</code></strong> method:
 <pre><code class="lang-csharp">public static byte ReadByte(this ExConsole self, string title, string errorMessage)
