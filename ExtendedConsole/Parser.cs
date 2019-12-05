@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace ExtendedConsole
 {
+    /// <summary>
+    /// Parse markup text, creates and returns an instance of the <see cref="TextBuilder"/> class.
+    /// </summary>
     internal static class Parser
     {
         /// <summary>

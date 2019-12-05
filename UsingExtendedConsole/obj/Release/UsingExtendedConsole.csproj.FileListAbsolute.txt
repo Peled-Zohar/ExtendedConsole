@@ -9,3 +9,4 @@ C:\Development\ExtendedConsole\UsingExtendedConsole\obj\Release\UsingExtendedCon
 C:\Development\ExtendedConsole\UsingExtendedConsole\obj\Release\UsingExtendedConsole.csproj.CopyComplete
 C:\Development\ExtendedConsole\UsingExtendedConsole\obj\Release\UsingExtendedConsole.exe
 C:\Development\ExtendedConsole\UsingExtendedConsole\obj\Release\UsingExtendedConsole.pdb
+C:\Development\ExtendedConsole\UsingExtendedConsole\bin\Release\icon.png

@@ -108,7 +108,7 @@ namespace ExtendedConsole
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
         /// <example>
         /// Parse and get an instance of the `TimeSpan` struct from user input.
-        /// The duration variable is of type `Nullable&ltTimeSpan&gt;`, and will be null if the user entered ctrl+Z.
+        /// The duration variable is of type `Nullable&lt;TimeSpan&gt;`, and will be null if the user entered ctrl+Z.
         /// <code>
         /// var duration = exConsole.ReadStruct(
         ///     "Please enter estimated time (HH:mm:ss)",
@@ -402,14 +402,48 @@ namespace ExtendedConsole
         }
 
         /// <summary>
+        /// Converts the user input into an instance of Nullable&lt;DateTime&gt;.
+        /// </summary>
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="title">The title to show on the console.</param>
+        /// <param name="errorMessage">The error message to show the user in case the input value is invalid.</param>
+        /// <param name="formatProvider">An object that supplies culture-specific formatting information about the string expected from the user's input.</param>
+        /// <param name="dateTimeStyles">A bitwise combination of members of the <see cref="DateTimeStyles"/> enum.</param>
+        /// <returns>A nullable DateTime instance that will have no value if the user entered ^Z.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>        
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
+        /// <example>
+        /// Reads the user input and tries to parse it as a DateTime based on the "en-US" culture.
+        /// Returns an instance of Nullalble&lt;DateTime&gt; which is null if the user entered ctrl+Z.
+        /// Repeats untill successful conversion or user abort.
+        /// <code>
+        /// var result = exConsole.ReadDateTime(
+        ///     "Please enter a date.", 
+        ///     "failed to convert to date.",
+        ///     CultureInfo.GetCultureInfo("en-US"),
+        ///     DateTimeStyles.None);
+        /// </code>
+        /// </example>
+        public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage, IFormatProvider formatProvider, DateTimeStyles dateTimeStyles)
+        {
+            return ReadStruct(
+                self,
+                title,
+                errorMessage,
+                str => (DateTime.TryParse(str, formatProvider, dateTimeStyles, out var res), res)
+            );    
+        }
+
+        /// <summary>
         /// Converts the user input to an instance of Nullable&lt;DateTime&gt;.
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="title">The title to show on the console.</param>
         /// <param name="errorMessage">The error message to show the user in case the input value is invalid.</param>
         /// <param name="format">The format of the string representation of the datetime value expected.</param>
-        /// <param name="formatProvider">An object that supplies culture-specific formatting information.</param>
-        /// <param name="dateTimeStyles">A bitwise combination of one or more enumeration values that indicate the permitted format.</param>
+        /// <param name="formatProvider">An object that supplies culture-specific formatting information about the string expected from the user's input.</param>
+        /// <param name="dateTimeStyles">A bitwise combination of members of the <see cref="DateTimeStyles"/> enum.</param>
         /// <returns>A nullable DateTime instance that will have no value if the user entered ^Z.</returns>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/> or <paramref name="errorMessage"/> are null.</exception>
         /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty, or if dateTimeStyles is not a member of the DateTimeStyles enum.</exception>
@@ -438,6 +472,43 @@ namespace ExtendedConsole
             );
         }
 
+        /// <summary>
+        /// Converts the user input to an instance of Nullable&lt;DateTime&gt;.
+        /// </summary>
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="title">The title to show on the console.</param>
+        /// <param name="errorMessage">The error message to show the user in case the input value is invalid.</param>
+        /// <param name="formats">An array containing the acceptable formats of the string representation of the datetime value expected.</param>
+        /// <param name="formatProvider">An object that supplies culture-specific formatting information about the string expected from the user's input.</param>
+        /// <param name="dateTimeStyles">A bitwise combination of members of the <see cref="DateTimeStyles"/> enum.</param>
+        /// <returns>A nullable DateTime instance that will have no value if the user entered ^Z.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/> or <paramref name="errorMessage"/> are null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty, or if dateTimeStyles is not a member of the DateTimeStyles enum.</exception>
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
+        /// <example>
+        /// Reads the user input and tries to parse it as DateTime based on the specified parameters.
+        /// Returns an instance of Nullalble&lt;DateTime&gt; which is null if the user entered ctrl+Z.
+        /// Repeats untill successful conversion or user abort.
+        /// <code>
+        /// var result = exConsole.ReadDateTime(
+        ///     "Please enter a date (dd/MM/yyyy).",
+        ///     "failed to convert to date.",
+        ///     new string[] {"dd/MM/yyyy", "MM-dd-yyyy", "yyyy-MM-dd"},
+        ///     CultureInfo.InvariantCulture,
+        ///     DateTimeStyles.AssumeLocal
+        /// );
+        /// </code>
+        /// </example>
+        public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage, string[] formats, IFormatProvider formatProvider, DateTimeStyles dateTimeStyles)
+        {
+            return ReadStruct(
+                self,
+                title,
+                errorMessage,
+                str => (DateTime.TryParseExact(str, formats, formatProvider, dateTimeStyles, out var res), res)
+            );
+        }
+    
         #endregion datetime
     }
 }

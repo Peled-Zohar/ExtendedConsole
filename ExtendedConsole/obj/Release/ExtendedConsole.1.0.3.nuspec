@@ -8,13 +8,42 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://peled-zohar.github.io/ExtendedConsole/</projectUrl>
-    <iconUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/docs/favicon.ico</iconUrl>
-    <description>Provides a set of methods to make your life as a programmer easier when writing a Console application.</description>
+    <iconUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole.png</iconUrl>
+    <description>Provides a set of methods to make your life as a programmer easier when writing a Console application.
+
+It has methods for writing simple markup text to help you easily control the color of your output,
+methods for validating and parsing user input to help you easily get type-safe data from your users,
+methods for easily creating menus and methods for easily clearing specific lines in the console's output.
+
+The GitHub repository also contains a project called UsingExtendedConsole that contains code samples to shows how to use the ExtendedConsole project.
+
+The ExtendedConsole project is licenced with the MIT licence, meaning you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of this project free of charge, on an "AS IS" basis. For more information, read the LICENSE file (Don't worry, it's short and easy to understand).
+
+More information is available on the project's documentation website.
+
+Release notes for 1.0.3 version:
+
+1. Added new menu overloads.
+2. Improved documentation.
+3. Added documentation website generated using DocFx hosted on GitPages.
+
+Release notes for 1.0.2 version:
+
+1. Added argument checks for all methods
+2. Improved documentation.
+
+Release notes for 1.0.1 version:
+
+1. Changed ArgumentException thrown from the ClearLine and ClearLastLines methods to 2. ArgumentOutOfRangeException.
+3. Added a missing dot at the end of the Pause default text (changed from "Press any key to continue" to "Press any key to continue.").
+Refactored the ExConsoleMenu class (with no changes to public API).</description>
     <releaseNotes>Changes from previous version:
 
 1. Added new menu overloads.
 
-2. Improved documentation.</releaseNotes>
+2. Improved documentation.
+
+3. Added documentation website generated using DocFx hosted on GitPages.</releaseNotes>
     <repository url="https://github.com/Peled-Zohar/ExtendedConsole" />
     <dependencies>
       <group targetFramework=".NETStandard2.0" />

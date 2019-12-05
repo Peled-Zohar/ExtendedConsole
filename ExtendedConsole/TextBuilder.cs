@@ -4,7 +4,8 @@ using System.Collections.Generic;
 namespace ExtendedConsole
 {
     /// <summary>
-    /// Builds the text and colors to write to Console.
+    /// Builds a series of actions to perform setting colorns and writing text to Console.
+    /// Execute these actions in the <see cref="Write"/> / <see cref="WriteLine"/> methods.
     /// </summary>
     internal class TextBuilder 
     {

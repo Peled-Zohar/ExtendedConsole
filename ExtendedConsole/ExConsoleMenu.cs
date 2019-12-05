@@ -192,7 +192,7 @@ namespace ExtendedConsole
         /// whether the menu should still be displayed after the user have chosen an option.</param>
         /// <returns>The member of the enum the user selected.</returns>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are null.</exception>
-        /// <exception cref="ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
+        /// <exception cref="ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are not properly formatted xml.</exception>
         /// <example>
         /// Display the names of the members of the ConsoleColor enum,
@@ -262,7 +262,7 @@ namespace ExtendedConsole
         /// whether the menu should still be displayed after the user have chosen an option.</param>
         /// <returns>The member of the enum the user selected.</returns>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are null.</exception>
-        /// <exception cref="ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
+        /// <exception cref="ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> is empty.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are not properly formatted xml.</exception>
         /// <example>
         /// Display the names of the members of the ConsoleColor enum,
