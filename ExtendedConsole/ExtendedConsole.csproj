@@ -20,7 +20,7 @@
 
 3. Added a ReadLine method.</PackageReleaseNotes>
     <Version>1.0.4</Version>
-    <PackageIconUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/Peled-Zohar/ExtendedConsole/master/ExtendedConsole.png</PackageIconUrl>
     <ApplicationIcon>extendedconsole.ico</ApplicationIcon>
     <AssemblyVersion>1.0.4.0</AssemblyVersion>
     <FileVersion>1.0.4.0</FileVersion>

@@ -1,3 +1,4 @@
+C:\Development\ExtendedConsole\UsingExtendedConsole\bin\Debug\icon.png
 C:\Development\ExtendedConsole\UsingExtendedConsole\bin\Debug\UsingExtendedConsole.exe.config
 C:\Development\ExtendedConsole\UsingExtendedConsole\bin\Debug\UsingExtendedConsole.exe
 C:\Development\ExtendedConsole\UsingExtendedConsole\bin\Debug\UsingExtendedConsole.pdb
@@ -9,4 +10,3 @@ C:\Development\ExtendedConsole\UsingExtendedConsole\obj\Debug\UsingExtendedConso
 C:\Development\ExtendedConsole\UsingExtendedConsole\obj\Debug\UsingExtendedConsole.csproj.CopyComplete
 C:\Development\ExtendedConsole\UsingExtendedConsole\obj\Debug\UsingExtendedConsole.exe
 C:\Development\ExtendedConsole\UsingExtendedConsole\obj\Debug\UsingExtendedConsole.pdb
-C:\Development\ExtendedConsole\UsingExtendedConsole\bin\Debug\icon.png
