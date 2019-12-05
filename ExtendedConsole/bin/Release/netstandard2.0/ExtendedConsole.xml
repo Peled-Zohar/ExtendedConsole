@@ -313,7 +313,7 @@
             whether the menu should still be displayed after the user have chosen an option.</param>
             <returns>The member of the enum the user selected.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are null.</exception>
-            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty.</exception>
             <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are not properly formatted xml.</exception>
             <example>
             Display the names of the members of the ConsoleColor enum,
@@ -370,7 +370,7 @@
             whether the menu should still be displayed after the user have chosen an option.</param>
             <returns>The member of the enum the user selected.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are null.</exception>
-            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> is empty or when <paramref name="items"/> are not supplied.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> is empty.</exception>
             <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are not properly formatted xml.</exception>
             <example>
             Display the names of the members of the ConsoleColor enum,
@@ -419,7 +419,25 @@
             Write "Press any key to continue." to the console, where "any key" is in yellow,
             and wait for the user to press a key. Advance the cursor to the next line.
             <code>
-            exConsole.Pause("Press &lt;c f='yellow'&gt;any key&lt;c&gt; to continue.");
+            exConsole.Pause("Press &lt;c f='yellow'&gt;any key&lt;/c&gt; to continue.");
+            </code>
+            </example>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleRead.ReadLine(ExtendedConsole.ExConsole,System.String)">
+            <summary>
+            Writes the title to the console, and read a line of text.
+            </summary>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="title">The title to show the user before asking for input.</param>
+            <returns>The string the user entered.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
+            <example>
+            Write "Please enter your first name:" to the console, where "first" is in green,
+            waits for the user to enter a lime, and returns the user's input.
+            <code>
+            var firstName = exConsole.ReadLine("Please enter your &lt;c f='green'&gt;first&lt;/c&gt; name:");
             </code>
             </example>
         </member>
@@ -452,7 +470,31 @@
             </code>
             </example>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:ExtendedConsole.ExConsoleRead.ReadStruct``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})" -->
+        <member name="M:ExtendedConsole.ExConsoleRead.ReadStruct``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">
+            <summary>
+            Reads an input line from the user and converts it to a nullable T.
+            </summary>
+            <typeparam name="T">The underlying type of the nullable to convert to.</typeparam>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="title">The title to show the user before asking for input.</param>
+            <param name="errorMessage">The error message to show the user if the conversion failed.</param>
+            <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
+            <returns>An instance of T? that has a value unless the user entered ^Z.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty.</exception>        
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
+            <example>
+            Parse and get an instance of the `TimeSpan` struct from user input.
+            The duration variable is of type `Nullable&lt;TimeSpan&gt;`, and will be null if the user entered ctrl+Z.
+            <code>
+            var duration = exConsole.ReadStruct(
+                "Please enter estimated time (HH:mm:ss)",
+                "Invalid value entered",
+                str => (TimeSpan.TryParse(str, out var result), result)
+            );
+            </code>
+            </example>
+        </member>
         <member name="M:ExtendedConsole.ExConsoleRead.ReadClass``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">
             <summary>
             Reads an input line from the user and converts it to T.
@@ -480,6 +522,35 @@
                     }
                     return (false, default(int[]));
                 }
+            );
+            </code>
+            </example>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleRead.ReadValues``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">
+            <summary>
+            Reads multiple values from the user, converts and returns them as an IEnumerable&lt;T&gt;.
+            Repeats until the user enters the quit text.
+            </summary>
+            <typeparam name="T">The type of values to convert to.</typeparam>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="title">The title to show the user before asking for input.</param>
+            <param name="errorMessage">The error message to show the user if the conversion failed.</param>
+            <param name="quit">A string the user should enter when they are done entering values.</param>
+            <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>        
+            <returns>An IEnumerable&lt;T&gt; containing values conveted from the user input.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/>, <paramref name="errorMessage"/> or <paramref name="quit"/> are empty.</exception>        
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
+            <example>
+            Read a collection of int values from the user.
+            The integers vairable is of type IEnumerable&lt;T&gt;, and will never be null.
+            If the user enters "done" before entering any valid integers, the retun value is an empty IEnumerable&lt;T&gt;.
+            <code>
+            var integers = _exConsole.ReadValues(
+                "Please enter integer values, or &lt;c f='red'&gt;done&lt;/c&gt; to quit.",
+                "failed to parse input as int.",
+                "done",
+                str => (int.TryParse(str, out var val), val)
             );
             </code>
             </example>
@@ -666,7 +737,7 @@
         </member>
         <member name="M:ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.String[],System.IFormatProvider,System.Globalization.DateTimeStyles)">
             <summary>
-            Converts the user input to an instance of Nullable&lt;DateTime&gt;.
+            Converts the user input to an instance of Nullable&lt;DateTime&gt;"/>.
             </summary>
             <param name="self">The current instance of ExConsole.</param>
             <param name="title">The title to show on the console.</param>
@@ -684,7 +755,7 @@
             Repeats untill successful conversion or user abort.
             <code>
             var result = exConsole.ReadDateTime(
-                "Please enter a date (dd/MM/yyyy).",
+                "Please enter a date. Acceptable formats are dd/MM/yyyy, MM-dd-yyyy or yyyy-MM-dd.",
                 "failed to convert to date.",
                 new string[] {"dd/MM/yyyy", "MM-dd-yyyy", "yyyy-MM-dd"},
                 CultureInfo.InvariantCulture,

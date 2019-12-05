@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace ExtendedConsole
@@ -39,7 +40,7 @@ namespace ExtendedConsole
         /// Write "Press any key to continue." to the console, where "any key" is in yellow,
         /// and wait for the user to press a key. Advance the cursor to the next line.
         /// <code>
-        /// exConsole.Pause("Press &lt;c f='yellow'&gt;any key&lt;c&gt; to continue.");
+        /// exConsole.Pause("Press &lt;c f='yellow'&gt;any key&lt;/c&gt; to continue.");
         /// </code>
         /// </example>
         public static void Pause(this ExConsole self, string title)
@@ -50,6 +51,32 @@ namespace ExtendedConsole
 
             self.WriteLine(title);
             Console.ReadKey();
+        }
+
+        /// <summary>
+        /// Writes the title to the console, and read a line of text.
+        /// </summary>
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="title">The title to show the user before asking for input.</param>
+        /// <returns>The string the user entered.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
+        /// <example>
+        /// Write "Please enter your first name:" to the console, where "first" is in green,
+        /// waits for the user to enter a lime, and returns the user's input.
+        /// <code>
+        /// var firstName = exConsole.ReadLine("Please enter your &lt;c f='green'&gt;first&lt;/c&gt; name:");
+        /// </code>
+        /// </example>
+        public static string ReadLine(this ExConsole self, string title)
+        {
+            if (self is null) throw new ArgumentNullException(nameof(self));
+            if (title is null) throw new ArgumentNullException(nameof(title));
+            if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
+
+            self.WriteLine(title);
+            return Console.ReadLine();
         }
 
         /// <summary>
@@ -168,6 +195,57 @@ namespace ExtendedConsole
             return Success ? Value : null;
         }
 
+        /// <summary>
+        /// Reads multiple values from the user, converts and returns them as an IEnumerable&lt;T&gt;.
+        /// Repeats until the user enters the quit text.
+        /// </summary>
+        /// <typeparam name="T">The type of values to convert to.</typeparam>
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="title">The title to show the user before asking for input.</param>
+        /// <param name="errorMessage">The error message to show the user if the conversion failed.</param>
+        /// <param name="quit">A string the user should enter when they are done entering values.</param>
+        /// <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>        
+        /// <returns>An IEnumerable&lt;T&gt; containing values conveted from the user input.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/>, <paramref name="errorMessage"/> or <paramref name="quit"/> are empty.</exception>        
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
+        /// <example>
+        /// Read a collection of int values from the user.
+        /// The integers vairable is of type IEnumerable&lt;T&gt;, and will never be null.
+        /// If the user enters "done" before entering any valid integers, the retun value is an empty IEnumerable&lt;T&gt;.
+        /// <code>
+        /// var integers = _exConsole.ReadValues(
+        ///     "Please enter integer values, or &lt;c f='red'&gt;done&lt;/c&gt; to quit.",
+        ///     "failed to parse input as int.",
+        ///     "done",
+        ///     str => (int.TryParse(str, out var val), val)
+        /// );
+        /// </code>
+        /// </example>
+        public static IEnumerable<T> ReadValues<T>(this ExConsole self, string title, string errorMessage, string quit, Func<string, (bool Success, T Value)> converter)
+        {
+            if (self is null) throw new ArgumentNullException(nameof(self));
+            if (title is null) throw new ArgumentNullException(nameof(title));
+            if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
+            if (quit is null) throw new ArgumentNullException(nameof(quit));
+            if (quit == "") throw new ArgumentException(nameof(quit) + " can't be empty.", nameof(quit));
+
+            var returnValue = new List<T>();
+            string input;
+            self.WriteLine(title);
+            do
+            {
+                var (success, value, entered) = Read(self, errorMessage, converter, quit);
+                if (success)
+                {
+                    returnValue.Add(value);
+                }
+                input = entered;
+            } while (input != quit);
+
+            return returnValue;
+        }
+
         // <summary>
         // Reads an input line from the user and attempt to convert it to T.
         // Repeats until conversion succeeds or the user enters ^Z.
@@ -191,23 +269,55 @@ namespace ExtendedConsole
             if (self is null) throw new ArgumentNullException(nameof(self));
             if (title is null) throw new ArgumentNullException(nameof(title));
             if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
-            if (errorMessage is null) throw new ArgumentNullException(nameof(errorMessage));
-            if (errorMessage == "") throw new ArgumentException(nameof(errorMessage) + " can't be empty.", nameof(title));
-
-            if (converter is null) throw new ArgumentNullException(nameof(converter));
 
             self.WriteLine(title);
-            string input;
-            while ((input = Console.ReadLine()) != null)
+
+            var (Success, Value, input) = Read(self, errorMessage, converter, null);
+            return (Success, Value);
+        }
+
+        // <summary>
+        // Reads an input line from the user and attempt to convert it to T.
+        // Repeats until conversion succeeds or the user enters ^Z or the quit value.
+        // </summary>
+        // <typeparam name="T">The target type of the conversion.</typeparam>
+        // <param name="self">The current instance of ExConsole.</param>
+        // <param name="title">The title to show the user before asking for input.</param>
+        // <param name="errorMessage">The error message to show the user if the conversion failed.</param>
+        // <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
+        // <param name="quit>The text the user should enter to quit.</param>
+        // <returns>
+        // A value tuple of bool Success, T Value and string input.
+        // If the user enters ^Z or the quit value, Success will be false and Value will be default(T).
+        // Otherwise, Success will be true and Value will contain the T value converted from the input string.
+        // </returns>
+        // <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
+        // <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
+        // <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are null or empty.</exception>
+        // The documentation above is not a three slashes documentaion because the method is private.
+        private static (bool Success, T Value, string Input) Read<T>(this ExConsole self, string errorMessage, Func<string, (bool Success, T Value)> converter, string quit)
+        {
+            if (self is null) throw new ArgumentNullException(nameof(self));
+            if (errorMessage is null) throw new ArgumentNullException(nameof(errorMessage));
+            if (errorMessage == "") throw new ArgumentException(nameof(errorMessage) + " can't be empty.", nameof(errorMessage));
+            if (converter is null) throw new ArgumentNullException(nameof(converter));
+
+            while (true)
             {
+                var input = Console.ReadLine();
+                if (input is null || input == quit)
+                {
+                    return (false, default(T), input);
+                }
+
                 var (Success, Value) = converter(input);
                 if (Success)
                 {
-                    return (true, Value);
+                    return (true, Value, input);
                 }
                 self.WriteLine(errorMessage);
             }
-            return (false, default(T));
+
         }
 
         #endregion general
@@ -432,7 +542,7 @@ namespace ExtendedConsole
                 title,
                 errorMessage,
                 str => (DateTime.TryParse(str, formatProvider, dateTimeStyles, out var res), res)
-            );    
+            );
         }
 
         /// <summary>
@@ -473,7 +583,7 @@ namespace ExtendedConsole
         }
 
         /// <summary>
-        /// Converts the user input to an instance of Nullable&lt;DateTime&gt;.
+        /// Converts the user input to an instance of Nullable&lt;DateTime&gt;"/>.
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="title">The title to show on the console.</param>
@@ -491,7 +601,7 @@ namespace ExtendedConsole
         /// Repeats untill successful conversion or user abort.
         /// <code>
         /// var result = exConsole.ReadDateTime(
-        ///     "Please enter a date (dd/MM/yyyy).",
+        ///     "Please enter a date. Acceptable formats are dd/MM/yyyy, MM-dd-yyyy or yyyy-MM-dd.",
         ///     "failed to convert to date.",
         ///     new string[] {"dd/MM/yyyy", "MM-dd-yyyy", "yyyy-MM-dd"},
         ///     CultureInfo.InvariantCulture,
@@ -508,7 +618,7 @@ namespace ExtendedConsole
                 str => (DateTime.TryParseExact(str, formats, formatProvider, dateTimeStyles, out var res), res)
             );
         }
-    
+
         #endregion datetime
     }
 }

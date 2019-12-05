@@ -201,7 +201,7 @@ and wait for the user to press a key. Advance the cursor to the next line.</p>
   <h5 id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_System_String__examples">Examples</h5>
   <p>Write &quot;Press any key to continue.&quot; to the console, where &quot;any key&quot; is in yellow,
 and wait for the user to press a key. Advance the cursor to the next line.</p>
-<pre><code>exConsole.Pause(&quot;Press &lt;c f=&apos;yellow&apos;>any key&lt;c> to continue.&quot;);</code></pre>
+<pre><code>exConsole.Pause(&quot;Press &lt;c f=&apos;yellow&apos;>any key&lt;/c> to continue.&quot;);</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -628,6 +628,111 @@ Repeats untill successful conversion or user abort.</p>
   
   
   <a id="ExtendedConsole_ExConsoleRead_ReadDateTime_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime*"></a>
+  <h4 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.IFormatProvider,System.Globalization.DateTimeStyles)">ReadDateTime(ExConsole, String, String, IFormatProvider, DateTimeStyles)</h4>
+  <div class="markdown level1 summary"><p>Converts the user input into an instance of Nullable&lt;DateTime&gt;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage, IFormatProvider formatProvider, DateTimeStyles dateTimeStyles)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The current instance of ExConsole.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p>The title to show on the console.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">errorMessage</span></td>
+        <td><p>The error message to show the user in case the input value is invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>An object that supplies culture-specific formatting information about the string expected from the user's input.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Globalization.DateTimeStyles</span></td>
+        <td><span class="parametername">dateTimeStyles</span></td>
+        <td><p>A bitwise combination of members of the <span class="xref">System.Globalization.DateTimeStyles</span> enum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><p>A nullable DateTime instance that will have no value if the user entered ^Z.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles__examples">Examples</h5>
+  <p>Reads the user input and tries to parse it as a DateTime based on the &quot;en-US&quot; culture.
+Returns an instance of Nullalble&lt;DateTime&gt; which is null if the user entered ctrl+Z.
+Repeats untill successful conversion or user abort.</p>
+<pre><code>var result = exConsole.ReadDateTime(
+    &quot;Please enter a date.&quot;, 
+    &quot;failed to convert to date.&quot;,
+    CultureInfo.GetCultureInfo(&quot;en-US&quot;),
+    DateTimeStyles.None);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when any of the parameters is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Xml.XmlException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ExtendedConsole_ExConsoleRead_ReadDateTime_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime*"></a>
   <h4 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.IFormatProvider,System.Globalization.DateTimeStyles)">ReadDateTime(ExConsole, String, String, String, IFormatProvider, DateTimeStyles)</h4>
   <div class="markdown level1 summary"><p>Converts the user input to an instance of Nullable&lt;DateTime&gt;.</p>
 </div>
@@ -673,13 +778,13 @@ Repeats untill successful conversion or user abort.</p>
       <tr>
         <td><span class="xref">System.IFormatProvider</span></td>
         <td><span class="parametername">formatProvider</span></td>
-        <td><p>An object that supplies culture-specific formatting information.</p>
+        <td><p>An object that supplies culture-specific formatting information about the string expected from the user's input.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Globalization.DateTimeStyles</span></td>
         <td><span class="parametername">dateTimeStyles</span></td>
-        <td><p>A bitwise combination of one or more enumeration values that indicate the permitted format.</p>
+        <td><p>A bitwise combination of members of the <span class="xref">System.Globalization.DateTimeStyles</span> enum.</p>
 </td>
       </tr>
     </tbody>
@@ -708,6 +813,119 @@ Repeats untill successful conversion or user abort.</p>
     &quot;Please enter a date (dd/MM/yyyy).&quot;,
     &quot;failed to convert to date.&quot;,
     &quot;dd/MM/yyyy&quot;,
+    CultureInfo.InvariantCulture,
+    DateTimeStyles.AssumeLocal
+);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code>, <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are empty, or if dateTimeStyles is not a member of the DateTimeStyles enum.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Xml.XmlException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ExtendedConsole_ExConsoleRead_ReadDateTime_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime*"></a>
+  <h4 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String___System_IFormatProvider_System_Globalization_DateTimeStyles_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.String[],System.IFormatProvider,System.Globalization.DateTimeStyles)">ReadDateTime(ExConsole, String, String, String[], IFormatProvider, DateTimeStyles)</h4>
+  <div class="markdown level1 summary"><p>Converts the user input to an instance of Nullable&lt;DateTime&gt;&quot;/&gt;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage, string[] formats, IFormatProvider formatProvider, DateTimeStyles dateTimeStyles)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The current instance of ExConsole.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p>The title to show on the console.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">errorMessage</span></td>
+        <td><p>The error message to show the user in case the input value is invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">formats</span></td>
+        <td><p>An array containing the acceptable formats of the string representation of the datetime value expected.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>An object that supplies culture-specific formatting information about the string expected from the user's input.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Globalization.DateTimeStyles</span></td>
+        <td><span class="parametername">dateTimeStyles</span></td>
+        <td><p>A bitwise combination of members of the <span class="xref">System.Globalization.DateTimeStyles</span> enum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td><p>A nullable DateTime instance that will have no value if the user entered ^Z.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String___System_IFormatProvider_System_Globalization_DateTimeStyles__examples">Examples</h5>
+  <p>Reads the user input and tries to parse it as DateTime based on the specified parameters.
+Returns an instance of Nullalble&lt;DateTime&gt; which is null if the user entered ctrl+Z.
+Repeats untill successful conversion or user abort.</p>
+<pre><code>var result = exConsole.ReadDateTime(
+    &quot;Please enter a date. Acceptable formats are dd/MM/yyyy, MM-dd-yyyy or yyyy-MM-dd.&quot;,
+    &quot;failed to convert to date.&quot;,
+    new string[] {&quot;dd/MM/yyyy&quot;, &quot;MM-dd-yyyy&quot;, &quot;yyyy-MM-dd&quot;},
     CultureInfo.InvariantCulture,
     DateTimeStyles.AssumeLocal
 );</code></pre>
@@ -1011,9 +1229,92 @@ Repeats until the value meets the specified condition.</p>
   </table>
   
   
+  <a id="ExtendedConsole_ExConsoleRead_ReadLine_" data-uid="ExtendedConsole.ExConsoleRead.ReadLine*"></a>
+  <h4 id="ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadLine(ExtendedConsole.ExConsole,System.String)">ReadLine(ExConsole, String)</h4>
+  <div class="markdown level1 summary"><p>Writes the title to the console, and read a line of text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ReadLine(this ExConsole self, string title)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The current instance of ExConsole.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p>The title to show the user before asking for input.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The string the user entered.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String__examples">Examples</h5>
+  <p>Write &quot;Please enter your first name:&quot; to the console, where &quot;first&quot; is in green,
+waits for the user to enter a lime, and returns the user's input.</p>
+<pre><code>var firstName = exConsole.ReadLine(&quot;Please enter your &lt;c f=&apos;green&apos;>first&lt;/c> name:&quot;);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">title</code> are null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Xml.XmlException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> isn't properly formatted xml.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="ExtendedConsole_ExConsoleRead_ReadStruct_" data-uid="ExtendedConsole.ExConsoleRead.ReadStruct*"></a>
   <h4 id="ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadStruct``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadStruct&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to a nullable T.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1033,22 +1334,26 @@ Repeats until the value meets the specified condition.</p>
       <tr>
         <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
         <td><span class="parametername">self</span></td>
-        <td></td>
+        <td><p>The current instance of ExConsole.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">title</span></td>
-        <td></td>
+        <td><p>The title to show the user before asking for input.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">errorMessage</span></td>
-        <td></td>
+        <td><p>The error message to show the user if the conversion failed.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Boolean</span>, T&gt;&gt;</td>
         <td><span class="parametername">converter</span></td>
-        <td></td>
+        <td><p>A function that takes in a string and returns a value tuple of bool success and T value.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1063,7 +1368,8 @@ Repeats until the value meets the specified condition.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;T&gt;</td>
-        <td></td>
+        <td><p>An instance of T? that has a value unless the user entered ^Z.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1078,7 +1384,43 @@ Repeats until the value meets the specified condition.</p>
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>The underlying type of the nullable to convert to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h5>
+  <p>Parse and get an instance of the <code>TimeSpan</code> struct from user input.
+The duration variable is of type <code>Nullable&lt;TimeSpan&gt;</code>, and will be null if the user entered ctrl+Z.</p>
+<pre><code>var duration = exConsole.ReadStruct(
+    &quot;Please enter estimated time (HH:mm:ss)&quot;,
+    &quot;Invalid value entered&quot;,
+    str => (TimeSpan.TryParse(str, out var result), result)
+);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when any of the parameters is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are empty.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Xml.XmlException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1191,6 +1533,129 @@ The user can&apos;t exit this method without either providing a convertible valu
       <tr>
         <td><span class="xref">System.ArgumentException</span></td>
         <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are empty.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Xml.XmlException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ExtendedConsole_ExConsoleRead_ReadValues_" data-uid="ExtendedConsole.ExConsoleRead.ReadValues*"></a>
+  <h4 id="ExtendedConsole_ExConsoleRead_ReadValues__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadValues``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadValues&lt;T&gt;(ExConsole, String, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
+  <div class="markdown level1 summary"><p>Reads multiple values from the user, converts and returns them as an IEnumerable&lt;T&gt;.
+Repeats until the user enters the quit text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; ReadValues&lt;T&gt;(this ExConsole self, string title, string errorMessage, string quit, Func&lt;string, (bool Success, T Value)&gt; converter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The current instance of ExConsole.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p>The title to show the user before asking for input.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">errorMessage</span></td>
+        <td><p>The error message to show the user if the conversion failed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">quit</span></td>
+        <td><p>A string the user should enter when they are done entering values.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Boolean</span>, T&gt;&gt;</td>
+        <td><span class="parametername">converter</span></td>
+        <td><p>A function that takes in a string and returns a value tuple of bool success and T value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><p>An IEnumerable&lt;T&gt; containing values conveted from the user input.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of values to convert to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleRead_ReadValues__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h5>
+  <p>Read a collection of int values from the user.
+The integers vairable is of type IEnumerable&lt;T&gt;, and will never be null.
+If the user enters &quot;done&quot; before entering any valid integers, the retun value is an empty IEnumerable&lt;T&gt;.</p>
+<pre><code>var integers = _exConsole.ReadValues(
+    &quot;Please enter integer values, or &lt;c f=&apos;red&apos;>done&lt;/c> to quit.&quot;,
+    &quot;failed to parse input as int.&quot;,
+    &quot;done&quot;,
+    str => (int.TryParse(str, out var val), val)
+);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when any of the parameters is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> or <code data-dev-comment-type="paramref" class="paramref">quit</code> are empty.</p>
 </td>
       </tr>
       <tr>

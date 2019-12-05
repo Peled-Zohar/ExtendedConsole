@@ -12,7 +12,11 @@
     <description>Provides a set of methods to make your life as a programmer easier when writing a Console application.</description>
     <releaseNotes>Changes from previous version:
 
-1.</releaseNotes>
+1. Added a couple of ReadDateTime overloads
+
+2. Added a ReadValues&lt;T&gt; method.
+
+3. Added a ReadLine method.</releaseNotes>
     <repository url="https://github.com/Peled-Zohar/ExtendedConsole" />
     <dependencies>
       <group targetFramework=".NETStandard2.0" />
