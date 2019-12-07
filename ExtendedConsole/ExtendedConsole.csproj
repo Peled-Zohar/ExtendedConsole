@@ -14,16 +14,12 @@
     <LangVersion>7.3</LangVersion>
     <PackageReleaseNotes>Changes from previous version:
 
-1. Added a couple of ReadDateTime overloads
-
-2. Added a ReadValues&lt;T&gt; method.
-
-3. Added a ReadLine method.</PackageReleaseNotes>
-    <Version>1.0.4</Version>
+1. Fixed a small bug in markup parser that caused spaces between xml tags to disapear.</PackageReleaseNotes>
+    <Version>1.0.5</Version>
     <PackageIconUrl>https://raw.githubusercontent.com/Peled-Zohar/ExtendedConsole/master/ExtendedConsole.png</PackageIconUrl>
     <ApplicationIcon>extendedconsole.ico</ApplicationIcon>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

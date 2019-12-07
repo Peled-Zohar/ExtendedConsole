@@ -20,7 +20,7 @@ namespace ExtendedConsole
             var textBuilder = new TextBuilder();
 
             markup = $"<ExtendedConsoleMarkup>{markup}</ExtendedConsoleMarkup>";
-            var element = XElement.Parse(markup);
+            var element = XElement.Parse(markup, LoadOptions.PreserveWhitespace);
             if (element.FirstNode != null)
             {
                 ParseNode(textBuilder, element.FirstNode);
