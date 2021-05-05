@@ -122,14 +122,14 @@ namespace ExtendedConsole
         }
 
         /// <summary>
-        /// Reads an input line from the user and converts it to a nullable T.
+        /// Reads an input line from the user and converts it to a nullable <typeparamref name="T"/>.
         /// </summary>
         /// <typeparam name="T">The underlying type of the nullable to convert to.</typeparam>
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="title">The title to show the user before asking for input.</param>
         /// <param name="errorMessage">The error message to show the user if the conversion failed.</param>
-        /// <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
-        /// <returns>An instance of T? that has a value unless the user entered ^Z.</returns>
+        /// <param name="converter">A function that takes in a string and returns a <see cref="ValueTuple"/> of <see cref="bool"/> success and <typeparamref name="T"/> value.</param>
+        /// <returns>An instance of <typeparamref name="T"/>? that has a value unless the user entered ^Z.</returns>
         /// <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
         /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty.</exception>        
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
@@ -156,14 +156,14 @@ namespace ExtendedConsole
         }
 
         /// <summary>
-        /// Reads an input line from the user and converts it to T.
+        /// Reads an input line from the user and converts it to <typeparamref name="T"/>.
         /// </summary>
         /// <typeparam name="T">The target type of the conversion.</typeparam>
         /// <param name="self">The current instance of ExConsole.</param>
         /// <param name="title">The title to show the user before asking for input.</param>
         /// <param name="errorMessage">The error message to show the user if the conversion failed.</param>
-        /// <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
-        /// <returns>The T value converted from the input string, or null if the user entered ^Z.</returns>
+        /// <param name="converter">A function that takes in a string and returns a <see cref="ValueTuple"/> of <see cref="bool"/> success and <typeparamref name="T"/> value.</param>
+        /// <returns>The <typeparamref name="T"/> value converted from the input string, or null if the user entered ^Z.</returns>
         /// <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
         /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty.</exception>        
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
@@ -196,7 +196,7 @@ namespace ExtendedConsole
         }
 
         /// <summary>
-        /// Reads multiple values from the user, converts and returns them as an IEnumerable&lt;T&gt;.
+        /// Reads multiple values from the user, converts and returns them as an <see cref="IEnumerable{T}"/>.
         /// Repeats until the user enters the quit text.
         /// </summary>
         /// <typeparam name="T">The type of values to convert to.</typeparam>
@@ -205,14 +205,14 @@ namespace ExtendedConsole
         /// <param name="errorMessage">The error message to show the user if the conversion failed.</param>
         /// <param name="quit">A string the user should enter when they are done entering values.</param>
         /// <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>        
-        /// <returns>An IEnumerable&lt;T&gt; containing values conveted from the user input.</returns>
+        /// <returns>An <see cref="IEnumerable{T}"/> containing values conveted from the user input.</returns>
         /// <exception cref="ArgumentNullException">Thrown when any of the parameters is null.</exception>
         /// <exception cref="ArgumentException">Thrown when <paramref name="title"/>, <paramref name="errorMessage"/> or <paramref name="quit"/> are empty.</exception>        
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
         /// <example>
         /// Read a collection of int values from the user.
-        /// The integers vairable is of type IEnumerable&lt;T&gt;, and will never be null.
-        /// If the user enters "done" before entering any valid integers, the retun value is an empty IEnumerable&lt;T&gt;.
+        /// The integers vairable is of type <see cref="IEnumerable{T}"/>, and will never be null.
+        /// If the user enters "done" before entering any valid integers, the retun value is an empty <see cref="IEnumerable{T}"/>.
         /// <code>
         /// var integers = _exConsole.ReadValues(
         ///     "Please enter integer values, or &lt;c f='red'&gt;done&lt;/c&gt; to quit.",

@@ -179,7 +179,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\support\\.nuget\\packages\\": {},
+    "C:\\Users\\zohar\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -188,14 +188,14 @@
       "projectUniqueName": "C:\\Development\\ExtendedConsole\\ExtendedConsole\\ExtendedConsole.csproj",
       "projectName": "ExtendedConsole",
       "projectPath": "C:\\Development\\ExtendedConsole\\ExtendedConsole\\ExtendedConsole.csproj",
-      "packagesPath": "C:\\Users\\support\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\zohar\\.nuget\\packages\\",
       "outputPath": "C:\\Development\\ExtendedConsole\\ExtendedConsole\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\support\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zohar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -203,9 +203,9 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://ds-proget:8624/nuget/DS.thirdparty/": {},
-        "http://ds-proget:8624/nuget/default/": {},
-        "https://www.nuget.org/api/v2/": {}
+        "http://ds-proget:8624/nuget/DS.thirdparty": {},
+        "http://ds-proget:8624/nuget/Default": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.0": {
