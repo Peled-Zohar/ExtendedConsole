@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ExConsoleRead
    ">
-    <meta name="generator" content="docfx 2.47.0.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -122,7 +122,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Pause(this ExConsole self)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ExConsole Pause(this ExConsole self)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -138,6 +138,22 @@
         <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
         <td><span class="parametername">self</span></td>
         <td><p>The current instance of ExConsole.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -172,7 +188,7 @@ and wait for the user to press a key. Advance the cursor to the next line.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Pause(this ExConsole self, string title)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ExConsole Pause(this ExConsole self, string title)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -194,6 +210,22 @@ and wait for the user to press a key. Advance the cursor to the next line.</p>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">title</span></td>
         <td><p>The title to show the user before asking for input.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -419,7 +451,7 @@ Repeats until the user press either &quot;Y&quot; or &quot;N&quot;.</p>
   
   <a id="ExtendedConsole_ExConsoleRead_ReadClass_" data-uid="ExtendedConsole.ExConsoleRead.ReadClass*"></a>
   <h4 id="ExtendedConsole_ExConsoleRead_ReadClass__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadClass``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadClass&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
-  <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to T.</p>
+  <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -458,7 +490,7 @@ Repeats until the user press either &quot;Y&quot; or &quot;N&quot;.</p>
       <tr>
         <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Boolean</span>, T&gt;&gt;</td>
         <td><span class="parametername">converter</span></td>
-        <td><p>A function that takes in a string and returns a value tuple of bool success and T value.</p>
+        <td><p>A function that takes in a string and returns a <span class="xref">System.ValueTuple</span> of <span class="xref">System.Boolean</span> success and <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> value.</p>
 </td>
       </tr>
     </tbody>
@@ -474,7 +506,7 @@ Repeats until the user press either &quot;Y&quot; or &quot;N&quot;.</p>
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><p>The T value converted from the input string, or null if the user entered ^Z.</p>
+        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> value converted from the input string, or null if the user entered ^Z.</p>
 </td>
       </tr>
     </tbody>
@@ -1313,7 +1345,7 @@ waits for the user to enter a lime, and returns the user's input.</p>
   
   <a id="ExtendedConsole_ExConsoleRead_ReadStruct_" data-uid="ExtendedConsole.ExConsoleRead.ReadStruct*"></a>
   <h4 id="ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadStruct``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadStruct&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
-  <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to a nullable T.</p>
+  <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to a nullable <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1352,7 +1384,7 @@ waits for the user to enter a lime, and returns the user's input.</p>
       <tr>
         <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Boolean</span>, T&gt;&gt;</td>
         <td><span class="parametername">converter</span></td>
-        <td><p>A function that takes in a string and returns a value tuple of bool success and T value.</p>
+        <td><p>A function that takes in a string and returns a <span class="xref">System.ValueTuple</span> of <span class="xref">System.Boolean</span> success and <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> value.</p>
 </td>
       </tr>
     </tbody>
@@ -1368,7 +1400,7 @@ waits for the user to enter a lime, and returns the user's input.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;T&gt;</td>
-        <td><p>An instance of T? that has a value unless the user entered ^Z.</p>
+        <td><p>An instance of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>? that has a value unless the user entered ^Z.</p>
 </td>
       </tr>
     </tbody>
@@ -1391,7 +1423,7 @@ waits for the user to enter a lime, and returns the user's input.</p>
   </table>
   <h5 id="ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h5>
   <p>Parse and get an instance of the <code>TimeSpan</code> struct from user input.
-The duration variable is of type <code>Nullable&lt;TimeSpan&gt;</code>, and will be null if the user entered ctrl+Z.</p>
+The duration variable is of type <code>Nullable&amp;lt;TimeSpan&gt;</code>, and will be null if the user entered ctrl+Z.</p>
 <pre><code>var duration = exConsole.ReadStruct(
     &quot;Please enter estimated time (HH:mm:ss)&quot;,
     &quot;Invalid value entered&quot;,
@@ -1546,7 +1578,7 @@ The user can&apos;t exit this method without either providing a convertible valu
   
   <a id="ExtendedConsole_ExConsoleRead_ReadValues_" data-uid="ExtendedConsole.ExConsoleRead.ReadValues*"></a>
   <h4 id="ExtendedConsole_ExConsoleRead_ReadValues__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadValues``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadValues&lt;T&gt;(ExConsole, String, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
-  <div class="markdown level1 summary"><p>Reads multiple values from the user, converts and returns them as an IEnumerable&lt;T&gt;.
+  <div class="markdown level1 summary"><p>Reads multiple values from the user, converts and returns them as an <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>.
 Repeats until the user enters the quit text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1607,7 +1639,7 @@ Repeats until the user enters the quit text.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-        <td><p>An IEnumerable&lt;T&gt; containing values conveted from the user input.</p>
+        <td><p>An <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span> containing values conveted from the user input.</p>
 </td>
       </tr>
     </tbody>
@@ -1630,8 +1662,8 @@ Repeats until the user enters the quit text.</p>
   </table>
   <h5 id="ExtendedConsole_ExConsoleRead_ReadValues__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h5>
   <p>Read a collection of int values from the user.
-The integers vairable is of type IEnumerable&lt;T&gt;, and will never be null.
-If the user enters &quot;done&quot; before entering any valid integers, the retun value is an empty IEnumerable&lt;T&gt;.</p>
+The integers vairable is of type <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>, and will never be null.
+If the user enters &quot;done&quot; before entering any valid integers, the retun value is an empty <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>.</p>
 <pre><code>var integers = _exConsole.ReadValues(
     &quot;Please enter integer values, or &lt;c f=&apos;red&apos;>done&lt;/c> to quit.&quot;,
     &quot;failed to parse input as int.&quot;,
@@ -1675,7 +1707,8 @@ If the user enters &quot;done&quot; before entering any valid integers, the retu
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

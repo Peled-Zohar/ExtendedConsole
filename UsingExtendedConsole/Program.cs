@@ -12,7 +12,31 @@ namespace UsingExtendedConsole
         static void Main(string[] args)
         {
             Console.Title = "Using Extended Console";
-            //ShowLogo(exConsole);
+
+            exConsole.ChooseFromEnum<ConsoleColor>("s", true);
+
+            var boolean = exConsole.ReadBool(ConsoleKey.Y, ConsoleKey.N, "Please press y or n");
+            if(boolean)
+            {
+                Console.WriteLine("You've entered y");
+                exConsole.Pause();
+            }
+            else
+            {
+                exConsole.WriteLine("You've entered n").Pause();
+            }
+
+            var arr = new MID[]
+            {
+                new MID(1, "Zohar"),
+                new MID(2, "Peled"),
+                new MID(3, "Vered"),
+                new MID(4, "Berco")
+            };
+
+            var a = exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("Multiple select with args", focusedItemColor:ConsoleColor.Cyan), arr);
+
+            var b = exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("Multiple select with args and toString"), s => $"<c f='green'>{s.Id}</c> {s.Name}" , arr);
 
             var menus = new Func<int>[] { StringsMenu, ActionsMenu };
             var index = 0;
@@ -27,15 +51,12 @@ namespace UsingExtendedConsole
         }
 
         private static void ShowLogo(ExConsole exConsole)
-        {
-            exConsole.WriteLines(
+            => exConsole.WriteLines(
                 "",
                 ".    <c f='white'>E</c><c f='gray'>x</c><c f='red'>t</c><c f='yellow'>e</c><c f='cyan'>n</c><c f='gray'>d</c><c f='darkgray'>e</c><c f='green'>d</c>",
                 ".    <c b='blue'>C</c><c b='darkgray'>o</c><c b='darkred'>n</c><c b='darkblue'>s</c><c b='darkgreen'>o</c><c b='darkmagenta'>l</c><c b='darkyellow'>e</c>",
                 ""
-            );
-            Console.ReadKey();
-        }
+            ).Pause();
 
         private static int StringsMenu()
         {
@@ -72,8 +93,7 @@ namespace UsingExtendedConsole
         }
 
         private static int ActionsMenu()
-        {
-            return exConsole.Menu(
+            => exConsole.Menu(
                 "Demonstraiting ExConsole - actions menu, clearWhenSelected = true",
                 true,
                 ("<c f='red'>Quit</c>", null),
@@ -83,13 +103,12 @@ namespace UsingExtendedConsole
                 ("Clear lines", ClearLines),
                 ("Try it yourself", TryItYourself)
             );
-        }
 
         static void WriteLineMethods()
         {
-            exConsole.WriteLine("Hello <c f='magenta'>world!</c>");
-            exConsole.WriteLine("Testing some <c b='darkRed'>unrelated</c> <xml att='val' at2='val2'>tags</xml>.");
-            exConsole.WriteLine("And another <tag> </tag> with no text in it");
+            exConsole.WriteLine("Hello <c f='magenta'>world!</c>")
+                .WriteLine("Testing some <c b='darkRed'>unrelated</c> <xml att='val' at2='val2'>tags</xml>.")
+                .WriteLine("And another <tag> </tag> with no text in it");
             exConsole.WriteLine("And another <tag>with <c f='yellow'>yellow</c> text in it</tag>.");
         }
 
@@ -152,5 +171,20 @@ namespace UsingExtendedConsole
                 Console.WriteLine();
             } while (exConsole.ReadBool(ConsoleKey.Y, "Press <c f='green'>Y</c> to go again"));
         }
+    }
+
+    public class MID
+    {
+        public MID(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
+        public int Id { get; }
+
+        public string Name { get; }
+
+        public override string ToString() => $"<c f='green'>{Id}</c> <c f='yellow'>{Name}</c>";
     }
 }

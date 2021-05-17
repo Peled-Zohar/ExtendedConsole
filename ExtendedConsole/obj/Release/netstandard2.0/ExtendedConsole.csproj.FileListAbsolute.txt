@@ -3,6 +3,7 @@ C:\Development\ExtendedConsole\ExtendedConsole\bin\Release\netstandard2.0\Extend
 C:\Development\ExtendedConsole\ExtendedConsole\bin\Release\netstandard2.0\ExtendedConsole.dll
 C:\Development\ExtendedConsole\ExtendedConsole\bin\Release\netstandard2.0\ExtendedConsole.pdb
 C:\Development\ExtendedConsole\ExtendedConsole\bin\Release\netstandard2.0\ExtendedConsole.xml
+C:\Development\ExtendedConsole\ExtendedConsole\obj\Release\netstandard2.0\ExtendedConsole.csprojAssemblyReference.cache
 C:\Development\ExtendedConsole\ExtendedConsole\obj\Release\netstandard2.0\ExtendedConsole.csproj.CoreCompileInputs.cache
 C:\Development\ExtendedConsole\ExtendedConsole\obj\Release\netstandard2.0\ExtendedConsole.AssemblyInfoInputs.cache
 C:\Development\ExtendedConsole\ExtendedConsole\obj\Release\netstandard2.0\ExtendedConsole.AssemblyInfo.cs

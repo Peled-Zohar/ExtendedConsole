@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace ExtendedConsole
 {
@@ -16,6 +17,7 @@ namespace ExtendedConsole
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
+        /// <returns>The current instance of <see cref="ExConsole"/>.</returns>
         /// <example>
         /// Write "Press any key to continue." to the console, 
         /// and wait for the user to press a key. Advance the cursor to the next line.
@@ -23,9 +25,9 @@ namespace ExtendedConsole
         /// exConsole.Pause();
         /// </code>
         /// </example>
-        public static void Pause(this ExConsole self)
+        public static ExConsole Pause(this ExConsole self)
         {
-            Pause(self, "Press any key to continue.");
+            return Pause(self, "Press any key to continue.");
         }
 
         /// <summary>
@@ -36,6 +38,7 @@ namespace ExtendedConsole
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
         /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
         /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
+        /// <returns>The current instance of <see cref="ExConsole"/>.</returns>
         /// <example>
         /// Write "Press any key to continue." to the console, where "any key" is in yellow,
         /// and wait for the user to press a key. Advance the cursor to the next line.
@@ -43,14 +46,15 @@ namespace ExtendedConsole
         /// exConsole.Pause("Press &lt;c f='yellow'&gt;any key&lt;/c&gt; to continue.");
         /// </code>
         /// </example>
-        public static void Pause(this ExConsole self, string title)
+        public static ExConsole Pause(this ExConsole self, string title)
         {
             if (self is null) throw new ArgumentNullException(nameof(self));
             if (title is null) throw new ArgumentNullException(nameof(title));
             if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
 
             self.WriteLine(title);
-            Console.ReadKey();
+            Console.ReadKey(true);
+            return self;
         }
 
         /// <summary>
@@ -345,12 +349,9 @@ namespace ExtendedConsole
             if (self is null) throw new ArgumentNullException(nameof(self));
             if (title is null) throw new ArgumentNullException(nameof(title));
             if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
-
             self.Write(title + " ");
-
-            var key = Console.ReadKey().Key;
-            Console.WriteLine();
-            self.ClearLastLine();
+            var key = Console.ReadKey(true).Key;
+            self.ClearCurrentLine();
             return key == keyForTrue;
         }
 
@@ -386,16 +387,12 @@ namespace ExtendedConsole
             self.Write(title + " ");
             while (true)
             {
-                var key = Console.ReadKey().Key;
+                var key = Console.ReadKey(true).Key;
                 if (key == keyForTrue || key == keyForFalse)
                 {
-                    Console.WriteLine();
-                    self.ClearLastLine();
+                    self.ClearCurrentLine();
                     return key == keyForTrue;
                 }
-                Console.CursorLeft--;
-                Console.Write(" ");
-                Console.CursorLeft--;
             }
         }
 
@@ -475,9 +472,10 @@ namespace ExtendedConsole
                 self,
                 title,
                 errorMessage,
-                str => (int.TryParse(str, out var res) && (condition?.Invoke(res) ?? true), res)
+                str => (int.TryParse(str, out var result) && (condition?.Invoke(result) ?? true), result)
                 );
         }
+
 
         #endregion int
 
@@ -507,7 +505,7 @@ namespace ExtendedConsole
                 self,
                 title,
                 errorMessage,
-                str => (DateTime.TryParse(str, out var res), res)
+                str => (DateTime.TryParse(str, out var result), result)
             );
         }
 
@@ -541,7 +539,7 @@ namespace ExtendedConsole
                 self,
                 title,
                 errorMessage,
-                str => (DateTime.TryParse(str, formatProvider, dateTimeStyles, out var res), res)
+                str => (DateTime.TryParse(str, formatProvider, dateTimeStyles, out var result), result)
             );
         }
 
@@ -578,7 +576,7 @@ namespace ExtendedConsole
                 self,
                 title,
                 errorMessage,
-                str => (DateTime.TryParseExact(str, format, formatProvider, dateTimeStyles, out var res), res)
+                str => (DateTime.TryParseExact(str, format, formatProvider, dateTimeStyles, out var result), result)
             );
         }
 
@@ -615,7 +613,7 @@ namespace ExtendedConsole
                 self,
                 title,
                 errorMessage,
-                str => (DateTime.TryParseExact(str, formats, formatProvider, dateTimeStyles, out var res), res)
+                str => (DateTime.TryParseExact(str, formats, formatProvider, dateTimeStyles, out var result), result)
             );
         }
 

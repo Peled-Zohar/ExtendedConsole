@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ExtendedConsole</id>
+    <version>1.1.0</version>
+    <authors>Zohar Peled</authors>
+    <owners>Zohar Peled</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://peled-zohar.github.io/ExtendedConsole/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/Peled-Zohar/ExtendedConsole/master/ExtendedConsole.png</iconUrl>
+    <description>Provides a set of methods to make your life as a programmer easier when writing a Console application.</description>
+    <releaseNotes>Changes from previous version:
+1. Added a class called MenuDisplayArgs to reduce the number of overloads and simplify the work.
+2. Added a new static class called ExConsoleChooseFromEnum, containing methods that once where in ExConsoleMenu class.
+3. Added new functionality - multiple select menues, in ExConsoleMultipleSelectMenu class.
+This change also comes with a MultipleSelectDisplayArgs class to hold display configuration for the multiple select menu.
+4. Changed void methods to return the current instance of the ExConsole class to enable fluent usage.</releaseNotes>
+    <repository url="https://github.com/Peled-Zohar/ExtendedConsole" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Development\ExtendedConsole\ExtendedConsole\bin\Debug\netstandard2.0\ExtendedConsole.dll" target="lib\netstandard2.0\ExtendedConsole.dll" />
+    <file src="C:\Development\ExtendedConsole\ExtendedConsole\bin\Debug\netstandard2.0\ExtendedConsole.xml" target="lib\netstandard2.0\ExtendedConsole.xml" />
+  </files>
+</package>

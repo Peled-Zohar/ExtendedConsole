@@ -29,6 +29,7 @@
             </summary>
             <param name="markup">Markup text to write.</param>
             <exception cref="T:System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
             <example>
             Write "Hello World!", cyan on a dark gray background.
             <code>
@@ -42,6 +43,7 @@
             </summary>
             <param name="markup">Markup text to write.</param>
             <exception cref="T:System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
             <example>
             Write "Hello World!", black on a white background, 
             and advance the cursor to the next line.
@@ -56,6 +58,7 @@
             </summary>
             <param name="lines">Lines of markup text to write.</param>
             <exception cref="T:System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
             <example>
             Write "Hello World!" in yellow, 
             "This is exConsole writing multiple markup lines" in the next line, with exConsole in green, and
@@ -78,6 +81,7 @@
             <param name="foregroundColor">Foreground color.</param>
             <param name="backgroundColor">Background color.</param>
             <exception cref="T:System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
             <example>
             Write "Hello World!" in magenta, followed by "How are you?" in black on a white background. Advance the cursor to the next line.
             <code>
@@ -93,10 +97,209 @@
             <param name="foregroundColor">Foreground color.</param>
             <param name="backgroundColor">Background color.</param>
             <exception cref="T:System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
             <example>
             Write "Hello World!" in black on a magenta background, followed by "How are you?" in black on a white background.
             <code>
             exConsole.Write("Hello world! &lt;c b='white' f='black'&gt;How are you?&lt;c&gt;", ConsoleColor.Black, ConsoleColor.Magenta);
+            </code>
+            </example>
+        </member>
+        <member name="T:ExtendedConsole.ExConsoleChooseFromEnum">
+            <summary>
+            Provides extension methods for ExConsole to support simple menus based on enum values.
+            </summary>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,ExtendedConsole.MenuDisplayArgs)">
+            <summary>
+            Displays enum members as a menu for the user to choose from.
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="quitText">The title of a menu item that isn't a member of the enum, to enable the user to return without choosing.</param>
+            <param name="displayArgs">An instance of the <see cref="T:ExtendedConsole.MenuDisplayArgs"/> class holding the display configuration of the enum based menu.</param>
+            <returns>The member of the enum the user selected, or null if the user selected the "quit" menu item.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="displayArgs"/> or any of its properties, or <paramref name="quitText"/> are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the string properties of <paramref name="displayArgs"/> or <paramref name="quitText"/> are empty.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when any of the string properties of <paramref name="displayArgs"/> or <paramref name="quitText"/> are not properly formatted xml.</exception>
+            <example>
+            Display the names of the members of the ConsoleColor enum,
+            asking the user to choose a color from the list, or "none".
+            the color variable is of type Nullable&lt;ConsoleColor&gt; and will be null if the user choose "none".
+            <code>
+            var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
+               "&lt;c f='red'&gt;none&lt;/c&gt;",
+               new MenuDisplayArgs(
+                   "Choose a foreground color", 
+                   "Please choose a color or &lt;c f='red&gt;none&lt;/c&gt; to keep current color.", 
+                   invalidSelectionErrorMessage:"Please choose from the above list.")
+            );
+            </code>
+            </example>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,ExtendedConsole.MenuDisplayArgs)">
+            <summary>
+            Displays enum members as a menu for the user to choose from.
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="displayArgs">An instance of the <see cref="T:ExtendedConsole.MenuDisplayArgs"/> class holding the display configuration of the enum based menu.</param>
+            <returns>The member of the enum the user selected.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="displayArgs"/> or any of its properties are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the string properties of <paramref name="displayArgs"/> are empty.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when any of the string properties of <paramref name="displayArgs"/> are not properly formatted xml.</exception>
+            <example>
+            Display the names of the members of the ConsoleColor enum,
+            asking the user to choose a color from the list. 
+            the color variable is of type ConsoleColor.
+            <code>
+            var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
+               new MenuDisplayArgs(
+                   "Choose a foreground color",
+                   "Please choose a color.",
+                   false, 
+                   "Please choose from the above list.")
+            );
+            </code>
+            </example>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.Boolean)">
+            <summary>
+            Note: 
+            <para>
+            This method is deprecated and will be removed in future versions.
+            Use the ChooseFromEnum&lt;T&gt; overload that takes an instance of MenuDisplayArgs as an argument instead.
+            </para>
+            <para>
+            Displays enum members as a menu for the user to choose from.
+            </para>
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="self">The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</param>
+            <param name="title">The title of the menu.</param>
+            <param name="clearWhenSelected">A boolean value to determine 
+            whether the menu should still be displayed after the user have chosen an option.</param>
+            <returns>The member of the enum the user selected.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
+            <example>
+            Display the names of the members of the ConsoleColor enum,
+            asking the user to choose a color from the list. 
+            the color variable is of type ConsoleColor.
+            <code>
+            var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
+               "Choose a foreground color",
+               true
+            );
+            </code>
+            </example>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Note: 
+            <para>
+            This method is deprecated and will be removed in future versions.
+            Use the ChooseFromEnum&lt;T&gt; overload that takes an instance of MenuDisplayArgs as an argument instead.
+            </para>
+            <para>
+            Displays enum members as a menu for the user to choose from.
+            </para>
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="title">The title of the menu.</param>
+            <param name="pleaseSelectText">The text to show below the menu.</param>
+            <param name="invalidSelectionText">The text to show when the user enters an invalid value.</param>
+            <param name="clearWhenSelected">A boolean value to determine 
+            whether the menu should still be displayed after the user have chosen an option.</param>
+            <returns>The member of the enum the user selected.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are not properly formatted xml.</exception>
+            <example>
+            Display the names of the members of the ConsoleColor enum,
+            asking the user to choose a color from the list. 
+            the color variable is of type ConsoleColor.
+            <code>
+            var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
+               "Choose a foreground color",
+               "Please choose a color.",
+               "Please choose from the above list.",
+               true
+            );
+            </code>
+            </example>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.Boolean)">
+            <summary>
+            Note: 
+            <para>
+            This method is deprecated and will be removed in future versions.
+            Use the ChooseFromEnum&lt;T&gt; overload that takes an instance of MenuDisplayArgs as an argument instead.
+            </para>
+            <para>
+            Displays enum members as a menu for the user to choose from.
+            </para>
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="title">The title of the menu.</param>
+            <param name="quitText">The title of a menu item that isn't a member of the enum, to enable the user to return without choosing.</param>
+            <param name="clearWhenSelected">A boolean value to determine 
+            whether the menu should still be displayed after the user have chosen an option.</param>
+            <returns>The member of the enum the user selected.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
+            <example>
+            Display the names of the members of the ConsoleColor enum,
+            asking the user to choose a color from the list, or "none".
+            the color variable is of type Nullable&lt;ConsoleColor&gt; and will be null if the user choose "none".
+            <code>
+            var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
+               "Choose a foreground color, or &lt;c f='red&gt;none&lt;/c&gt; to keep current color.",
+               "&lt;c f='red'&gt;none&lt;/c&gt;",
+               true
+            );
+            </code>
+            </example>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Note: 
+            <para>
+            This method is deprecated and will be removed in future versions.
+            Use the ChooseFromEnum&lt;T&gt; overload that takes an instance of MenuDisplayArgs as an argument instead.
+            </para>
+            <para>
+            Displays enum members as a menu for the user to choose from.
+            </para>
+            </summary>
+            <typeparam name="T">The type of the enum.</typeparam>
+            <param name="self">The current instance of ExConsole.</param>
+            <param name="title">The title of the menu.</param>
+            <param name="pleaseSelectText">The text to show below the menu.</param>
+            <param name="invalidSelectionText">The text to show when the user enters an invalid value.</param>
+            <param name="quitText">The title of a menu item that isn't a member of the enum, to enable the user to return without choosing.</param>
+            <param name="clearWhenSelected">A boolean value to determine 
+            whether the menu should still be displayed after the user have chosen an option.</param>
+            <returns>The member of the enum the user selected.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> is empty.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are not properly formatted xml.</exception>
+            <example>
+            Display the names of the members of the ConsoleColor enum,
+            asking the user to choose a color from the list, or "none".
+            the color variable is of type Nullable&lt;ConsoleColor&gt; and will be null if the user choose "none".
+            <code>
+            var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
+               "Choose a foreground color",
+               "Please choose a color or &lt;c f='red&gt;none&lt;/c&gt; to keep current color.",
+               "Please choose from the above list.",
+               "&lt;c f='red'&gt;none&lt;/c&gt;",
+               true
+            );
             </code>
             </example>
         </member>
@@ -105,6 +308,19 @@
             Provides extension methods for ExConsole for clearing specific console lines.
             </summary>
         </member>
+        <member name="M:ExtendedConsole.ExConsoleClearLines.ClearCurrentLine(ExtendedConsole.ExConsole)">
+            <summary>
+            Clears all text from the current line.
+            </summary>
+            <param name="self">The current instance of ExConsole.</param>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
+            <example>
+            Clears the current line of the console.
+            <code>
+            exConsole.ClearCurrentLine();
+            </code>
+            </example>
+        </member>
         <member name="M:ExtendedConsole.ExConsoleClearLines.ClearLine(ExtendedConsole.ExConsole,System.Int32)">
             <summary>
             Clears all text from a specific line.
@@ -112,6 +328,7 @@
             <param name="self">The current instance of ExConsole.</param>
             <param name="lineIndex">Line index to clear.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="lineIndex"/> is less than zero.</exception>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
             <example>
             Clear the second line from the top.
             <code>
@@ -124,6 +341,7 @@
             Clears all text from the last line.
             </summary>
             <param name="self">The current instance of ExConsole.</param>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
             <example>
             Clear the last line.
             <code>
@@ -135,13 +353,30 @@
             <summary>
             Clears all text from the last lines.
             </summary>
-            <param name="self">The current instance of ExConsole.</param>
+            <param name="self">The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</param>
             <param name="numberOfLines">The number of lines to clear (count up from last line)</param>
             <exception cref="T:System.ArgumentOutOfRangeException">Thrown if <paramref name="numberOfLines"/> is less than one.</exception>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
             <example>
             Clear the last three lines.
             <code>
             exConsole.ClearLastLines(3);
+            </code>
+            </example>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleClearLines.ClearAllLines(ExtendedConsole.ExConsole)">
+            <summary>
+            Clears all the text on the console, and returns the current instance of ExConsole.
+            </summary>
+            <param name="self">The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</param>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
+            <example>
+            Pause, clear all lines, and ask the user to enter an integer value:
+            <code>
+            exConsole
+                .Pause("Press any key to continue")
+                .ClearAllLines()
+                .ReadInt("Please enter a number:");
             </code>
             </example>
         </member>
@@ -150,9 +385,67 @@
             Provides extension methods for ExConsole to support simple menus.
             </summary>
         </member>
-        <member name="M:ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.Boolean,System.ValueTuple{System.String,System.Action}[])">
+        <member name="M:ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,ExtendedConsole.MenuDisplayArgs,System.ValueTuple{System.String,System.Action}[])">
              <summary>
              Displays a menu to the user and invokes the action the user chooses.
+             </summary>
+             <param name="self">The current instance of ExConsole.</param>
+             <param name="displayArgs">An instance of the <see cref="T:ExtendedConsole.MenuDisplayArgs"/> class holding the display configuration of the menu.</param>
+             <param name="items">The items of the menu. 
+             Each item contains a title and an action to perform, should the user choses this item.
+             null can be passed in as the action if the item selection should perform no action.</param>
+             <returns>An integer representing the user's choice.</returns>
+             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="displayArgs"/> or any of it's properties are null.</exception>
+             <exception cref="T:System.ArgumentException">Thrown when <paramref name="displayArgs"/> is empty or when <paramref name="items"/> are not supplied.</exception>
+             <exception cref="T:System.Xml.XmlException">Thrown when any of the text properties of <paramref name="displayArgs"/> isn't properly formatted xml.</exception>
+            <example>
+             Create and run a menu with the specified title and items, that will disapear after the user selected an item.
+            <code>
+             var selection = exConsole.Menu(
+                 new MenuDisplayArgs("What to do next?"),
+                 ("&lt;c f='Yellow'&gt;quit&lt;c&gt;", null),
+                 ("Do this", () => DoThis(3)),
+                 ("Do that", DoThat)
+             );
+            </code>
+            </example>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,ExtendedConsole.MenuDisplayArgs,System.String[])">
+             <summary>
+             Displays a menu to the user and invokes the action the user chooses.
+             </summary>
+             <param name="self">The current instance of ExConsole.</param>
+             <param name="displayArgs">An instance of the <see cref="T:ExtendedConsole.MenuDisplayArgs"/> class holding the display configuration of the menu.</param>
+             <param name="items">The items of the menu.</param>
+             <returns>An integer representing the user's choice.</returns>
+             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="displayArgs"/> or any of it's properties are null.</exception>
+             <exception cref="T:System.ArgumentException">Thrown when <paramref name="displayArgs"/> is empty or when <paramref name="items"/> are not supplied.</exception>
+             <exception cref="T:System.Xml.XmlException">Thrown when any of the text properties of <paramref name="displayArgs"/> isn't properly formatted xml.</exception>
+            <example>
+             Create and run a menu with the specified items, "What to do next?" as a title,  
+             "Please enter the number of your selection." displayed below the items,
+             and "Invalid number entered. Please try again.", if the user enters an invalid value.
+             This menu does not execute anything, it only returns the zero-based index of the item selected by the user
+            <code>
+             var selection = exConsole.Menu(
+                new MenuDisplayArgs("What to do next?", "Please enter the number of your selection.", invalidSelectionErrorMessage:"Invalid number entered. Please try again." )
+                "&lt;c f='Yellow'&gt;quit&lt;c&gt;",
+                "Do this",
+                "Do that"
+             );
+            </code>
+            </example>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.Boolean,System.ValueTuple{System.String,System.Action}[])">
+             <summary>
+             Note: 
+             <para>
+             This method is deprecated and will be removed in future versions.
+             Use the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.
+             </para>
+             <para>
+             Displays a menu to the user and invokes the action the user chooses.
+             </para>
              </summary>
              <param name="self">The current instance of ExConsole.</param>
              <param name="title">The title of the menu.</param>
@@ -180,7 +473,14 @@
         </member>
         <member name="M:ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Boolean,System.ValueTuple{System.String,System.Action}[])">
              <summary>
+             Note: 
+             <para>
+             This method is deprecated and will be removed in future versions.
+             Use the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.
+             </para>
+             <para>
              Displays a menu to the user and invokes the action the user chooses.
+             </para>
              </summary>
              <param name="self">The current instance of ExConsole.</param>
              <param name="title">The title of the menu.</param>
@@ -215,7 +515,14 @@
         </member>
         <member name="M:ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.Boolean,System.String[])">
              <summary>
+             Note: 
+             <para>
+             This method is deprecated and will be removed in future versions.
+             Use the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.
+             </para>
+             <para>
              Displays a menu to the user and returns the index of the item the user chooses.
+             </para>
              </summary>
              <param name="self">The current instance of ExConsole.</param>
              <param name="title">The title of the menu.</param>
@@ -243,7 +550,14 @@
         </member>
         <member name="M:ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Boolean,System.String[])">
              <summary>
+             Note: 
+             <para>
+             This method is deprecated and will be removed in future versions.
+             Use the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.
+             </para>
+             <para>
              Displays a menu to the user and returns the index of the item the user chooses.
+             </para>
              </summary>
              <param name="self">The current instance of ExConsole.</param>
              <param name="title">The title of the menu.</param>
@@ -275,116 +589,63 @@
             </code>
             </example>
         </member>
-        <member name="M:ExtendedConsole.ExConsoleMenu.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.Boolean)">
+        <member name="T:ExtendedConsole.ExConsoleMultipleSelectMenu">
             <summary>
-            Displays enum members as a menu for the user to choose from.
+            Provides extension methods for ExConsole to support multiple select menus.
             </summary>
-            <typeparam name="T">The type of the enum.</typeparam>
-            <param name="self">The current instance of ExConsole.</param>
-            <param name="title">The title of the menu.</param>
-            <param name="clearWhenSelected">A boolean value to determine 
-            whether the menu should still be displayed after the user have chosen an option.</param>
-            <returns>The member of the enum the user selected.</returns>
-            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
-            <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
-            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
+        </member>
+        <member name="M:ExtendedConsole.ExConsoleMultipleSelectMenu.MultipleSelectMenu``1(ExtendedConsole.ExConsole,ExtendedConsole.MultipleSelectDisplayArgs,``0[])">
+            <summary>
+            Displays a multiple select menu to the user and returns the item(s) the user selected.
+            </summary>
+            <typeparam name="T">The type of items for the user to select from.</typeparam>
+            <param name="self">The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</param>
+            <param name="displayArgs">An instance of the <see cref="T:ExtendedConsole.MultipleSelectDisplayArgs"/> class holding the display configuration of the menu.</param>
+            <param name="items">The items of the menu.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the values selected by the user.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the text properties of <paramref name="displayArgs"/> are empty, or when <paramref name="items"/> contain less than two items.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when any of the text properties of <paramref name="displayArgs"/> aren't properly formatted xml.</exception>
             <example>
-            Display the names of the members of the ConsoleColor enum,
-            asking the user to choose a color from the list. 
-            the color variable is of type ConsoleColor.
+            Show the user a list of dates to choose from, return an <see cref="T:System.Collections.Generic.IEnumerable`1"/> where T is <see cref="T:System.DateTime"/>.
             <code>
-            var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
-               "Choose a foreground color",
-               true
+            var dates = exConsole.MultipleSelectMenu(
+                new MultipleSelectDisplayArgs("Select at least one date.", focusedItemColor:ConsoleColor.Cyan), 
+                DateTime.Now, 
+                DateTime.Now.AddHours(1), 
+                DateTime.Now.AddHours(2), 
+                DateTime.Now.AddHours(3)
             );
             </code>
+            After the user selects the desired values, the `dates` variable will contain the user's selection.
             </example>
         </member>
-        <member name="M:ExtendedConsole.ExConsoleMenu.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Boolean)">
+        <member name="M:ExtendedConsole.ExConsoleMultipleSelectMenu.MultipleSelectMenu``1(ExtendedConsole.ExConsole,ExtendedConsole.MultipleSelectDisplayArgs,System.Func{``0,System.String},``0[])">
             <summary>
-            Displays enum members as a menu for the user to choose from.
+            Displays a multiple select menu to the user and returns the item(s) the user selected.
             </summary>
-            <typeparam name="T">The type of the enum.</typeparam>
-            <param name="self">The current instance of ExConsole.</param>
-            <param name="title">The title of the menu.</param>
-            <param name="pleaseSelectText">The text to show below the menu.</param>
-            <param name="invalidSelectionText">The text to show when the user enters an invalid value.</param>
-            <param name="clearWhenSelected">A boolean value to determine 
-            whether the menu should still be displayed after the user have chosen an option.</param>
-            <returns>The member of the enum the user selected.</returns>
-            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are null.</exception>
-            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> is empty.</exception>
-            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/> or <paramref name="invalidSelectionText"/> are not properly formatted xml.</exception>
+            <typeparam name="T">The type of items for the user to select from.</typeparam>
+            <param name="self">The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</param>
+            <param name="displayArgs">An instance of the <see cref="T:ExtendedConsole.MultipleSelectDisplayArgs"/> class holding the display configuration of the menu.</param>
+            <param name="toString">A <see cref="T:System.Func`2"/> to be used to display the items on the console, TResult is a <see cref="T:System.String"/>.</param>
+            <param name="items">The items of the menu.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the values selected by the user.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when any of the text properties of <paramref name="displayArgs"/> are empty, or when <paramref name="items"/> contain less than two items.</exception>
+            <exception cref="T:System.Xml.XmlException">Thrown when any of the text properties of <paramref name="displayArgs"/> aren't properly formatted xml.</exception>
             <example>
-            Display the names of the members of the ConsoleColor enum,
-            asking the user to choose a color from the list. 
-            the color variable is of type ConsoleColor.
+            Show the user a list of dates to choose from, as yyyy-mm-dd, return an <see cref="T:System.Collections.Generic.IEnumerable`1"/> where T is <see cref="T:System.DateTime"/>.
             <code>
-            var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
-               "Choose a foreground color",
-               "Please choose a color.",
-               "Please choose from the above list.",
-               true
+            var dates = exConsole.MultipleSelectMenu(
+                new MultipleSelectDisplayArgs("Select at least one date.", focusedItemColor:ConsoleColor.Cyan), 
+                d => d.ToString("yyyy-mm-dd"),
+                DateTime.Now, 
+                DateTime.Now.AddHours(1), 
+                DateTime.Now.AddHours(2), 
+                DateTime.Now.AddHours(3)
             );
             </code>
-            </example>
-        </member>
-        <member name="M:ExtendedConsole.ExConsoleMenu.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.Boolean)">
-            <summary>
-            Displays enum members as a menu for the user to choose from.
-            </summary>
-            <typeparam name="T">The type of the enum.</typeparam>
-            <param name="self">The current instance of ExConsole.</param>
-            <param name="title">The title of the menu.</param>
-            <param name="quitText">The title of a menu item that isn't a member of the enum, to enable the user to return without choosing.</param>
-            <param name="clearWhenSelected">A boolean value to determine 
-            whether the menu should still be displayed after the user have chosen an option.</param>
-            <returns>The member of the enum the user selected.</returns>
-            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
-            <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
-            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
-            <example>
-            Display the names of the members of the ConsoleColor enum,
-            asking the user to choose a color from the list, or "none".
-            the color variable is of type Nullable&lt;ConsoleColor&gt; and will be null if the user choose "none".
-            <code>
-            var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
-               "Choose a foreground color, or &lt;c f='red&gt;none&lt;/c&gt; to keep current color.",
-               "&lt;c f='red'&gt;none&lt;/c&gt;",
-               true
-            );
-            </code>
-            </example>
-        </member>
-        <member name="M:ExtendedConsole.ExConsoleMenu.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.String,System.Boolean)">
-            <summary>
-            Displays enum members as a menu for the user to choose from.
-            </summary>
-            <typeparam name="T">The type of the enum.</typeparam>
-            <param name="self">The current instance of ExConsole.</param>
-            <param name="title">The title of the menu.</param>
-            <param name="pleaseSelectText">The text to show below the menu.</param>
-            <param name="invalidSelectionText">The text to show when the user enters an invalid value.</param>
-            <param name="quitText">The title of a menu item that isn't a member of the enum, to enable the user to return without choosing.</param>
-            <param name="clearWhenSelected">A boolean value to determine 
-            whether the menu should still be displayed after the user have chosen an option.</param>
-            <returns>The member of the enum the user selected.</returns>
-            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/>, <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are null.</exception>
-            <exception cref="T:System.ArgumentException">Thrown when any of <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> is empty.</exception>
-            <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/>, <paramref name="pleaseSelectText"/>, <paramref name="invalidSelectionText"/> or <paramref name="quitText"/> are not properly formatted xml.</exception>
-            <example>
-            Display the names of the members of the ConsoleColor enum,
-            asking the user to choose a color from the list, or "none".
-            the color variable is of type Nullable&lt;ConsoleColor&gt; and will be null if the user choose "none".
-            <code>
-            var color = exConsole.ChooseFromEnum&lt;ConsoleColor&gt;(
-               "Choose a foreground color",
-               "Please choose a color or &lt;c f='red&gt;none&lt;/c&gt; to keep current color.",
-               "Please choose from the above list.",
-               "&lt;c f='red'&gt;none&lt;/c&gt;",
-               true
-            );
-            </code>
+            After the user selects the desired values, the `dates` variable will contain the user's selection.
             </example>
         </member>
         <member name="T:ExtendedConsole.ExConsoleRead">
@@ -398,6 +659,7 @@
             </summary>
             <param name="self">The current instance of ExConsole.</param>
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> is null.</exception>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
             <example>
             Write "Press any key to continue." to the console, 
             and wait for the user to press a key. Advance the cursor to the next line.
@@ -415,6 +677,7 @@
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
             <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
+            <returns>The current instance of <see cref="T:ExtendedConsole.ExConsole"/>.</returns>
             <example>
             Write "Press any key to continue." to the console, where "any key" is in yellow,
             and wait for the user to press a key. Advance the cursor to the next line.
@@ -472,14 +735,14 @@
         </member>
         <member name="M:ExtendedConsole.ExConsoleRead.ReadStruct``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">
             <summary>
-            Reads an input line from the user and converts it to a nullable T.
+            Reads an input line from the user and converts it to a nullable <typeparamref name="T"/>.
             </summary>
             <typeparam name="T">The underlying type of the nullable to convert to.</typeparam>
             <param name="self">The current instance of ExConsole.</param>
             <param name="title">The title to show the user before asking for input.</param>
             <param name="errorMessage">The error message to show the user if the conversion failed.</param>
-            <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
-            <returns>An instance of T? that has a value unless the user entered ^Z.</returns>
+            <param name="converter">A function that takes in a string and returns a <see cref="T:System.ValueTuple"/> of <see cref="T:System.Boolean"/> success and <typeparamref name="T"/> value.</param>
+            <returns>An instance of <typeparamref name="T"/>? that has a value unless the user entered ^Z.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters is null.</exception>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty.</exception>        
             <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
@@ -497,14 +760,14 @@
         </member>
         <member name="M:ExtendedConsole.ExConsoleRead.ReadClass``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">
             <summary>
-            Reads an input line from the user and converts it to T.
+            Reads an input line from the user and converts it to <typeparamref name="T"/>.
             </summary>
             <typeparam name="T">The target type of the conversion.</typeparam>
             <param name="self">The current instance of ExConsole.</param>
             <param name="title">The title to show the user before asking for input.</param>
             <param name="errorMessage">The error message to show the user if the conversion failed.</param>
-            <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>
-            <returns>The T value converted from the input string, or null if the user entered ^Z.</returns>
+            <param name="converter">A function that takes in a string and returns a <see cref="T:System.ValueTuple"/> of <see cref="T:System.Boolean"/> success and <typeparamref name="T"/> value.</param>
+            <returns>The <typeparamref name="T"/> value converted from the input string, or null if the user entered ^Z.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters is null.</exception>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> are empty.</exception>        
             <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
@@ -528,7 +791,7 @@
         </member>
         <member name="M:ExtendedConsole.ExConsoleRead.ReadValues``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">
             <summary>
-            Reads multiple values from the user, converts and returns them as an IEnumerable&lt;T&gt;.
+            Reads multiple values from the user, converts and returns them as an <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
             Repeats until the user enters the quit text.
             </summary>
             <typeparam name="T">The type of values to convert to.</typeparam>
@@ -537,14 +800,14 @@
             <param name="errorMessage">The error message to show the user if the conversion failed.</param>
             <param name="quit">A string the user should enter when they are done entering values.</param>
             <param name="converter">A function that takes in a string and returns a value tuple of bool success and T value.</param>        
-            <returns>An IEnumerable&lt;T&gt; containing values conveted from the user input.</returns>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing values conveted from the user input.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown when any of the parameters is null.</exception>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="title"/>, <paramref name="errorMessage"/> or <paramref name="quit"/> are empty.</exception>        
             <exception cref="T:System.Xml.XmlException">Thrown when <paramref name="title"/> or <paramref name="errorMessage"/> aren't properly formatted xml.</exception>
             <example>
             Read a collection of int values from the user.
-            The integers vairable is of type IEnumerable&lt;T&gt;, and will never be null.
-            If the user enters "done" before entering any valid integers, the retun value is an empty IEnumerable&lt;T&gt;.
+            The integers vairable is of type <see cref="T:System.Collections.Generic.IEnumerable`1"/>, and will never be null.
+            If the user enters "done" before entering any valid integers, the retun value is an empty <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
             <code>
             var integers = _exConsole.ReadValues(
                 "Please enter integer values, or &lt;c f='red'&gt;done&lt;/c&gt; to quit.",
@@ -763,6 +1026,84 @@
             );
             </code>
             </example>
+        </member>
+        <member name="T:ExtendedConsole.MenuDisplayArgs">
+            <summary>
+            Stores display arguments for menu.
+            </summary>
+        </member>
+        <member name="M:ExtendedConsole.MenuDisplayArgs.#ctor(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:ExtendedConsole.MenuDisplayArgs"/> class with the specified parmeters.
+            </summary>
+            <param name="title">The title of the menu.</param>
+            <param name="pleaseSelectText">The text to be displayed below the menu.</param>
+            <param name="clearWhenSelected">A boolean value to determine 
+            whether the menu should still be displayed after the user have chosen an option.</param>
+            <param name="invalidSelectionErrorMessage">The error message to show if the user entered an invalid selection.</param>
+        </member>
+        <member name="P:ExtendedConsole.MenuDisplayArgs.Title">
+            <summary>
+            Gets the title of the multiple select menu.
+            </summary>
+        </member>
+        <member name="P:ExtendedConsole.MenuDisplayArgs.PleaseSelectText">
+            <summary>
+            Gets the text to be displayed between the title and the menu, instructing the user how to use the menu.
+            </summary>
+        </member>
+        <member name="P:ExtendedConsole.MenuDisplayArgs.ClearWhenSelected">
+            <summary>
+            Gets a boolean value to determine 
+            whether the menu should still be displayed after the user have chosen an option.
+            </summary>
+        </member>
+        <member name="P:ExtendedConsole.MenuDisplayArgs.InvalidSelectionErrorMessage">
+            <summary>
+            Gets the error message to display if the user  enters an invalid value.
+            </summary>
+        </member>
+        <member name="T:ExtendedConsole.MultipleSelectDisplayArgs">
+            <summary>
+            Stores display arguments for multiple select menu.
+            </summary>
+        </member>
+        <member name="M:ExtendedConsole.MultipleSelectDisplayArgs.#ctor(System.String,System.String,System.Boolean,System.ConsoleColor,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:ExtendedConsole.MultipleSelectDisplayArgs"/> class with the specified parmeters.
+            </summary>
+            <param name="title">The title of the multiple select menu.</param>
+            <param name="pleaseSelectText">The text to be displayed between the title and the menu, instructing the user how to use the menu.</param>
+            <param name="clearWhenSelected">A boolean value to determine 
+            whether the menu should still be displayed after the user have completed his selection.</param>
+            <param name="focusedItemColor">The fore color to use for the currently focused item of the menu.</param>
+            <param name="requiredErrorMessage">The error message to display if the user did not select anything from the menu.</param>
+        </member>
+        <member name="P:ExtendedConsole.MultipleSelectDisplayArgs.Title">
+            <summary>
+            Gets the title of the multiple select menu.
+            </summary>
+        </member>
+        <member name="P:ExtendedConsole.MultipleSelectDisplayArgs.PleaseSelectText">
+            <summary>
+            Gets the text to be displayed between the title and the menu, instructing the user how to use the menu.
+            </summary>
+        </member>
+        <member name="P:ExtendedConsole.MultipleSelectDisplayArgs.ClearWhenSelected">
+            <summary>
+            Gets a boolean value to determine 
+            whether the menu should still be displayed after the user have completed his selection.
+            </summary>
+        </member>
+        <member name="P:ExtendedConsole.MultipleSelectDisplayArgs.FocusedItemColor">
+            <summary>
+            Gets the fore color to use for the currently focused item of the menu.
+            </summary>
+        </member>
+        <member name="P:ExtendedConsole.MultipleSelectDisplayArgs.RequiredErrorMessage">
+            <summary>
+            Gets the error message to display if the user did not select anything from the menu.
+            </summary>
         </member>
         <member name="T:ExtendedConsole.Parser">
             <summary>

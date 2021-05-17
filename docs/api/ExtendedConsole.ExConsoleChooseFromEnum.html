@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ExConsoleMenu
+    <title>Class ExConsoleChooseFromEnum
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ExConsoleMenu
+    <meta name="title" content="Class ExConsoleChooseFromEnum
    ">
     <meta name="generator" content="docfx 2.57.2.0">
     
@@ -68,18 +68,18 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="ExtendedConsole.ExConsoleMenu">
+            <article class="content wrap" id="_content" data-uid="ExtendedConsole.ExConsoleChooseFromEnum">
   
   
-  <h1 id="ExtendedConsole_ExConsoleMenu" data-uid="ExtendedConsole.ExConsoleMenu" class="text-break">Class ExConsoleMenu
+  <h1 id="ExtendedConsole_ExConsoleChooseFromEnum" data-uid="ExtendedConsole.ExConsoleChooseFromEnum" class="text-break">Class ExConsoleChooseFromEnum
   </h1>
-  <div class="markdown level0 summary"><p>Provides extension methods for ExConsole to support simple menus.</p>
+  <div class="markdown level0 summary"><p>Provides extension methods for ExConsole to support simple menus based on enum values.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ExConsoleMenu</span></div>
+    <div class="level1"><span class="xref">ExConsoleChooseFromEnum</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -107,22 +107,23 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="ExtendedConsole.html">ExtendedConsole</a></h6>
   <h6><strong>Assembly</strong>: ExtendedConsole.dll</h6>
-  <h5 id="ExtendedConsole_ExConsoleMenu_syntax">Syntax</h5>
+  <h5 id="ExtendedConsole_ExConsoleChooseFromEnum_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class ExConsoleMenu</code></pre>
+    <pre><code class="lang-csharp hljs">public static class ExConsoleChooseFromEnum</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="ExtendedConsole_ExConsoleMenu_Menu_" data-uid="ExtendedConsole.ExConsoleMenu.Menu*"></a>
-  <h4 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_String___" data-uid="ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,ExtendedConsole.MenuDisplayArgs,System.String[])">Menu(ExConsole, MenuDisplayArgs, String[])</h4>
-  <div class="markdown level1 summary"><p>Displays a menu to the user and invokes the action the user chooses.</p>
+  <a id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum*"></a>
+  <h4 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,ExtendedConsole.MenuDisplayArgs)">ChooseFromEnum&lt;T&gt;(ExConsole, MenuDisplayArgs)</h4>
+  <div class="markdown level1 summary"><p>Displays enum members as a menu for the user to choose from.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Menu(this ExConsole self, MenuDisplayArgs displayArgs, params string[] items)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T ChooseFromEnum&lt;T&gt;(this ExConsole self, MenuDisplayArgs displayArgs)
+    where T : Enum</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -143,13 +144,7 @@
       <tr>
         <td><a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a></td>
         <td><span class="parametername">displayArgs</span></td>
-        <td><p>An instance of the <a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a> class holding the display configuration of the menu.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">items</span></td>
-        <td><p>The items of the menu.</p>
+        <td><p>An instance of the <a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a> class holding the display configuration of the enum based menu.</p>
 </td>
       </tr>
     </tbody>
@@ -164,23 +159,39 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>An integer representing the user's choice.</p>
+        <td><span class="xref">T</span></td>
+        <td><p>The member of the enum the user selected.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_String____examples">Examples</h5>
-  <p>Create and run a menu with the specified items, &quot;What to do next?&quot; as a title,<br>
-&quot;Please enter the number of your selection.&quot; displayed below the items,
-and &quot;Invalid number entered. Please try again.&quot;, if the user enters an invalid value.
-This menu does not execute anything, it only returns the zero-based index of the item selected by the user</p>
-<pre><code> var selection = exConsole.Menu(
-    new MenuDisplayArgs(&quot;What to do next?&quot;, &quot;Please enter the number of your selection.&quot;, invalidSelectionErrorMessage:&quot;Invalid number entered. Please try again.&quot; )
-    &quot;&lt;c f=&apos;Yellow&apos;>quit&lt;c>&quot;,
-    &quot;Do this&quot;,
-    &quot;Do that&quot;
- );</code></pre>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the enum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs__examples">Examples</h5>
+  <p>Display the names of the members of the ConsoleColor enum,
+asking the user to choose a color from the list.
+the color variable is of type ConsoleColor.</p>
+<pre><code>var color = exConsole.ChooseFromEnum&lt;ConsoleColor>(
+   new MenuDisplayArgs(
+       &quot;Choose a foreground color&quot;,
+       &quot;Please choose a color.&quot;,
+       false, 
+       &quot;Please choose from the above list.&quot;)
+);</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -193,31 +204,32 @@ This menu does not execute anything, it only returns the zero-based index of the
     <tbody>
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> or any of it's properties are null.</p>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code>, <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> or any of its properties are null.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> is empty or when <code data-dev-comment-type="paramref" class="paramref">items</code> are not supplied.</p>
+        <td><p>Thrown when any of the string properties of <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> are empty.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when any of the text properties of <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> isn't properly formatted xml.</p>
+        <td><p>Thrown when any of the string properties of <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> are not properly formatted xml.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="ExtendedConsole_ExConsoleMenu_Menu_" data-uid="ExtendedConsole.ExConsoleMenu.Menu*"></a>
-  <h4 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_ValueTuple_System_String_System_Action____" data-uid="ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,ExtendedConsole.MenuDisplayArgs,System.ValueTuple{System.String,System.Action}[])">Menu(ExConsole, MenuDisplayArgs, (String Title, Action Action)[])</h4>
-  <div class="markdown level1 summary"><p>Displays a menu to the user and invokes the action the user chooses.</p>
+  <a id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum*"></a>
+  <h4 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_ExtendedConsole_MenuDisplayArgs_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,ExtendedConsole.MenuDisplayArgs)">ChooseFromEnum&lt;T&gt;(ExConsole, String, MenuDisplayArgs)</h4>
+  <div class="markdown level1 summary"><p>Displays enum members as a menu for the user to choose from.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int Menu(this ExConsole self, MenuDisplayArgs displayArgs, params (string Title, Action Action)[] items)</code></pre>
+    <pre><code class="lang-csharp hljs">public static T? ChooseFromEnum&lt;T&gt;(this ExConsole self, string quitText, MenuDisplayArgs displayArgs)
+    where T : struct, Enum</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -236,17 +248,15 @@ This menu does not execute anything, it only returns the zero-based index of the
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a></td>
-        <td><span class="parametername">displayArgs</span></td>
-        <td><p>An instance of the <a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a> class holding the display configuration of the menu.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">quitText</span></td>
+        <td><p>The title of a menu item that isn't a member of the enum, to enable the user to return without choosing.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Action</span>&gt;[]</td>
-        <td><span class="parametername">items</span></td>
-        <td><p>The items of the menu.
-Each item contains a title and an action to perform, should the user choses this item.
-null can be passed in as the action if the item selection should perform no action.</p>
+        <td><a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a></td>
+        <td><span class="parametername">displayArgs</span></td>
+        <td><p>An instance of the <a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a> class holding the display configuration of the enum based menu.</p>
 </td>
       </tr>
     </tbody>
@@ -261,20 +271,39 @@ null can be passed in as the action if the item selection should perform no acti
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>An integer representing the user's choice.</p>
+        <td><span class="xref">System.Nullable</span>&lt;T&gt;</td>
+        <td><p>The member of the enum the user selected, or null if the user selected the &quot;quit&quot; menu item.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_ValueTuple_System_String_System_Action_____examples">Examples</h5>
-  <p>Create and run a menu with the specified title and items, that will disapear after the user selected an item.</p>
-<pre><code> var selection = exConsole.Menu(
-     new MenuDisplayArgs(&quot;What to do next?&quot;),
-     (&quot;&lt;c f=&apos;Yellow&apos;>quit&lt;c>&quot;, null),
-     (&quot;Do this&quot;, () => DoThis(3)),
-     (&quot;Do that&quot;, DoThat)
- );</code></pre>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the enum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_ExtendedConsole_MenuDisplayArgs__examples">Examples</h5>
+  <p>Display the names of the members of the ConsoleColor enum,
+asking the user to choose a color from the list, or &quot;none&quot;.
+the color variable is of type Nullable&lt;ConsoleColor&gt; and will be null if the user choose &quot;none&quot;.</p>
+<pre><code>var color = exConsole.ChooseFromEnum&lt;ConsoleColor>(
+   &quot;&lt;c f=&apos;red&apos;>none&lt;/c>&quot;,
+   new MenuDisplayArgs(
+       &quot;Choose a foreground color&quot;, 
+       &quot;Please choose a color or &lt;c f=&apos;red>none&lt;/c> to keep current color.&quot;, 
+       invalidSelectionErrorMessage:&quot;Please choose from the above list.&quot;)
+);</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -287,39 +316,158 @@ null can be passed in as the action if the item selection should perform no acti
     <tbody>
       <tr>
         <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> or any of it's properties are null.</p>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code>, <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> or any of its properties, or <code data-dev-comment-type="paramref" class="paramref">quitText</code> are null.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> is empty or when <code data-dev-comment-type="paramref" class="paramref">items</code> are not supplied.</p>
+        <td><p>Thrown when any of the string properties of <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> or <code data-dev-comment-type="paramref" class="paramref">quitText</code> are empty.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when any of the text properties of <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> isn't properly formatted xml.</p>
+        <td><p>Thrown when any of the string properties of <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> or <code data-dev-comment-type="paramref" class="paramref">quitText</code> are not properly formatted xml.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="ExtendedConsole_ExConsoleMenu_Menu_" data-uid="ExtendedConsole.ExConsoleMenu.Menu*"></a>
-  <h4 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_Boolean_System_String___" data-uid="ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.Boolean,System.String[])">Menu(ExConsole, String, Boolean, String[])</h4>
+  <a id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum*"></a>
+  <h4 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_Boolean_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.Boolean)">ChooseFromEnum&lt;T&gt;(ExConsole, String, Boolean)</h4>
   <div class="markdown level1 summary"><p>Note:</p>
 <p>
 This method is deprecated and will be removed in future versions.
-Use the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.
+Use the ChooseFromEnum&lt;T> overload that takes an instance of MenuDisplayArgs as an argument instead.
 </p>
 <p>
-Displays a menu to the user and returns the index of the item the user chooses.
+Displays enum members as a menu for the user to choose from.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.\r\nUse the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.&quot;)]
-public static int Menu(this ExConsole self, string title, bool clearWhenSelected, params string[] items)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.\r\nUse the ChooseFromEnum&lt;T&gt; overload that takes an instance of MenuDisplayArgs as an argument instead.&quot;)]
+public static T ChooseFromEnum&lt;T&gt;(this ExConsole self, string title, bool clearWhenSelected)
+    where T : Enum</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p>The title of the menu.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">clearWhenSelected</span></td>
+        <td><p>A boolean value to determine
+whether the menu should still be displayed after the user have chosen an option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The member of the enum the user selected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the enum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_Boolean__examples">Examples</h5>
+  <p>Display the names of the members of the ConsoleColor enum,
+asking the user to choose a color from the list.
+the color variable is of type ConsoleColor.</p>
+<pre><code>var color = exConsole.ChooseFromEnum&lt;ConsoleColor>(
+   &quot;Choose a foreground color&quot;,
+   true
+);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">title</code> are null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Xml.XmlException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> isn't properly formatted xml.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum*"></a>
+  <h4 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_String_System_Boolean_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.Boolean)">ChooseFromEnum&lt;T&gt;(ExConsole, String, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Note:</p>
+<p>
+This method is deprecated and will be removed in future versions.
+Use the ChooseFromEnum&lt;T> overload that takes an instance of MenuDisplayArgs as an argument instead.
+</p>
+<p>
+Displays enum members as a menu for the user to choose from.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.\r\nUse the ChooseFromEnum&lt;T&gt; overload that takes a string and an instance of MenuDisplayArgs as an argument instead.&quot;)]
+public static T? ChooseFromEnum&lt;T&gt;(this ExConsole self, string title, string quitText, bool clearWhenSelected)
+    where T : struct, Enum</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -344,16 +492,16 @@ public static int Menu(this ExConsole self, string title, bool clearWhenSelected
 </td>
       </tr>
       <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">quitText</span></td>
+        <td><p>The title of a menu item that isn't a member of the enum, to enable the user to return without choosing.</p>
+</td>
+      </tr>
+      <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">clearWhenSelected</span></td>
         <td><p>A boolean value to determine
 whether the menu should still be displayed after the user have chosen an option.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">items</span></td>
-        <td><p>The items of the menu.</p>
 </td>
       </tr>
     </tbody>
@@ -368,133 +516,37 @@ whether the menu should still be displayed after the user have chosen an option.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>An integer representing the user's choice.</p>
+        <td><span class="xref">System.Nullable</span>&lt;T&gt;</td>
+        <td><p>The member of the enum the user selected.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_Boolean_System_String____examples">Examples</h5>
-  <p>Create and run a menu with the specified title and items.
-This menu does not execute anything, it only returns the zero-based index of the item selected by the user</p>
-<pre><code>var selection = exConsole.Menu(
-    &quot;What to do next?&quot;,
-    false,
-    &quot;&lt;c f=&apos;Yellow&apos;>quit&lt;c>&quot;,
-    &quot;Do this&quot;,
-    &quot;Do that&quot;
-);
- // Do something with the selection here.</code></pre>
-
-  <h5 class="exceptions">Exceptions</h5>
+  <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">title</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty or when <code data-dev-comment-type="paramref" class="paramref">items</code> are not supplied.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ExtendedConsole_ExConsoleMenu_Menu_" data-uid="ExtendedConsole.ExConsoleMenu.Menu*"></a>
-  <h4 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_Boolean_System_ValueTuple_System_String_System_Action____" data-uid="ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.Boolean,System.ValueTuple{System.String,System.Action}[])">Menu(ExConsole, String, Boolean, (String Title, Action Action)[])</h4>
-  <div class="markdown level1 summary"><p>Note:</p>
-<p>
-This method is deprecated and will be removed in future versions.
-Use the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.
-</p>
-<p>
-Displays a menu to the user and invokes the action the user chooses.
-</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.\r\nUse the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.&quot;)]
-public static int Menu(this ExConsole self, string title, bool clearWhenSelected, params (string Title, Action Action)[] items)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
         <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title of the menu.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">clearWhenSelected</span></td>
-        <td><p>A boolean value to determine
-whether the menu should still be displayed after the user have chosen an option.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Action</span>&gt;[]</td>
-        <td><span class="parametername">items</span></td>
-        <td><p>The items of the menu.
-Each item contains a title and an action to perform, should the user choses this item.
-null can be passed in as the action if the item selection should perform no action.</p>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the enum.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>An integer representing the user's choice.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_Boolean_System_ValueTuple_System_String_System_Action_____examples">Examples</h5>
-  <p>Create and run a menu with the specified title and items, that will disapear after the user selected an item.</p>
-<pre><code> var selection = exConsole.Menu(
-     &quot;What to do next?&quot;,
-     true,
-     (&quot;&lt;c f=&apos;Yellow&apos;>quit&lt;c>&quot;, null),
-     (&quot;Do this&quot;, () => DoThis(3)),
-     (&quot;Do that&quot;, DoThat)
- );</code></pre>
+  <h5 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_String_System_Boolean__examples">Examples</h5>
+  <p>Display the names of the members of the ConsoleColor enum,
+asking the user to choose a color from the list, or &quot;none&quot;.
+the color variable is of type Nullable&lt;ConsoleColor&gt; and will be null if the user choose &quot;none&quot;.</p>
+<pre><code>var color = exConsole.ChooseFromEnum&lt;ConsoleColor>(
+   &quot;Choose a foreground color, or &lt;c f=&apos;red>none&lt;/c> to keep current color.&quot;,
+   &quot;&lt;c f=&apos;red&apos;>none&lt;/c>&quot;,
+   true
+);</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -512,7 +564,7 @@ null can be passed in as the action if the item selection should perform no acti
       </tr>
       <tr>
         <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty or when <code data-dev-comment-type="paramref" class="paramref">items</code> are not supplied.</p>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
 </td>
       </tr>
       <tr>
@@ -524,22 +576,23 @@ null can be passed in as the action if the item selection should perform no acti
   </table>
   
   
-  <a id="ExtendedConsole_ExConsoleMenu_Menu_" data-uid="ExtendedConsole.ExConsoleMenu.Menu*"></a>
-  <h4 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Boolean_System_String___" data-uid="ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Boolean,System.String[])">Menu(ExConsole, String, String, String, Boolean, String[])</h4>
+  <a id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum*"></a>
+  <h4 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Boolean_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Boolean)">ChooseFromEnum&lt;T&gt;(ExConsole, String, String, String, Boolean)</h4>
   <div class="markdown level1 summary"><p>Note:</p>
 <p>
 This method is deprecated and will be removed in future versions.
-Use the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.
+Use the ChooseFromEnum&lt;T> overload that takes an instance of MenuDisplayArgs as an argument instead.
 </p>
 <p>
-Displays a menu to the user and returns the index of the item the user chooses.
+Displays enum members as a menu for the user to choose from.
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.\r\nUse the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.&quot;)]
-public static int Menu(this ExConsole self, string title, string pleaseSelectText, string invalidSelectionText, bool clearWhenSelected, params string[] items)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.\r\nUse the ChooseFromEnum&lt;T&gt; overload that takes an instance of MenuDisplayArgs as an argument instead.&quot;)]
+public static T ChooseFromEnum&lt;T&gt;(this ExConsole self, string title, string pleaseSelectText, string invalidSelectionText, bool clearWhenSelected)
+    where T : Enum</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -582,12 +635,6 @@ public static int Menu(this ExConsole self, string title, string pleaseSelectTex
 whether the menu should still be displayed after the user have chosen an option.</p>
 </td>
       </tr>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">items</span></td>
-        <td><p>The items of the menu.</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -600,153 +647,37 @@ whether the menu should still be displayed after the user have chosen an option.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>An integer representing the user's choice.</p>
+        <td><span class="xref">T</span></td>
+        <td><p>The member of the enum the user selected.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Boolean_System_String____examples">Examples</h5>
-  <p>Create and run a menu with the specified items, &quot;What to do next?&quot; as a title,<br>
-&quot;Please select an item from the menu.&quot; displayed below the items,
-and &quot;Invalid value entered.&quot;, if the user enters an invalid value.
-This menu does not execute anything, it only returns the zero-based index of the item selected by the user</p>
-<pre><code>var selection = exConsole.Menu(
-    &quot;What to do next?&quot;,
-    &quot;Please select an item from the menu.&quot;,
-    &quot;Invalid value entered.&quot;,
-    false,
-    &quot;&lt;c f=&apos;Yellow&apos;>quit&lt;c>&quot;,
-    &quot;Do this&quot;,
-    &quot;Do that&quot;
-);
- // Do something with the selection here.</code></pre>
-
-  <h5 class="exceptions">Exceptions</h5>
+  <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code>, <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">pleaseSelectText</code> or <code data-dev-comment-type="paramref" class="paramref">invalidSelectionText</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when any of <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">pleaseSelectText</code> or <code data-dev-comment-type="paramref" class="paramref">invalidSelectionText</code> is empty or when <code data-dev-comment-type="paramref" class="paramref">items</code> are not supplied.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">pleaseSelectText</code> or <code data-dev-comment-type="paramref" class="paramref">invalidSelectionText</code> are not properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ExtendedConsole_ExConsoleMenu_Menu_" data-uid="ExtendedConsole.ExConsoleMenu.Menu*"></a>
-  <h4 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Boolean_System_ValueTuple_System_String_System_Action____" data-uid="ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Boolean,System.ValueTuple{System.String,System.Action}[])">Menu(ExConsole, String, String, String, Boolean, (String Title, Action Action)[])</h4>
-  <div class="markdown level1 summary"><p>Note:</p>
-<p>
-This method is deprecated and will be removed in future versions.
-Use the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.
-</p>
-<p>
-Displays a menu to the user and invokes the action the user chooses.
-</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.\r\nUse the Menu overload that takes an instance of MenuDisplayArgs as an argument instead.&quot;)]
-public static int Menu(this ExConsole self, string title, string pleaseSelectText, string invalidSelectionText, bool clearWhenSelected, params (string Title, Action Action)[] items)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
         <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title of the menu.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">pleaseSelectText</span></td>
-        <td><p>The text to show below the menu.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">invalidSelectionText</span></td>
-        <td><p>The text to show when the user enters an invalid value.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">clearWhenSelected</span></td>
-        <td><p>A boolean value to determine
-whether the menu should still be displayed after the user have chosen an option.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Action</span>&gt;[]</td>
-        <td><span class="parametername">items</span></td>
-        <td><p>The items of the menu.
-Each item contains a title and an action to perform, should the user choses this item.
-null can be passed in as the action if the item selection should perform no action.</p>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the enum.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>An integer representing the user's choice.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Boolean_System_ValueTuple_System_String_System_Action_____examples">Examples</h5>
-  <p>Create and run a menu with the specified items, &quot;What to do next?&quot; as a title,<br>
-&quot;Please select an item from the menu.&quot; displayed below the items,
-and &quot;Invalid value entered.&quot;, if the user enters an invalid value.
-This menu will still be visible after the user selects an item.</p>
-<pre><code>var selection = exConsole.Menu(
-    &quot;What to do next?&quot;,
-    &quot;Please select an item from the menu.&quot;,
-    &quot;Invalid value entered.&quot;,
-    false,
-    (&quot;&lt;c f=&apos;Yellow&apos;>quit&lt;c>&quot;, null),
-    (&quot;Do this&quot;, () => DoThis(3)),
-    (&quot;Do that&quot;, DoThat)
+  <h5 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Boolean__examples">Examples</h5>
+  <p>Display the names of the members of the ConsoleColor enum,
+asking the user to choose a color from the list.
+the color variable is of type ConsoleColor.</p>
+<pre><code>var color = exConsole.ChooseFromEnum&lt;ConsoleColor>(
+   &quot;Choose a foreground color&quot;,
+   &quot;Please choose a color.&quot;,
+   &quot;Please choose from the above list.&quot;,
+   true
 );</code></pre>
 
   <h5 class="exceptions">Exceptions</h5>
@@ -765,12 +696,151 @@ This menu will still be visible after the user selects an item.</p>
       </tr>
       <tr>
         <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when any of <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">pleaseSelectText</code> or <code data-dev-comment-type="paramref" class="paramref">invalidSelectionText</code> is empty or when <code data-dev-comment-type="paramref" class="paramref">items</code> are not supplied.</p>
+        <td><p>Thrown when any of <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">pleaseSelectText</code> or <code data-dev-comment-type="paramref" class="paramref">invalidSelectionText</code> is empty.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Xml.XmlException</span></td>
         <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">pleaseSelectText</code> or <code data-dev-comment-type="paramref" class="paramref">invalidSelectionText</code> are not properly formatted xml.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum*"></a>
+  <h4 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_String_System_Boolean_" data-uid="ExtendedConsole.ExConsoleChooseFromEnum.ChooseFromEnum``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.String,System.Boolean)">ChooseFromEnum&lt;T&gt;(ExConsole, String, String, String, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Note:</p>
+<p>
+This method is deprecated and will be removed in future versions.
+Use the ChooseFromEnum&lt;T> overload that takes an instance of MenuDisplayArgs as an argument instead.
+</p>
+<p>
+Displays enum members as a menu for the user to choose from.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.\r\nUse the ChooseFromEnum&lt;T&gt; overload that takes a string and an instance of MenuDisplayArgs as an argument instead.&quot;)]
+public static T? ChooseFromEnum&lt;T&gt;(this ExConsole self, string title, string pleaseSelectText, string invalidSelectionText, string quitText, bool clearWhenSelected)
+    where T : struct, Enum</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The current instance of ExConsole.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">title</span></td>
+        <td><p>The title of the menu.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pleaseSelectText</span></td>
+        <td><p>The text to show below the menu.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">invalidSelectionText</span></td>
+        <td><p>The text to show when the user enters an invalid value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">quitText</span></td>
+        <td><p>The title of a menu item that isn't a member of the enum, to enable the user to return without choosing.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">clearWhenSelected</span></td>
+        <td><p>A boolean value to determine
+whether the menu should still be displayed after the user have chosen an option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;T&gt;</td>
+        <td><p>The member of the enum the user selected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the enum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_String_System_Boolean__examples">Examples</h5>
+  <p>Display the names of the members of the ConsoleColor enum,
+asking the user to choose a color from the list, or &quot;none&quot;.
+the color variable is of type Nullable&lt;ConsoleColor&gt; and will be null if the user choose &quot;none&quot;.</p>
+<pre><code>var color = exConsole.ChooseFromEnum&lt;ConsoleColor>(
+   &quot;Choose a foreground color&quot;,
+   &quot;Please choose a color or &lt;c f=&apos;red>none&lt;/c> to keep current color.&quot;,
+   &quot;Please choose from the above list.&quot;,
+   &quot;&lt;c f=&apos;red&apos;>none&lt;/c>&quot;,
+   true
+);</code></pre>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code>, <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">pleaseSelectText</code>, <code data-dev-comment-type="paramref" class="paramref">invalidSelectionText</code> or <code data-dev-comment-type="paramref" class="paramref">quitText</code> are null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Thrown when any of <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">pleaseSelectText</code>, <code data-dev-comment-type="paramref" class="paramref">invalidSelectionText</code> or <code data-dev-comment-type="paramref" class="paramref">quitText</code> is empty.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Xml.XmlException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">pleaseSelectText</code>, <code data-dev-comment-type="paramref" class="paramref">invalidSelectionText</code> or <code data-dev-comment-type="paramref" class="paramref">quitText</code> are not properly formatted xml.</p>
 </td>
       </tr>
     </tbody>

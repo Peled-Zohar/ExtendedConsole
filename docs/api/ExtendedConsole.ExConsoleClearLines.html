@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ExConsoleClearLines
    ">
-    <meta name="generator" content="docfx 2.47.0.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -115,14 +115,66 @@
   </h3>
   
   
-  <a id="ExtendedConsole_ExConsoleClearLines_ClearLastLine_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearLastLine*"></a>
-  <h4 id="ExtendedConsole_ExConsoleClearLines_ClearLastLine_ExtendedConsole_ExConsole_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearLastLine(ExtendedConsole.ExConsole)">ClearLastLine(ExConsole)</h4>
-  <div class="markdown level1 summary"><p>Clears all text from the last line.</p>
+  <a id="ExtendedConsole_ExConsoleClearLines_ClearAllLines_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearAllLines*"></a>
+  <h4 id="ExtendedConsole_ExConsoleClearLines_ClearAllLines_ExtendedConsole_ExConsole_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearAllLines(ExtendedConsole.ExConsole)">ClearAllLines(ExConsole)</h4>
+  <div class="markdown level1 summary"><p>Clears all the text on the console, and returns the current instance of ExConsole.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void ClearLastLine(this ExConsole self)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ExConsole ClearAllLines(this ExConsole self)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleClearLines_ClearAllLines_ExtendedConsole_ExConsole__examples">Examples</h5>
+  <p>Pause, clear all lines, and ask the user to enter an integer value:</p>
+<pre><code>exConsole
+    .Pause(&quot;Press any key to continue&quot;)
+    .ClearAllLines()
+    .ReadInt(&quot;Please enter a number:&quot;);</code></pre>
+
+  
+  
+  <a id="ExtendedConsole_ExConsoleClearLines_ClearCurrentLine_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearCurrentLine*"></a>
+  <h4 id="ExtendedConsole_ExConsoleClearLines_ClearCurrentLine_ExtendedConsole_ExConsole_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearCurrentLine(ExtendedConsole.ExConsole)">ClearCurrentLine(ExConsole)</h4>
+  <div class="markdown level1 summary"><p>Clears all text from the current line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExConsole ClearCurrentLine(this ExConsole self)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -142,20 +194,36 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="ExtendedConsole_ExConsoleClearLines_ClearLastLine_ExtendedConsole_ExConsole__examples">Examples</h5>
-  <p>Clear the last line.</p>
-<pre><code>exConsole.ClearLastLine();</code></pre>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleClearLines_ClearCurrentLine_ExtendedConsole_ExConsole__examples">Examples</h5>
+  <p>Clears the current line of the console.</p>
+<pre><code>exConsole.ClearCurrentLine();</code></pre>
 
   
   
-  <a id="ExtendedConsole_ExConsoleClearLines_ClearLastLines_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearLastLines*"></a>
-  <h4 id="ExtendedConsole_ExConsoleClearLines_ClearLastLines_ExtendedConsole_ExConsole_System_Int32_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearLastLines(ExtendedConsole.ExConsole,System.Int32)">ClearLastLines(ExConsole, Int32)</h4>
-  <div class="markdown level1 summary"><p>Clears all text from the last lines.</p>
+  <a id="ExtendedConsole_ExConsoleClearLines_ClearLastLine_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearLastLine*"></a>
+  <h4 id="ExtendedConsole_ExConsoleClearLines_ClearLastLine_ExtendedConsole_ExConsole_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearLastLine(ExtendedConsole.ExConsole)">ClearLastLine(ExConsole)</h4>
+  <div class="markdown level1 summary"><p>Clears all text from the last line.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void ClearLastLines(this ExConsole self, int numberOfLines)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ExConsole ClearLastLine(this ExConsole self)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -173,10 +241,75 @@
         <td><p>The current instance of ExConsole.</p>
 </td>
       </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ExtendedConsole_ExConsoleClearLines_ClearLastLine_ExtendedConsole_ExConsole__examples">Examples</h5>
+  <p>Clear the last line.</p>
+<pre><code>exConsole.ClearLastLine();</code></pre>
+
+  
+  
+  <a id="ExtendedConsole_ExConsoleClearLines_ClearLastLines_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearLastLines*"></a>
+  <h4 id="ExtendedConsole_ExConsoleClearLines_ClearLastLines_ExtendedConsole_ExConsole_System_Int32_" data-uid="ExtendedConsole.ExConsoleClearLines.ClearLastLines(ExtendedConsole.ExConsole,System.Int32)">ClearLastLines(ExConsole, Int32)</h4>
+  <div class="markdown level1 summary"><p>Clears all text from the last lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ExConsole ClearLastLines(this ExConsole self, int numberOfLines)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</td>
+      </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">numberOfLines</span></td>
         <td><p>The number of lines to clear (count up from last line)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -210,7 +343,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void ClearLine(this ExConsole self, int lineIndex)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ExConsole ClearLine(this ExConsole self, int lineIndex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -232,6 +365,22 @@
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">lineIndex</span></td>
         <td><p>Line index to clear.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
+        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -266,7 +415,8 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

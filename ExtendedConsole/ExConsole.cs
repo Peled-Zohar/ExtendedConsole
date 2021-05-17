@@ -26,15 +26,17 @@ namespace ExtendedConsole
         /// </summary>
         /// <param name="markup">Markup text to write.</param>
         /// <exception cref="System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+        /// <returns>The current instance of <see cref="ExConsole"/>.</returns>
         /// <example>
         /// Write "Hello World!", cyan on a dark gray background.
         /// <code>
         /// exConsole.Write("&lt;c f='cyan' b='darkgray'&gt;Hello World!&lt;c&gt;");
         /// </code>
         /// </example>
-        public void Write(string markup)
+        public ExConsole Write(string markup)
         {
             Parser.ParseMarkeup(markup).Write();
+            return this;
         }
 
         /// <summary>
@@ -42,6 +44,7 @@ namespace ExtendedConsole
         /// </summary>
         /// <param name="markup">Markup text to write.</param>
         /// <exception cref="System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+        /// <returns>The current instance of <see cref="ExConsole"/>.</returns>
         /// <example>
         /// Write "Hello World!", black on a white background, 
         /// and advance the cursor to the next line.
@@ -49,9 +52,10 @@ namespace ExtendedConsole
         /// exConsole.WriteLine("&lt;c b='white' f='black'&gt;Hello World!&lt;c&gt;");
         /// </code>
         /// </example>
-        public void WriteLine(string markup)
+        public ExConsole WriteLine(string markup)
         {
             Parser.ParseMarkeup(markup).WriteLine();
+            return this;
         }
 
         /// <summary>
@@ -59,6 +63,7 @@ namespace ExtendedConsole
         /// </summary>
         /// <param name="lines">Lines of markup text to write.</param>
         /// <exception cref="System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+        /// <returns>The current instance of <see cref="ExConsole"/>.</returns>
         /// <example>
         /// Write "Hello World!" in yellow, 
         /// "This is exConsole writing multiple markup lines" in the next line, with exConsole in green, and
@@ -71,12 +76,13 @@ namespace ExtendedConsole
         /// );
         /// </code>
         /// </example>
-        public void WriteLines(params string[] lines)
+        public ExConsole WriteLines(params string[] lines)
         {
             foreach(var line in lines)
             {
                 WriteLine(line);
             }
+            return this;
         }
 
         /// <summary>
@@ -87,16 +93,15 @@ namespace ExtendedConsole
         /// <param name="foregroundColor">Foreground color.</param>
         /// <param name="backgroundColor">Background color.</param>
         /// <exception cref="System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+        /// <returns>The current instance of <see cref="ExConsole"/>.</returns>
         /// <example>
         /// Write "Hello World!" in magenta, followed by "How are you?" in black on a white background. Advance the cursor to the next line.
         /// <code>
         /// exConsole.WriteLine("Hello world! &lt;c b='white' f='black'&gt;How are you?&lt;c&gt;", ConsoleColor.Magenta, null);
         /// </code>
         /// </example>
-        public void WriteLine(string markup, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
-        {
-            WriteInColor(() => WriteLine(markup), foregroundColor, backgroundColor);
-        }
+        public ExConsole WriteLine(string markup, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
+            => WriteInColor(() => WriteLine(markup), foregroundColor, backgroundColor);
 
         /// <summary>
         /// Changes console colors to the specified colors, and writes the specified markup to the console. 
@@ -105,17 +110,15 @@ namespace ExtendedConsole
         /// <param name="foregroundColor">Foreground color.</param>
         /// <param name="backgroundColor">Background color.</param>
         /// <exception cref="System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
+        /// <returns>The current instance of <see cref="ExConsole"/>.</returns>
         /// <example>
         /// Write "Hello World!" in black on a magenta background, followed by "How are you?" in black on a white background.
         /// <code>
         /// exConsole.Write("Hello world! &lt;c b='white' f='black'&gt;How are you?&lt;c&gt;", ConsoleColor.Black, ConsoleColor.Magenta);
         /// </code>
         /// </example>
-        public void Write(string markup, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
-        {
-            
-            WriteInColor(() => Write(markup), foregroundColor, backgroundColor);
-        }
+        public ExConsole Write(string markup, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
+            => WriteInColor(() => Write(markup), foregroundColor, backgroundColor);
 
         // <summary>
         // Writes the specified text with the specified colors, 
@@ -125,7 +128,8 @@ namespace ExtendedConsole
         // <param name="foregroundColor">Foreground color.</param>
         // <param name="backgroundColor">Background color.</param>
         // <exception cref="System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
-        private void WriteInColor(Action action, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
+        // <returns>The current instance of<see cref= "ExConsole" />.</ returns >
+        private ExConsole WriteInColor(Action action, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
         {
             var (Foreground, Background) = (Console.ForegroundColor, Console.BackgroundColor);
             Console.ForegroundColor = foregroundColor ?? Foreground;
@@ -135,6 +139,8 @@ namespace ExtendedConsole
 
             Console.ForegroundColor = Foreground;
             Console.BackgroundColor = Background;
+
+            return this;
         }
     }
 }
