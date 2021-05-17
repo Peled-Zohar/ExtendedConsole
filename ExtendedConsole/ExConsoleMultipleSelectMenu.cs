@@ -76,11 +76,13 @@ namespace ExtendedConsole
        )
         { 
             ValidateArguments();
-
             var menuItems = items.Select(v => new MultipleSelectMenuItem<T>(v, toString)).ToList();
+            
+            var absoluteTop = Console.CursorTop; 
             self.WriteLines(displayArgs.Title, "", displayArgs.PleaseSelectText);
 
             var menuTop = Console.CursorTop;
+
             menuItems[0].IsFocused = true;
 
             ShowMenu();
@@ -88,7 +90,7 @@ namespace ExtendedConsole
 
             if (displayArgs.ClearWhenSelected)
             {
-                self.ClearLastLines(Console.CursorTop - menuTop);
+                self.ClearLastLines(Console.CursorTop - absoluteTop);
             }
 
             return menuItems.Where(i => i.IsSelected).Select(i => i.Value);

@@ -13,19 +13,6 @@ namespace UsingExtendedConsole
         {
             Console.Title = "Using Extended Console";
 
-            exConsole.ChooseFromEnum<ConsoleColor>("s", true);
-
-            var boolean = exConsole.ReadBool(ConsoleKey.Y, ConsoleKey.N, "Please press y or n");
-            if(boolean)
-            {
-                Console.WriteLine("You've entered y");
-                exConsole.Pause();
-            }
-            else
-            {
-                exConsole.WriteLine("You've entered n").Pause();
-            }
-
             var arr = new MID[]
             {
                 new MID(1, "Zohar"),
@@ -35,6 +22,8 @@ namespace UsingExtendedConsole
             };
 
             var a = exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("Multiple select with args", focusedItemColor:ConsoleColor.Cyan), arr);
+
+            exConsole.Pause();
 
             var b = exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("Multiple select with args and toString"), s => $"<c f='green'>{s.Id}</c> {s.Name}" , arr);
 

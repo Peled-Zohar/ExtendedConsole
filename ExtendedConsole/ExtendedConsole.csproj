@@ -13,16 +13,12 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>7.3</LangVersion>
     <PackageReleaseNotes>Changes from previous version:
-1. Added a class called MenuDisplayArgs to reduce the number of overloads and simplify the work.
-2. Added a new static class called ExConsoleChooseFromEnum, containing methods that once where in ExConsoleMenu class.
-3. Added new functionality - multiple select menues, in ExConsoleMultipleSelectMenu class.
-This change also comes with a MultipleSelectDisplayArgs class to hold display configuration for the multiple select menu.
-4. Changed void methods to return the current instance of the ExConsole class to enable fluent usage.</PackageReleaseNotes>
-    <Version>1.1.0</Version>
+1. Fixed a small bug in multiple select menu</PackageReleaseNotes>
+    <Version>1.1.1</Version>
     <PackageIconUrl>https://raw.githubusercontent.com/Peled-Zohar/ExtendedConsole/master/ExtendedConsole.png</PackageIconUrl>
     <ApplicationIcon>extendedconsole.ico</ApplicationIcon>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <FileVersion>1.1.1.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
