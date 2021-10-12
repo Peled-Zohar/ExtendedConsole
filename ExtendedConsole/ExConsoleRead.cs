@@ -58,6 +58,22 @@ namespace ExtendedConsole
         }
 
         /// <summary>
+        /// Writes the title to the console, and read a key.
+        /// </summary>
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="title">The title to show the user before asking for input.</param>
+        /// <param name="intercept">Determines whether to display the pressed key in the console window. true to not display the pressed key; otherwise, false.</param>
+        /// <returns>An instance of the <see cref="ConsoleKeyInfo"/> struct that describes the console key the user pressed.</returns>
+        public static ConsoleKeyInfo ReadKey(this ExConsole self, string title, bool intercept)
+        {
+            if (self is null) throw new ArgumentNullException(nameof(self));
+            if (title is null) throw new ArgumentNullException(nameof(title));
+            if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
+            self.WriteLine(title);
+            return Console.ReadKey(intercept);
+        }
+
+        /// <summary>
         /// Writes the title to the console, and read a line of text.
         /// </summary>
         /// <param name="self">The current instance of ExConsole.</param>

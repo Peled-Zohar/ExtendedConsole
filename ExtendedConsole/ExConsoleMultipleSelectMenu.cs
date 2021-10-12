@@ -74,39 +74,43 @@ namespace ExtendedConsole
            Func<T, string> toString,
            params T[] items
        )
-        { 
+        {
             ValidateArguments();
+
+
             var menuItems = items.Select(v => new MultipleSelectMenuItem<T>(v, toString)).ToList();
-            
-            var absoluteTop = Console.CursorTop; 
+
+            var absoluteTop = Console.CursorTop;
             self.WriteLines(displayArgs.Title, "", displayArgs.PleaseSelectText);
 
             var menuTop = Console.CursorTop;
-
+            var previouslyfocusedIndex = 0;
             menuItems[0].IsFocused = true;
 
-            ShowMenu();
+            for (int i = 0; i < menuItems.Count; i++)
+            {
+                ShowMenuItem(i);
+            }
+            var menuBottom = Console.CursorTop + 1;
+            Console.CursorTop = absoluteTop;
+
+            var wasCursorVisible = Console.CursorVisible;
+            Console.CursorVisible = true;
+            Console.CursorTop = menuTop;
+
             SelectItems();
 
+            Console.CursorTop = menuBottom;
             if (displayArgs.ClearWhenSelected)
             {
-                self.ClearLastLines(Console.CursorTop - absoluteTop);
+                self.ClearLastLines(menuBottom - absoluteTop);
             }
+
+            Console.CursorVisible = wasCursorVisible;
 
             return menuItems.Where(i => i.IsSelected).Select(i => i.Value);
 
             #region local methods
-
-            void ShowMenu()
-            {
-                var foreground = Console.ForegroundColor;
-                foreach (var item in menuItems)
-                {
-                    Console.ForegroundColor = item.IsFocused ? displayArgs.FocusedItemColor : foreground;
-                    self.WriteLine(item.ToString());
-                }
-                Console.ForegroundColor = foreground;
-            }
 
             void SelectItems()
             {
@@ -120,8 +124,9 @@ namespace ExtendedConsole
                     key = Console.KeyAvailable ? Console.ReadKey(true).Key : ConsoleKey.A;
                     if (key == prevKey) continue;
                     KeyPressed();
-                    self.ClearLastLines(Console.CursorTop - menuTop);
-                    ShowMenu();
+                    ShowMenuItem(previouslyfocusedIndex);
+                    ShowMenuItem(index);
+
                     prevKey = key;
                 } while (!done);
 
@@ -132,14 +137,16 @@ namespace ExtendedConsole
                         case ConsoleKey.UpArrow:
                             if (index > 0)
                             {
+                                previouslyfocusedIndex = index;
                                 menuItems[index].IsFocused = false;
                                 index--;
                                 menuItems[index].IsFocused = true;
                             }
                             break;
                         case ConsoleKey.DownArrow:
-                            if (index < menuItems.Count-1)
+                            if (index < menuItems.Count - 1)
                             {
+                                previouslyfocusedIndex = index;
                                 menuItems[index].IsFocused = false;
                                 index++;
                                 menuItems[index].IsFocused = true;
@@ -155,15 +162,24 @@ namespace ExtendedConsole
                             }
                             else
                             {
-                                self.Write(displayArgs.RequiredErrorMessage);
-                                key = Console.ReadKey(true).Key;
-                                Console.WriteLine();
+                                Console.CursorTop = menuBottom;
+                                key = self.ReadKey(displayArgs.RequiredErrorMessage, true).Key;
                                 self.ClearLastLine();
+                                Console.CursorTop = menuTop + index;
                                 KeyPressed();
                             }
                             break;
                     }
                 }
+            }
+
+            void ShowMenuItem(int itemIndex)
+            {
+                var item = menuItems[itemIndex];
+                Console.CursorTop = menuTop + itemIndex;
+                self.ClearCurrentLine();
+                self.WriteLine($"<c f='{(item.IsFocused ? displayArgs.FocusedItemColor : item.IsSelected ? displayArgs.SelectedItemColor : null) ?? Console.ForegroundColor}'>{item}</c>");
+                Console.CursorTop--;
             }
 
             void ValidateArguments()

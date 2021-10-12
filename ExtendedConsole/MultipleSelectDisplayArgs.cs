@@ -14,14 +14,18 @@ namespace ExtendedConsole
         /// <param name="pleaseSelectText">The text to be displayed between the title and the menu, instructing the user how to use the menu.</param>
         /// <param name="clearWhenSelected">A boolean value to determine 
         /// whether the menu should still be displayed after the user have completed his selection.</param>
-        /// <param name="focusedItemColor">The fore color to use for the currently focused item of the menu.</param>
+        /// <param name="focusedItemColor">The forecolor to use for the currently focused item of the menu.</param>
         /// <param name="requiredErrorMessage">The error message to display if the user did not select anything from the menu.</param>
+        /// <param name="selectedItemColor">The forecolor to use for the currently selected item(s) of the menu.
+        /// Wnen left null, selected items will have the same color as other items.
+        /// </param>
         public MultipleSelectDisplayArgs(
             string title, 
             string pleaseSelectText = "Use arrow keys (up/down) to navigate, spece bar to select, and enter to submit selection.", 
             bool clearWhenSelected = true, 
             ConsoleColor focusedItemColor = ConsoleColor.Magenta, 
-            string requiredErrorMessage = "You must select at least one item."
+            string requiredErrorMessage = "You must select at least one item.",
+            ConsoleColor? selectedItemColor = null
         )
         {
             Title = title;
@@ -29,6 +33,7 @@ namespace ExtendedConsole
             ClearWhenSelected = clearWhenSelected;
             FocusedItemColor = focusedItemColor;
             RequiredErrorMessage = requiredErrorMessage;
+            SelectedItemColor = selectedItemColor;
         }
 
         /// <summary>
@@ -48,7 +53,7 @@ namespace ExtendedConsole
         public bool ClearWhenSelected { get; }
 
         /// <summary>
-        /// Gets the fore color to use for the currently focused item of the menu.
+        /// Gets the forecolor to use for the currently focused item of the menu.
         /// </summary>
         public ConsoleColor FocusedItemColor { get; }
 
@@ -56,5 +61,10 @@ namespace ExtendedConsole
         /// Gets the error message to display if the user did not select anything from the menu.
         /// </summary>
         public string RequiredErrorMessage { get; }
+
+        /// <summary>
+        /// Gets the forecolor to use for the currently selected item(s) of the menu.
+        /// </summary>
+        public ConsoleColor? SelectedItemColor { get; }
     }
 }

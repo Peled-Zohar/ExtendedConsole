@@ -4,7 +4,6 @@
     <id>ExtendedConsole</id>
     <version>1.1.1</version>
     <authors>Zohar Peled</authors>
-    <owners>Zohar Peled</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://peled-zohar.github.io/ExtendedConsole/</projectUrl>

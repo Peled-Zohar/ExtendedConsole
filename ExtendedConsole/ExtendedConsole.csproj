@@ -13,19 +13,17 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>7.3</LangVersion>
     <PackageReleaseNotes>Changes from previous version:
-1. Fixed a small bug in multiple select menu</PackageReleaseNotes>
-    <Version>1.1.1</Version>
+1. Fixed a bug in multiple select menu that caused flickering with large menus.
+2. Added a property to MultipleSelectDisplayArgs to control the forecolor of the selected Item(s)
+3. Removed obsolte methods from menus
+4. Marked a couple of methos as obsolte
+5. Added a ReadKey extension method</PackageReleaseNotes>
+    <Version>2.0.0</Version>
     <PackageIconUrl>https://raw.githubusercontent.com/Peled-Zohar/ExtendedConsole/master/ExtendedConsole.png</PackageIconUrl>
     <ApplicationIcon>extendedconsole.ico</ApplicationIcon>
-    <AssemblyVersion>1.1.1.0</AssemblyVersion>
-    <FileVersion>1.1.1.0</FileVersion>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Development\ExtendedConsole\ExtendedConsole\ExtendedConsole.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  <PropertyGroup>
     <DocumentationFile>C:\Development\ExtendedConsole\ExtendedConsole\ExtendedConsole.xml</DocumentationFile>
   </PropertyGroup>
 

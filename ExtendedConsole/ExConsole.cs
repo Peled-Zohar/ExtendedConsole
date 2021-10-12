@@ -100,6 +100,7 @@ namespace ExtendedConsole
         /// exConsole.WriteLine("Hello world! &lt;c b='white' f='black'&gt;How are you?&lt;c&gt;", ConsoleColor.Magenta, null);
         /// </code>
         /// </example>
+        [Obsolete("this method is deprecated and will be removed in future versions.")]
         public ExConsole WriteLine(string markup, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
             => WriteInColor(() => WriteLine(markup), foregroundColor, backgroundColor);
 
@@ -117,18 +118,11 @@ namespace ExtendedConsole
         /// exConsole.Write("Hello world! &lt;c b='white' f='black'&gt;How are you?&lt;c&gt;", ConsoleColor.Black, ConsoleColor.Magenta);
         /// </code>
         /// </example>
+        [Obsolete("this method is deprecated and will be removed in future versions.")]
         public ExConsole Write(string markup, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
             => WriteInColor(() => Write(markup), foregroundColor, backgroundColor);
 
-        // <summary>
-        // Writes the specified text with the specified colors, 
-        // either as a complete line or as a part of one.
-        // </summary>
-        // <param name="action">Action to execute.</param>
-        // <param name="foregroundColor">Foreground color.</param>
-        // <param name="backgroundColor">Background color.</param>
-        // <exception cref="System.Xml.XmlException">Thrown when markup text isn't properly formatted xml.</exception>
-        // <returns>The current instance of<see cref= "ExConsole" />.</ returns >
+        // Remove in a future version
         private ExConsole WriteInColor(Action action, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)
         {
             var (Foreground, Background) = (Console.ForegroundColor, Console.BackgroundColor);

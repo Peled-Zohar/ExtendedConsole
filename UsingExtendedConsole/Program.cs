@@ -7,25 +7,13 @@ namespace UsingExtendedConsole
 
     class Program
     {
-        private static ExConsole exConsole = new ExConsole();
+        private static readonly ExConsole exConsole = new ExConsole();
 
-        static void Main(string[] args)
+        static void Main()
         {
             Console.Title = "Using Extended Console";
 
-            var arr = new MID[]
-            {
-                new MID(1, "Zohar"),
-                new MID(2, "Peled"),
-                new MID(3, "Vered"),
-                new MID(4, "Berco")
-            };
-
-            var a = exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("Multiple select with args", focusedItemColor:ConsoleColor.Cyan), arr);
-
-            exConsole.Pause();
-
-            var b = exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("Multiple select with args and toString"), s => $"<c f='green'>{s.Id}</c> {s.Name}" , arr);
+            ShowLogo(exConsole);
 
             var menus = new Func<int>[] { StringsMenu, ActionsMenu };
             var index = 0;
@@ -50,10 +38,10 @@ namespace UsingExtendedConsole
         private static int StringsMenu()
         {
             var result = exConsole.Menu(
-                "Demonstraiting ExConsole - strings menu, clearWhenSelected = false",
-                false,
+                new MenuDisplayArgs("Demonstraiting ExConsole - strings menu, clearWhenSelected = false", clearWhenSelected:false),
                 "<c f='red'>Quit</c>",
                 "WriteLine",
+                "Multiple Select Menus",
                 "Read DateTime",
                 "Read int",
                 "Clear lines",
@@ -66,15 +54,18 @@ namespace UsingExtendedConsole
                     WriteLineMethods();
                     break;
                 case 2:
-                    ReadDateTimeMethods();
+                    MultipleSelectMenus();
                     break;
                 case 3:
-                    ReadIntMethods();
+                    ReadDateTimeMethods();
                     break;
                 case 4:
-                    ClearLines();
+                    ReadIntMethods();
                     break;
                 case 5:
+                    ClearLines();
+                    break;
+                case 6:
                     TryItYourself();
                     break;
             }
@@ -82,11 +73,10 @@ namespace UsingExtendedConsole
         }
 
         private static int ActionsMenu()
-            => exConsole.Menu(
-                "Demonstraiting ExConsole - actions menu, clearWhenSelected = true",
-                true,
+            => exConsole.Menu(new MenuDisplayArgs("Demonstraiting ExConsole - actions menu, clearWhenSelected = true", clearWhenSelected: true),
                 ("<c f='red'>Quit</c>", null),
                 ("WriteLine", WriteLineMethods),
+                ("Multiple Select Menus", MultipleSelectMenus),
                 ("Read DateTime", ReadDateTimeMethods),
                 ("Read int", ReadIntMethods),
                 ("Clear lines", ClearLines),
@@ -160,6 +150,24 @@ namespace UsingExtendedConsole
                 Console.WriteLine();
             } while (exConsole.ReadBool(ConsoleKey.Y, "Press <c f='green'>Y</c> to go again"));
         }
+
+        private static void MultipleSelectMenus()
+        {
+            var manyItems = Enumerable.Range(0, 40).Select(i => $"Item No. {i + 1}").ToArray();
+            exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("A long menu", focusedItemColor: ConsoleColor.Cyan, selectedItemColor: ConsoleColor.Green), manyItems);
+
+            var arr = new MID[]
+            {
+                new MID(1, "ExtendedConsole"),
+                new MID(2, "Zohar Peled"),
+                new MID(3, "Multiple Select Menu"),
+                new MID(4, "Demonstration")
+            };
+
+            var a = exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("Multiple select with args", focusedItemColor: ConsoleColor.Cyan), arr);
+
+            var b = exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("Multiple select with args and toString"), s => $"<c f='green'>{s.Id}</c> {s.Name}", arr);
+        }
     }
 
     public class MID
@@ -174,6 +182,6 @@ namespace UsingExtendedConsole
 
         public string Name { get; }
 
-        public override string ToString() => $"<c f='green'>{Id}</c> <c f='yellow'>{Name}</c>";
+        public override string ToString() => $"{Id} : {Name}";//$"<c f='green'>{Id}</c> <c f='yellow'>{Name}</c>";
     }
 }
