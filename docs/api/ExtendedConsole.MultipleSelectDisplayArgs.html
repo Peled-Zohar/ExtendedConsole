@@ -116,13 +116,13 @@
   
   
   <a id="ExtendedConsole_MultipleSelectDisplayArgs__ctor_" data-uid="ExtendedConsole.MultipleSelectDisplayArgs.#ctor*"></a>
-  <h4 id="ExtendedConsole_MultipleSelectDisplayArgs__ctor_System_String_System_String_System_Boolean_System_ConsoleColor_System_String_" data-uid="ExtendedConsole.MultipleSelectDisplayArgs.#ctor(System.String,System.String,System.Boolean,System.ConsoleColor,System.String)">MultipleSelectDisplayArgs(String, String, Boolean, ConsoleColor, String)</h4>
+  <h4 id="ExtendedConsole_MultipleSelectDisplayArgs__ctor_System_String_System_String_System_Boolean_System_ConsoleColor_System_String_System_Nullable_System_ConsoleColor__" data-uid="ExtendedConsole.MultipleSelectDisplayArgs.#ctor(System.String,System.String,System.Boolean,System.ConsoleColor,System.String,System.Nullable{System.ConsoleColor})">MultipleSelectDisplayArgs(String, String, Boolean, ConsoleColor, String, Nullable&lt;ConsoleColor&gt;)</h4>
   <div class="markdown level1 summary"><p>Creates a new instance of the <a class="xref" href="ExtendedConsole.MultipleSelectDisplayArgs.html">MultipleSelectDisplayArgs</a> class with the specified parmeters.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MultipleSelectDisplayArgs(string title, string pleaseSelectText = &quot;Use arrow keys (up/down) to navigate, spece bar to select, and enter to submit selection.&quot;, bool clearWhenSelected = true, ConsoleColor focusedItemColor = ConsoleColor.Magenta, string requiredErrorMessage = &quot;You must select at least one item.&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public MultipleSelectDisplayArgs(string title, string pleaseSelectText = &quot;Use arrow keys (up/down) to navigate, spece bar to select, and enter to submit selection.&quot;, bool clearWhenSelected = true, ConsoleColor focusedItemColor = ConsoleColor.Magenta, string requiredErrorMessage = &quot;You must select at least one item.&quot;, ConsoleColor? selectedItemColor = default(ConsoleColor? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -156,13 +156,20 @@ whether the menu should still be displayed after the user have completed his sel
       <tr>
         <td><span class="xref">System.ConsoleColor</span></td>
         <td><span class="parametername">focusedItemColor</span></td>
-        <td><p>The fore color to use for the currently focused item of the menu.</p>
+        <td><p>The forecolor to use for the currently focused item of the menu.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">requiredErrorMessage</span></td>
         <td><p>The error message to display if the user did not select anything from the menu.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
+        <td><span class="parametername">selectedItemColor</span></td>
+        <td><p>The forecolor to use for the currently selected item(s) of the menu.
+Wnen left null, selected items will have the same color as other items.</p>
 </td>
       </tr>
     </tbody>
@@ -200,7 +207,7 @@ whether the menu should still be displayed after the user have completed his sel
   
   <a id="ExtendedConsole_MultipleSelectDisplayArgs_FocusedItemColor_" data-uid="ExtendedConsole.MultipleSelectDisplayArgs.FocusedItemColor*"></a>
   <h4 id="ExtendedConsole_MultipleSelectDisplayArgs_FocusedItemColor" data-uid="ExtendedConsole.MultipleSelectDisplayArgs.FocusedItemColor">FocusedItemColor</h4>
-  <div class="markdown level1 summary"><p>Gets the fore color to use for the currently focused item of the menu.</p>
+  <div class="markdown level1 summary"><p>Gets the forecolor to use for the currently focused item of the menu.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -270,6 +277,32 @@ whether the menu should still be displayed after the user have completed his sel
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="ExtendedConsole_MultipleSelectDisplayArgs_SelectedItemColor_" data-uid="ExtendedConsole.MultipleSelectDisplayArgs.SelectedItemColor*"></a>
+  <h4 id="ExtendedConsole_MultipleSelectDisplayArgs_SelectedItemColor" data-uid="ExtendedConsole.MultipleSelectDisplayArgs.SelectedItemColor">SelectedItemColor</h4>
+  <div class="markdown level1 summary"><p>Gets the forecolor to use for the currently selected item(s) of the menu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConsoleColor? SelectedItemColor { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>

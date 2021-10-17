@@ -88,6 +88,7 @@ namespace ExtendedConsole
         /// <summary>
         /// Changes console colors to the specified colors, and writes the specified markup to the console. 
         /// Advances the cursor to the next line.
+        /// <para>Note: This method is deprecated and will be removed in future versions.</para>
         /// </summary>
         /// <param name="markup">Markup text to write.</param>
         /// <param name="foregroundColor">Foreground color.</param>
@@ -106,6 +107,7 @@ namespace ExtendedConsole
 
         /// <summary>
         /// Changes console colors to the specified colors, and writes the specified markup to the console. 
+        /// <para>Note: This method is deprecated and will be removed in future versions.</para>
         /// </summary>
         /// <param name="markup">Markup text to write.</param>
         /// <param name="foregroundColor">Foreground color.</param>
