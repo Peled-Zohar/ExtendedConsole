@@ -11,3 +11,7 @@
 *.cache
 *.cache
 *.cache
+.vs/ExtendedConsole/DesignTimeBuild/.dtbcache.v2
+.vs/ExtendedConsole/DesignTimeBuild/.dtbcache.v2
+.vs/ExtendedConsole/v16/.suo
+.vs/ExtendedConsole/v16/TestStore/0/000.testlog
