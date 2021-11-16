@@ -88,8 +88,7 @@
                               ExtendedConsole provides methods to generate console menus.<br />
                               Creating a menu with ExtendedConsole is as simple as this:<br />
 <pre><code class="lang-csharp">var selected = exConsole.Menu(
-	"What to do next?",
-	true,
+	new MenuDisplayArgs(""What to do next?"),
 	("<c f='red'>Quit</c>", null),
 	("Go here", GoHere),
 	("Pause", () => exConsole.Pause()),
