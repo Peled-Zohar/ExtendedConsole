@@ -100,6 +100,46 @@ namespace ExtendedConsole
         }
 
         /// <summary>
+        /// Writes the title to the console, reads a line of text, 
+        /// and returns the input only if it passed the validataion.
+        /// </summary>
+        /// <param name="self">The current instance of ExConsole.</param>
+        /// <param name="title">The title to show the user before asking for input.</param>
+        /// <param name="errorMessage">The error message to show the user if the validation failed.</param>
+        /// <param name="validator">The <see cref="Predicate{T}"/> to validate the input with.</param>
+        /// <returns>The string the user entered.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="self"/> or <paramref name="title"/> are null.</exception>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="title"/> is empty.</exception>
+        /// <exception cref="System.Xml.XmlException">Thrown when <paramref name="title"/> isn't properly formatted xml.</exception>
+        /// <example>
+        /// Write "Please enter your first name:" to the console, where "first" is in green,
+        /// waits for the user to enter a lime, and returns the user's input.
+        /// <code>
+        /// var firstName = exConsole.ReadLine("Please enter your &lt;c f='green'&gt;first&lt;/c&gt; name:", "&lt;c f='green'&gt;first&lt;/c&gt; name must start with a capital letter", s => char.IsUpper(s[0]));
+        /// </code>
+        /// </example>
+        public static string ReadLine(this ExConsole self, string title, string errorMessage, Predicate<string> validator)
+        {
+            if (self is null) throw new ArgumentNullException(nameof(self));
+            if (title is null) throw new ArgumentNullException(nameof(title));
+            if (title == "") throw new ArgumentException(nameof(title) + " can't be empty.", nameof(title));
+            if (errorMessage is null) throw new ArgumentNullException(nameof(errorMessage));
+            if (errorMessage == "") throw new ArgumentException(nameof(errorMessage) + " can't be empty.", nameof(errorMessage));
+            if (validator is null) throw new ArgumentNullException(nameof(title));
+
+            self.WriteLine(title);
+            while (true)
+            {
+                var input = Console.ReadLine();
+                if (validator(input))
+                {
+                    return input;
+                }
+                self.WriteLine(errorMessage);
+            }
+        }
+
+        /// <summary>
         /// Reads an input line from the user and converts it to T.
         /// Repeats until conversion succeeds (even if the user entered ^Z).
         /// <para>

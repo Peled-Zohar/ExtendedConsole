@@ -45,7 +45,8 @@ namespace UsingExtendedConsole
                 "Read DateTime",
                 "Read int",
                 "Clear lines",
-                "Try it yourself"
+                "Try it yourself",
+                "Read validated string"
             );
 
             switch (result)
@@ -68,6 +69,9 @@ namespace UsingExtendedConsole
                 case 6:
                     TryItYourself();
                     break;
+                case 7:
+                    ReadValidatedString();
+                    break;
             }
             return result;
         }
@@ -80,7 +84,8 @@ namespace UsingExtendedConsole
                 ("Read DateTime", ReadDateTimeMethods),
                 ("Read int", ReadIntMethods),
                 ("Clear lines", ClearLines),
-                ("Try it yourself", TryItYourself)
+                ("Try it yourself", TryItYourself),
+                ("Read validated string", ReadValidatedString)
             );
 
         static void WriteLineMethods()
@@ -167,6 +172,13 @@ namespace UsingExtendedConsole
             var a = exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("Multiple select with args", focusedItemColor: ConsoleColor.Cyan), arr);
 
             var b = exConsole.MultipleSelectMenu(new MultipleSelectDisplayArgs("Multiple select with args and toString"), s => $"<c f='green'>{s.Id}</c> {s.Name}", arr);
+        }
+
+        private static void ReadValidatedString()
+        {
+            var line = exConsole.ReadLine("Enter a string that <c f='green'>starts with a digit</c>", "<c f='red'>invalid string entered</c>", s => char.IsDigit(s[0]));
+            exConsole.WriteLine($"You've entered: <c f='green'>{line}</c>");
+            exConsole.Pause(); 
         }
     }
 
