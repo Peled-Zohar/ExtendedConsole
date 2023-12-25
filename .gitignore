@@ -1,7 +1,6 @@
 .vs/
 bin/
 obj/
-ExtendedConsole/obj/
 *.ide
 *.lock
 *.ide-shm
