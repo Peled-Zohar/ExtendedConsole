@@ -1,1793 +1,1394 @@
-<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+﻿<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ExConsoleRead
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ExConsoleRead
-   ">
-    <meta name="generator" content="docfx 2.57.2.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class ExConsoleRead
+ |  Extended Console  </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExConsoleRead
+ |  Extended Console  ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Peled-Zohar/ExtendedConsole/new/master/apiSpec/new?filename=ExtendedConsole_ExConsoleRead.md&amp;value=---%0Auid%3A%20ExtendedConsole.ExConsoleRead%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt=" Extended Console "> &nbsp;
+             Extended Console 
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="ExtendedConsole.ExConsoleRead">
-  
-  
-  <h1 id="ExtendedConsole_ExConsoleRead" data-uid="ExtendedConsole.ExConsoleRead" class="text-break">Class ExConsoleRead
+
+        <article data-uid="ExtendedConsole.ExConsoleRead">
+
+
+
+  <h1 id="ExtendedConsole_ExConsoleRead" data-uid="ExtendedConsole.ExConsoleRead" class="text-break">
+    Class ExConsoleRead
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>Provides extension methods for ExConsole for easy reading and parsing inputs from the user.</p>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ExtendedConsole.html">ExtendedConsole</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ExtendedConsole.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides extension methods for ExConsole for easy reading and parsing inputs from the user.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ExConsoleRead</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ExtendedConsole.html">ExtendedConsole</a></h6>
-  <h6><strong>Assembly</strong>: ExtendedConsole.dll</h6>
-  <h5 id="ExtendedConsole_ExConsoleRead_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static class ExConsoleRead</code></pre>
   </div>
-  <h3 id="methods">Methods
-  </h3>
-  
-  
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ExConsoleRead</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="ExtendedConsole_ExConsoleRead_Pause_" data-uid="ExtendedConsole.ExConsoleRead.Pause*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_" data-uid="ExtendedConsole.ExConsoleRead.Pause(ExtendedConsole.ExConsole)">Pause(ExConsole)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_" data-uid="ExtendedConsole.ExConsoleRead.Pause(ExtendedConsole.ExConsole)">
+  Pause(ExConsole)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Pause the console application until the user press a key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static ExConsole Pause(this ExConsole self)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole__examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole__examples">Examples</h4>
   <p>Write &quot;Press any key to continue.&quot; to the console,
 and wait for the user to press a key. Advance the cursor to the next line.</p>
-<pre><code>exConsole.Pause();</code></pre>
+<pre><code class="lang-csharp">exConsole.Pause();</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> is null.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code> is null.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_Pause_" data-uid="ExtendedConsole.ExConsoleRead.Pause*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_System_String_" data-uid="ExtendedConsole.ExConsoleRead.Pause(ExtendedConsole.ExConsole,System.String)">Pause(ExConsole, String)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_System_String_" data-uid="ExtendedConsole.ExConsoleRead.Pause(ExtendedConsole.ExConsole,System.String)">
+  Pause(ExConsole, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Pause the console application until the user press a key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static ExConsole Pause(this ExConsole self, string title)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show the user before asking for input.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_System_String__examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show the user before asking for input.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_System_String__examples">Examples</h4>
   <p>Write &quot;Press any key to continue.&quot; to the console, where &quot;any key&quot; is in yellow,
 and wait for the user to press a key. Advance the cursor to the next line.</p>
-<pre><code>exConsole.Pause(&quot;Press &lt;c f=&apos;yellow&apos;>any key&lt;/c> to continue.&quot;);</code></pre>
+<pre><code class="lang-csharp">exConsole.Pause("Press &lt;c f='yellow'&gt;any key&lt;/c&gt; to continue.");</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">title</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code> or <code class="paramref">title</code> are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadBool_" data-uid="ExtendedConsole.ExConsoleRead.ReadBool*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_ConsoleKey_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadBool(ExtendedConsole.ExConsole,System.ConsoleKey,System.ConsoleKey,System.String)">ReadBool(ExConsole, ConsoleKey, ConsoleKey, String)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_ConsoleKey_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadBool(ExtendedConsole.ExConsole,System.ConsoleKey,System.ConsoleKey,System.String)">
+  ReadBool(ExConsole, ConsoleKey, ConsoleKey, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L437"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Covnverts the user input to a boolean value.
 Will keep waiting until the user press a correct key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool ReadBool(this ExConsole self, ConsoleKey keyForTrue, ConsoleKey keyForFalse, string title)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ConsoleKey</span></td>
-        <td><span class="parametername">keyForTrue</span></td>
-        <td><p>The key the user should press to return true.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ConsoleKey</span></td>
-        <td><span class="parametername">keyForFalse</span></td>
-        <td><p>The key the user should press to return false.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show on the console.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True or false based on the key the user pressed.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_ConsoleKey_System_String__examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>keyForTrue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekey">ConsoleKey</a></dt>
+    <dd><p>The key the user should press to return true.</p>
+</dd>
+    <dt><code>keyForFalse</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekey">ConsoleKey</a></dt>
+    <dd><p>The key the user should press to return false.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show on the console.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True or false based on the key the user pressed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_ConsoleKey_System_String__examples">Examples</h4>
   <p>Askes the user a yes/no question, returns true if they pressed &quot;Y&quot; or false if they press &quot;N&quot;.
 Repeats until the user press either &quot;Y&quot; or &quot;N&quot;.</p>
-<pre><code>var result = exConsole.ReadBool(
+<pre><code class="lang-csharp">var result = exConsole.ReadBool(
     ConsoleKey.Y,
     ConsoleKey.N,
-    &quot;Are you happy (y/n)?&quot;
+    "Are you happy (y/n)?"
 );</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">title</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code> or <code class="paramref">title</code> are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadBool_" data-uid="ExtendedConsole.ExConsoleRead.ReadBool*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadBool(ExtendedConsole.ExConsole,System.ConsoleKey,System.String)">ReadBool(ExConsole, ConsoleKey, String)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadBool(ExtendedConsole.ExConsole,System.ConsoleKey,System.String)">
+  ReadBool(ExConsole, ConsoleKey, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Covnverts the user input to a boolean value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool ReadBool(this ExConsole self, ConsoleKey keyForTrue, string title)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ConsoleKey</span></td>
-        <td><span class="parametername">keyForTrue</span></td>
-        <td><p>The key the user should press to return true.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show on the console.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><p>True if the user pressed the key specified in keyForTrue, false otherwise.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_String__examples">Examples</h5>
-  <p>Askes the user to press &quot;q&quot; to quit, returns true if the user pressed &quot;q&quot;, false otherwise:</p>
-<pre><code>var result = exConsole.ReadBool(ConsoleKey.Q, &quot;Press &apos;Q&apos; to quit&quot;);</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">title</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>keyForTrue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekey">ConsoleKey</a></dt>
+    <dd><p>The key the user should press to return true.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show on the console.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the user pressed the key specified in keyForTrue, false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_String__examples">Examples</h4>
+  <p>Askes the user to press &quot;q&quot; to quit, returns true if the user pressed &quot;q&quot;, false otherwise:</p>
+<pre><code class="lang-csharp">var result = exConsole.ReadBool(ConsoleKey.Q, "Press 'Q' to quit");</code></pre>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code> or <code class="paramref">title</code> are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadClass_" data-uid="ExtendedConsole.ExConsoleRead.ReadClass*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadClass__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadClass``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadClass&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
-  <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadClass__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadClass``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">
+  ReadClass&lt;T&gt;(ExConsole, string, string, Func&lt;string, (bool Success, T Value)&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to <code class="typeparamref">T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T ReadClass&lt;T&gt;(this ExConsole self, string title, string errorMessage, Func&lt;string, (bool Success, T Value)&gt; converter)
-    where T : class</code></pre>
+    <pre><code class="lang-csharp hljs">public static T ReadClass&lt;T&gt;(this ExConsole self, string title, string errorMessage, Func&lt;string, (bool Success, T Value)&gt; converter) where T : class</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show the user before asking for input.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">errorMessage</span></td>
-        <td><p>The error message to show the user if the conversion failed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Boolean</span>, T&gt;&gt;</td>
-        <td><span class="parametername">converter</span></td>
-        <td><p>A function that takes in a string and returns a <span class="xref">System.ValueTuple</span> of <span class="xref">System.Boolean</span> success and <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><p>The <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> value converted from the input string, or null if the user entered ^Z.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The target type of the conversion.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadClass__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show the user before asking for input.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to show the user if the conversion failed.</p>
+</dd>
+    <dt><code>converter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.boolean,--0-.success">Success</a>, T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.boolean,--0-.value">Value</a>)&gt;</dt>
+    <dd><p>A function that takes in a string and returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple">ValueTuple</a> of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> success and <code class="typeparamref">T</code> value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The <code class="typeparamref">T</code> value converted from the input string, or null if the user entered ^Z.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The target type of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadClass__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h4>
   <p>Parse and get an array of int values from comma-separated integers entered by the user.</p>
-<pre><code>var ints = exConsole.ReadClass(
-    &quot;Please enter a list of comma-separated integers&quot;,
-    &quot;Invalid value entered&quot;,
-    str => {
-        var arr = str.Split(&apos;,&apos;);
-        if (arr.All(s => int.TryParse(s, out var i)))
+<pre><code class="lang-csharp">var ints = exConsole.ReadClass(
+    "Please enter a list of comma-separated integers",
+    "Invalid value entered",
+    str =&gt; {
+        var arr = str.Split(',');
+        if (arr.All(s =&gt; int.TryParse(s, out var i)))
         {
-            return (true, arr.Select(s => int.Parse(s)).ToArray());
+            return (true, arr.Select(s =&gt; int.Parse(s)).ToArray());
         }
         return (false, default(int[]));
     }
 );</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when any of the parameters is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when any of the parameters is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> are empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadDateTime_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String)">ReadDateTime(ExConsole, String, String)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String)">
+  ReadDateTime(ExConsole, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L558"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Converts the user input into an instance of Nullable&lt;DateTime&gt;.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show on the console.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">errorMessage</span></td>
-        <td><p>The error message to show the user in case the input value is invalid.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
-        <td><p>A nullable DateTime instance that will have no value if the user entered ^Z.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String__examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show on the console.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to show the user in case the input value is invalid.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd><p>A nullable DateTime instance that will have no value if the user entered ^Z.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String__examples">Examples</h4>
   <p>Reads the user input and tries to parse it as a DateTime based on the current thread culture.
 Returns an instance of Nullalble&lt;DateTime&gt; which is null if the user entered ctrl+Z.
 Repeats untill successful conversion or user abort.</p>
-<pre><code>var result = exConsole.ReadDateTime(&quot;Please enter a date.&quot;, &quot;failed to convert to date.&quot;);</code></pre>
+<pre><code class="lang-csharp">var result = exConsole.ReadDateTime("Please enter a date.", "failed to convert to date.");</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when any of the parameters is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when any of the parameters is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadDateTime_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.IFormatProvider,System.Globalization.DateTimeStyles)">ReadDateTime(ExConsole, String, String, IFormatProvider, DateTimeStyles)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.IFormatProvider,System.Globalization.DateTimeStyles)">
+  ReadDateTime(ExConsole, string, string, IFormatProvider, DateTimeStyles)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L592"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Converts the user input into an instance of Nullable&lt;DateTime&gt;.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage, IFormatProvider formatProvider, DateTimeStyles dateTimeStyles)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show on the console.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">errorMessage</span></td>
-        <td><p>The error message to show the user in case the input value is invalid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.IFormatProvider</span></td>
-        <td><span class="parametername">formatProvider</span></td>
-        <td><p>An object that supplies culture-specific formatting information about the string expected from the user's input.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Globalization.DateTimeStyles</span></td>
-        <td><span class="parametername">dateTimeStyles</span></td>
-        <td><p>A bitwise combination of members of the <span class="xref">System.Globalization.DateTimeStyles</span> enum.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
-        <td><p>A nullable DateTime instance that will have no value if the user entered ^Z.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles__examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show on the console.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to show the user in case the input value is invalid.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>An object that supplies culture-specific formatting information about the string expected from the user's input.</p>
+</dd>
+    <dt><code>dateTimeStyles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.datetimestyles">DateTimeStyles</a></dt>
+    <dd><p>A bitwise combination of members of the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.datetimestyles">DateTimeStyles</a> enum.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd><p>A nullable DateTime instance that will have no value if the user entered ^Z.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles__examples">Examples</h4>
   <p>Reads the user input and tries to parse it as a DateTime based on the &quot;en-US&quot; culture.
 Returns an instance of Nullalble&lt;DateTime&gt; which is null if the user entered ctrl+Z.
 Repeats untill successful conversion or user abort.</p>
-<pre><code>var result = exConsole.ReadDateTime(
-    &quot;Please enter a date.&quot;, 
-    &quot;failed to convert to date.&quot;,
-    CultureInfo.GetCultureInfo(&quot;en-US&quot;),
+<pre><code class="lang-csharp">var result = exConsole.ReadDateTime(
+    "Please enter a date.", 
+    "failed to convert to date.",
+    CultureInfo.GetCultureInfo("en-US"),
     DateTimeStyles.None);</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when any of the parameters is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when any of the parameters is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadDateTime_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.IFormatProvider,System.Globalization.DateTimeStyles)">ReadDateTime(ExConsole, String, String, String, IFormatProvider, DateTimeStyles)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.IFormatProvider,System.Globalization.DateTimeStyles)">
+  ReadDateTime(ExConsole, string, string, string, IFormatProvider, DateTimeStyles)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L629"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Converts the user input to an instance of Nullable&lt;DateTime&gt;.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage, string format, IFormatProvider formatProvider, DateTimeStyles dateTimeStyles)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show on the console.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">errorMessage</span></td>
-        <td><p>The error message to show the user in case the input value is invalid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">format</span></td>
-        <td><p>The format of the string representation of the datetime value expected.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.IFormatProvider</span></td>
-        <td><span class="parametername">formatProvider</span></td>
-        <td><p>An object that supplies culture-specific formatting information about the string expected from the user's input.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Globalization.DateTimeStyles</span></td>
-        <td><span class="parametername">dateTimeStyles</span></td>
-        <td><p>A bitwise combination of members of the <span class="xref">System.Globalization.DateTimeStyles</span> enum.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
-        <td><p>A nullable DateTime instance that will have no value if the user entered ^Z.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles__examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show on the console.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to show the user in case the input value is invalid.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format of the string representation of the datetime value expected.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>An object that supplies culture-specific formatting information about the string expected from the user's input.</p>
+</dd>
+    <dt><code>dateTimeStyles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.datetimestyles">DateTimeStyles</a></dt>
+    <dd><p>A bitwise combination of members of the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.datetimestyles">DateTimeStyles</a> enum.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd><p>A nullable DateTime instance that will have no value if the user entered ^Z.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles__examples">Examples</h4>
   <p>Reads the user input and tries to parse it as DateTime based on the specified parameters.
 Returns an instance of Nullalble&lt;DateTime&gt; which is null if the user entered ctrl+Z.
 Repeats untill successful conversion or user abort.</p>
-<pre><code>var result = exConsole.ReadDateTime(
-    &quot;Please enter a date (dd/MM/yyyy).&quot;,
-    &quot;failed to convert to date.&quot;,
-    &quot;dd/MM/yyyy&quot;,
+<pre><code class="lang-csharp">var result = exConsole.ReadDateTime(
+    "Please enter a date (dd/MM/yyyy).",
+    "failed to convert to date.",
+    "dd/MM/yyyy",
     CultureInfo.InvariantCulture,
     DateTimeStyles.AssumeLocal
 );</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code>, <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are empty, or if dateTimeStyles is not a member of the DateTimeStyles enum.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code>, <code class="paramref">title</code> or <code class="paramref">errorMessage</code> are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> are empty, or if dateTimeStyles is not a member of the DateTimeStyles enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadDateTime_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String___System_IFormatProvider_System_Globalization_DateTimeStyles_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.String[],System.IFormatProvider,System.Globalization.DateTimeStyles)">ReadDateTime(ExConsole, String, String, String[], IFormatProvider, DateTimeStyles)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String___System_IFormatProvider_System_Globalization_DateTimeStyles_" data-uid="ExtendedConsole.ExConsoleRead.ReadDateTime(ExtendedConsole.ExConsole,System.String,System.String,System.String[],System.IFormatProvider,System.Globalization.DateTimeStyles)">
+  ReadDateTime(ExConsole, string, string, string[], IFormatProvider, DateTimeStyles)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L666"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Converts the user input to an instance of Nullable&lt;DateTime&gt;&quot;/&gt;.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static DateTime? ReadDateTime(this ExConsole self, string title, string errorMessage, string[] formats, IFormatProvider formatProvider, DateTimeStyles dateTimeStyles)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show on the console.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">errorMessage</span></td>
-        <td><p>The error message to show the user in case the input value is invalid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">formats</span></td>
-        <td><p>An array containing the acceptable formats of the string representation of the datetime value expected.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.IFormatProvider</span></td>
-        <td><span class="parametername">formatProvider</span></td>
-        <td><p>An object that supplies culture-specific formatting information about the string expected from the user's input.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Globalization.DateTimeStyles</span></td>
-        <td><span class="parametername">dateTimeStyles</span></td>
-        <td><p>A bitwise combination of members of the <span class="xref">System.Globalization.DateTimeStyles</span> enum.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
-        <td><p>A nullable DateTime instance that will have no value if the user entered ^Z.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String___System_IFormatProvider_System_Globalization_DateTimeStyles__examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show on the console.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to show the user in case the input value is invalid.</p>
+</dd>
+    <dt><code>formats</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>An array containing the acceptable formats of the string representation of the datetime value expected.</p>
+</dd>
+    <dt><code>formatProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a></dt>
+    <dd><p>An object that supplies culture-specific formatting information about the string expected from the user's input.</p>
+</dd>
+    <dt><code>dateTimeStyles</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.datetimestyles">DateTimeStyles</a></dt>
+    <dd><p>A bitwise combination of members of the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.datetimestyles">DateTimeStyles</a> enum.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</dt>
+    <dd><p>A nullable DateTime instance that will have no value if the user entered ^Z.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String___System_IFormatProvider_System_Globalization_DateTimeStyles__examples">Examples</h4>
   <p>Reads the user input and tries to parse it as DateTime based on the specified parameters.
 Returns an instance of Nullalble&lt;DateTime&gt; which is null if the user entered ctrl+Z.
 Repeats untill successful conversion or user abort.</p>
-<pre><code>var result = exConsole.ReadDateTime(
-    &quot;Please enter a date. Acceptable formats are dd/MM/yyyy, MM-dd-yyyy or yyyy-MM-dd.&quot;,
-    &quot;failed to convert to date.&quot;,
-    new string[] {&quot;dd/MM/yyyy&quot;, &quot;MM-dd-yyyy&quot;, &quot;yyyy-MM-dd&quot;},
+<pre><code class="lang-csharp">var result = exConsole.ReadDateTime(
+    "Please enter a date. Acceptable formats are dd/MM/yyyy, MM-dd-yyyy or yyyy-MM-dd.",
+    "failed to convert to date.",
+    new string[] {"dd/MM/yyyy", "MM-dd-yyyy", "yyyy-MM-dd"},
     CultureInfo.InvariantCulture,
     DateTimeStyles.AssumeLocal
 );</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code>, <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are empty, or if dateTimeStyles is not a member of the DateTimeStyles enum.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code>, <code class="paramref">title</code> or <code class="paramref">errorMessage</code> are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> are empty, or if dateTimeStyles is not a member of the DateTimeStyles enum.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadInt_" data-uid="ExtendedConsole.ExConsoleRead.ReadInt*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadInt(ExtendedConsole.ExConsole,System.String)">ReadInt(ExConsole, String)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadInt(ExtendedConsole.ExConsole,System.String)">
+  ReadInt(ExConsole, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L477"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Covnverts the user input to an integer value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static int ReadInt(this ExConsole self, string title)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show on the console.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>The integer value the user entered.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show on the console.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The integer value the user entered.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String__examples">Examples</h4>
+  <p>Parse and return an int from the user input.
+Repeats until the user enters a value that can be parsed as int.</p>
+<pre><code class="lang-csharp">var result = exConsole.ReadInt("Please enter an integer value.");</code></pre>
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>If the user enters a value that can't be parsed as int,
 the title will show again until the user enters an int value.</p>
 </div>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String__examples">Examples</h5>
-  <p>Parse and return an int from the user input.
-Repeats until the user enters a value that can be parsed as int.</p>
-<pre><code>var result = exConsole.ReadInt(&quot;Please enter an integer value.&quot;);</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">title</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code> or <code class="paramref">title</code> are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadInt_" data-uid="ExtendedConsole.ExConsoleRead.ReadInt*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_Func_System_Int32_System_Boolean__" data-uid="ExtendedConsole.ExConsoleRead.ReadInt(ExtendedConsole.ExConsole,System.String,System.Func{System.Int32,System.Boolean})">ReadInt(ExConsole, String, Func&lt;Int32, Boolean&gt;)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_Func_System_Int32_System_Boolean__" data-uid="ExtendedConsole.ExConsoleRead.ReadInt(ExtendedConsole.ExConsole,System.String,System.Func{System.Int32,System.Boolean})">
+  ReadInt(ExConsole, string, Func&lt;int, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L500"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Covnverts the user input to an integer value that meets a specific condition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static int ReadInt(this ExConsole self, string title, Func&lt;int, bool&gt; condition)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show on the console.
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show on the console.
 This will be shown repeatedly until the user enters a valid value.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">condition</span></td>
-        <td><p>The condition the integer value must meet.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>The integer value the user entered.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_Func_System_Int32_System_Boolean___examples">Examples</h5>
+</dd>
+    <dt><code>condition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The condition the integer value must meet.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The integer value the user entered.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_Func_System_Int32_System_Boolean___examples">Examples</h4>
   <p>Parse and return an int from the user input.
 Repeats until the value meets the specified condition.</p>
-<pre><code>var result = exConsole.ReadInt(&quot;Please enter a positive integer value.&quot;, i => i > 0);</code></pre>
+<pre><code class="lang-csharp">var result = exConsole.ReadInt("Please enter a positive integer value.", i =&gt; i &gt; 0);</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">title</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code> or <code class="paramref">title</code> are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadInt_" data-uid="ExtendedConsole.ExConsoleRead.ReadInt*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_Int32_System_Boolean__" data-uid="ExtendedConsole.ExConsoleRead.ReadInt(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.Int32,System.Boolean})">ReadInt(ExConsole, String, String, Func&lt;Int32, Boolean&gt;)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_Int32_System_Boolean__" data-uid="ExtendedConsole.ExConsoleRead.ReadInt(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.Int32,System.Boolean})">
+  ReadInt(ExConsole, string, string, Func&lt;int, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L525"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Covnverts the user input to an integer value that meets a specific condition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static int ReadInt(this ExConsole self, string title, string errorMessage, Func&lt;int, bool&gt; condition)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show on the console.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">errorMessage</span></td>
-        <td><p>The error message to show the user in case the input value is invalid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.Int32</span>, <span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">condition</span></td>
-        <td><p>The condition the integer value must meet.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>The integer value the user entered.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_Int32_System_Boolean___examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show on the console.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to show the user in case the input value is invalid.</p>
+</dd>
+    <dt><code>condition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The condition the integer value must meet.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The integer value the user entered.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_Int32_System_Boolean___examples">Examples</h4>
   <p>Parse and return an int from the user input.
 If the user enters a value that can't be parsed or doesn't meet the specified condition,
 display &quot;Invalid input.&quot;
 Repeats until the value meets the specified condition.</p>
-<pre><code>var result = exConsole.ReadInt(&quot;Please enter a positive integer value.&quot;, &quot;Invalid input.&quot;, i => i > 0);</code></pre>
+<pre><code class="lang-csharp">var result = exConsole.ReadInt("Please enter a positive integer value.", "Invalid input.", i =&gt; i &gt; 0);</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code>, <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code>, <code class="paramref">title</code> or <code class="paramref">errorMessage</code> are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> are empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadKey_" data-uid="ExtendedConsole.ExConsoleRead.ReadKey*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadKey_ExtendedConsole_ExConsole_System_String_System_Boolean_" data-uid="ExtendedConsole.ExConsoleRead.ReadKey(ExtendedConsole.ExConsole,System.String,System.Boolean)">ReadKey(ExConsole, String, Boolean)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadKey_ExtendedConsole_ExConsole_System_String_System_Boolean_" data-uid="ExtendedConsole.ExConsoleRead.ReadKey(ExtendedConsole.ExConsole,System.String,System.Boolean)">
+  ReadKey(ExConsole, string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes the title to the console, and read a key.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static ConsoleKeyInfo ReadKey(this ExConsole self, string title, bool intercept)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show the user before asking for input.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">intercept</span></td>
-        <td><p>Determines whether to display the pressed key in the console window. true to not display the pressed key; otherwise, false.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ConsoleKeyInfo</span></td>
-        <td><p>An instance of the <span class="xref">System.ConsoleKeyInfo</span> struct that describes the console key the user pressed.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show the user before asking for input.</p>
+</dd>
+    <dt><code>intercept</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Determines whether to display the pressed key in the console window. true to not display the pressed key; otherwise, false.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a></dt>
+    <dd><p>An instance of the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a> struct that describes the console key the user pressed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadLine_" data-uid="ExtendedConsole.ExConsoleRead.ReadLine*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadLine(ExtendedConsole.ExConsole,System.String)">ReadLine(ExConsole, String)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String_" data-uid="ExtendedConsole.ExConsoleRead.ReadLine(ExtendedConsole.ExConsole,System.String)">
+  ReadLine(ExConsole, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Writes the title to the console, and read a line of text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static string ReadLine(this ExConsole self, string title)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show the user before asking for input.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>The string the user entered.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String__examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show the user before asking for input.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string the user entered.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String__examples">Examples</h4>
   <p>Write &quot;Please enter your first name:&quot; to the console, where &quot;first&quot; is in green,
 waits for the user to enter a lime, and returns the user's input.</p>
-<pre><code>var firstName = exConsole.ReadLine(&quot;Please enter your &lt;c f=&apos;green&apos;>first&lt;/c> name:&quot;);</code></pre>
+<pre><code class="lang-csharp">var firstName = exConsole.ReadLine("Please enter your &lt;c f='green'&gt;first&lt;/c&gt; name:");</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">title</code> are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> is empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ExtendedConsole_ExConsoleRead_ReadStruct_" data-uid="ExtendedConsole.ExConsoleRead.ReadStruct*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadStruct``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadStruct&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
-  <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to a nullable <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>.</p>
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code> or <code class="paramref">title</code> are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ExtendedConsole_ExConsoleRead_ReadLine_" data-uid="ExtendedConsole.ExConsoleRead.ReadLine*"></a>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String_System_String_System_Predicate_System_String__" data-uid="ExtendedConsole.ExConsoleRead.ReadLine(ExtendedConsole.ExConsole,System.String,System.String,System.Predicate{System.String})">
+  ReadLine(ExConsole, string, string, Predicate&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the title to the console, reads a line of text,
+and returns the input only if it passed the validataion.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T? ReadStruct&lt;T&gt;(this ExConsole self, string title, string errorMessage, Func&lt;string, (bool Success, T Value)&gt; converter)
-    where T : struct</code></pre>
+    <pre><code class="lang-csharp hljs">public static string ReadLine(this ExConsole self, string title, string errorMessage, Predicate&lt;string&gt; validator)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show the user before asking for input.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">errorMessage</span></td>
-        <td><p>The error message to show the user if the conversion failed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Boolean</span>, T&gt;&gt;</td>
-        <td><span class="parametername">converter</span></td>
-        <td><p>A function that takes in a string and returns a <span class="xref">System.ValueTuple</span> of <span class="xref">System.Boolean</span> success and <code data-dev-comment-type="typeparamref" class="typeparamref">T</code> value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;T&gt;</td>
-        <td><p>An instance of <code data-dev-comment-type="typeparamref" class="typeparamref">T</code>? that has a value unless the user entered ^Z.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The underlying type of the nullable to convert to.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show the user before asking for input.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to show the user if the validation failed.</p>
+</dd>
+    <dt><code>validator</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.predicate-1">Predicate&lt;T&gt;</a> to validate the input with.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The string the user entered.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String_System_String_System_Predicate_System_String___examples">Examples</h4>
+  <p>Write &quot;Please enter your first name:&quot; to the console, where &quot;first&quot; is in green,
+waits for the user to enter a lime, and returns the user's input.</p>
+<pre><code class="lang-csharp">var firstName = exConsole.ReadLine("Please enter your &lt;c f='green'&gt;first&lt;/c&gt; name:", "&lt;c f='green'&gt;first&lt;/c&gt; name must start with a capital letter", s =&gt; char.IsUpper(s[0]));</code></pre>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code> or <code class="paramref">title</code> are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> is empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ExtendedConsole_ExConsoleRead_ReadStruct_" data-uid="ExtendedConsole.ExConsoleRead.ReadStruct*"></a>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadStruct``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">
+  ReadStruct&lt;T&gt;(ExConsole, string, string, Func&lt;string, (bool Success, T Value)&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to a nullable <code class="typeparamref">T</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T? ReadStruct&lt;T&gt;(this ExConsole self, string title, string errorMessage, Func&lt;string, (bool Success, T Value)&gt; converter) where T : struct</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show the user before asking for input.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to show the user if the conversion failed.</p>
+</dd>
+    <dt><code>converter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.boolean,--0-.success">Success</a>, T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.boolean,--0-.value">Value</a>)&gt;</dt>
+    <dd><p>A function that takes in a string and returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple">ValueTuple</a> of <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> success and <code class="typeparamref">T</code> value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T?</dt>
+    <dd><p>An instance of <code class="typeparamref">T</code>? that has a value unless the user entered ^Z.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The underlying type of the nullable to convert to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h4>
   <p>Parse and get an instance of the <code>TimeSpan</code> struct from user input.
-The duration variable is of type <code>Nullable&amp;lt;TimeSpan&gt;</code>, and will be null if the user entered ctrl+Z.</p>
-<pre><code>var duration = exConsole.ReadStruct(
-    &quot;Please enter estimated time (HH:mm:ss)&quot;,
-    &quot;Invalid value entered&quot;,
-    str => (TimeSpan.TryParse(str, out var result), result)
+The duration variable is of type <code>Nullable&lt;TimeSpan&gt;</code>, and will be null if the user entered ctrl+Z.</p>
+<pre><code class="lang-csharp">var duration = exConsole.ReadStruct(
+    "Please enter estimated time (HH:mm:ss)",
+    "Invalid value entered",
+    str =&gt; (TimeSpan.TryParse(str, out var result), result)
 );</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when any of the parameters is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when any of the parameters is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> are empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadUntilConverted_" data-uid="ExtendedConsole.ExConsoleRead.ReadUntilConverted*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadUntilConverted__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadUntilConverted``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadUntilConverted&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadUntilConverted__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadUntilConverted``1(ExtendedConsole.ExConsole,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">
+  ReadUntilConverted&lt;T&gt;(ExConsole, string, string, Func&lt;string, (bool Success, T Value)&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Reads an input line from the user and converts it to T.
 Repeats until conversion succeeds (even if the user entered ^Z).</p>
 <p>
 Use with caution!  
-The user can&apos;t exit this method without either providing a convertible value or exiting the entire program!
+The user can't exit this method without either providing a convertible value or exiting the entire program!
 </p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T ReadUntilConverted&lt;T&gt;(this ExConsole self, string title, string errorMessage, Func&lt;string, (bool Success, T Value)&gt; converter)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show the user before asking for input.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">errorMessage</span></td>
-        <td><p>The error message to show the user if the conversion failed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Boolean</span>, T&gt;&gt;</td>
-        <td><span class="parametername">converter</span></td>
-        <td><p>A function that takes in a string and returns a value tuple of bool success and T value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><p>The T value converted from the input string.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The target type of the conversion.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadUntilConverted__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show the user before asking for input.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to show the user if the conversion failed.</p>
+</dd>
+    <dt><code>converter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.boolean,--0-.success">Success</a>, T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.boolean,--0-.value">Value</a>)&gt;</dt>
+    <dd><p>A function that takes in a string and returns a value tuple of bool success and T value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The T value converted from the input string.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The target type of the conversion.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadUntilConverted__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h4>
   <p>Parse and get an instance of the <code>TimeSpan</code> struct from user input.</p>
-<pre><code>var duration = exConsole.ReadUntilConverted(
-    &quot;Please enter estimated time (HH:mm:ss)&quot;,
-    &quot;Invalid value entered&quot;,
-    str => (TimeSpan.TryParse(str, out var result), result)
+<pre><code class="lang-csharp">var duration = exConsole.ReadUntilConverted(
+    "Please enter estimated time (HH:mm:ss)",
+    "Invalid value entered",
+    str =&gt; (TimeSpan.TryParse(str, out var result), result)
 );</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when any of the parameters is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> are empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when any of the parameters is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> are empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleRead_ReadValues_" data-uid="ExtendedConsole.ExConsoleRead.ReadValues*"></a>
-  <h4 id="ExtendedConsole_ExConsoleRead_ReadValues__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadValues``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">ReadValues&lt;T&gt;(ExConsole, String, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</h4>
-  <div class="markdown level1 summary"><p>Reads multiple values from the user, converts and returns them as an <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>.
+
+  <h3 id="ExtendedConsole_ExConsoleRead_ReadValues__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___" data-uid="ExtendedConsole.ExConsoleRead.ReadValues``1(ExtendedConsole.ExConsole,System.String,System.String,System.String,System.Func{System.String,System.ValueTuple{System.Boolean,``0}})">
+  ReadValues&lt;T&gt;(ExConsole, string, string, string, Func&lt;string, (bool Success, T Value)&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads multiple values from the user, converts and returns them as an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>.
 Repeats until the user enters the quit text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; ReadValues&lt;T&gt;(this ExConsole self, string title, string errorMessage, string quit, Func&lt;string, (bool Success, T Value)&gt; converter)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td><p>The title to show the user before asking for input.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">errorMessage</span></td>
-        <td><p>The error message to show the user if the conversion failed.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">quit</span></td>
-        <td><p>A string the user should enter when they are done entering values.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Boolean</span>, T&gt;&gt;</td>
-        <td><span class="parametername">converter</span></td>
-        <td><p>A function that takes in a string and returns a value tuple of bool success and T value.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-        <td><p>An <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span> containing values conveted from the user input.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The type of values to convert to.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleRead_ReadValues__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The title to show the user before asking for input.</p>
+</dd>
+    <dt><code>errorMessage</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The error message to show the user if the conversion failed.</p>
+</dd>
+    <dt><code>quit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string the user should enter when they are done entering values.</p>
+</dd>
+    <dt><code>converter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.boolean,--0-.success">Success</a>, T <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.boolean,--0-.value">Value</a>)&gt;</dt>
+    <dd><p>A function that takes in a string and returns a value tuple of bool success and T value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</dt>
+    <dd><p>An <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> containing values conveted from the user input.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of values to convert to.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleRead_ReadValues__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0____examples">Examples</h4>
   <p>Read a collection of int values from the user.
-The integers vairable is of type <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>, and will never be null.
-If the user enters &quot;done&quot; before entering any valid integers, the retun value is an empty <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>.</p>
-<pre><code>var integers = _exConsole.ReadValues(
-    &quot;Please enter integer values, or &lt;c f=&apos;red&apos;>done&lt;/c> to quit.&quot;,
-    &quot;failed to parse input as int.&quot;,
-    &quot;done&quot;,
-    str => (int.TryParse(str, out var val), val)
+The integers vairable is of type <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>, and will never be null.
+If the user enters &quot;done&quot; before entering any valid integers, the retun value is an empty <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>.</p>
+<pre><code class="lang-csharp">var integers = _exConsole.ReadValues(
+    "Please enter integer values, or &lt;c f='red'&gt;done&lt;/c&gt; to quit.",
+    "failed to parse input as int.",
+    "done",
+    str =&gt; (int.TryParse(str, out var val), val)
 );</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when any of the parameters is null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code>, <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> or <code data-dev-comment-type="paramref" class="paramref">quit</code> are empty.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">title</code> or <code data-dev-comment-type="paramref" class="paramref">errorMessage</code> aren't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when any of the parameters is null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code>, <code class="paramref">errorMessage</code> or <code class="paramref">quit</code> are empty.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when <code class="paramref">title</code> or <code class="paramref">errorMessage</code> aren't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleRead.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

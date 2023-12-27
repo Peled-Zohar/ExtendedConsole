@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>How To Use | Extended Console </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="How To Use | Extended Console ">
+
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../public/docfx.min.css">
+    <link rel="stylesheet" href="../public/main.css">
+    <meta name="docfx:navrel" content="../toc.html">
+    <meta name="docfx:tocrel" content="toc.html">
+
+    <meta name="docfx:rel" content="../">
+
+
+
+    <meta name="loc:inThisArticle" content="In this article">
+    <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+    <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+    <meta name="loc:tocFilter" content="Filter by title">
+    <meta name="loc:nextArticle" content="Next">
+    <meta name="loc:prevArticle" content="Previous">
+    <meta name="loc:themeLight" content="Light">
+    <meta name="loc:themeDark" content="Dark">
+    <meta name="loc:themeAuto" content="Auto">
+    <meta name="loc:changeTheme" content="Change theme">
+    <meta name="loc:copy" content="Copy">
+    <meta name="loc:downloadPdf" content="Download PDF">
+</head>
+
+<script type="module" src="./../public/docfx.min.js"></script>
+
+<script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+</script>
+
+
+<body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+        <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+            <div class="container-xxl flex-nowrap">
+                <a class="navbar-brand" href="../index.html">
+                    <img id="logo" class="svg" src="../logo.svg" alt=" Extended Console ">  &nbsp;
+                    Extended Console
+                </a>
+                <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-three-dots"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navpanel">
+                    <div id="navbar">
+                        <form class="search" role="search" id="search">
+                            <i class="bi bi-search"></i>
+                            <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-xxl">
+        <div class="toc-offcanvas">
+            <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <nav class="toc" id="toc"></nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="actionbar">
+                <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <nav id="breadcrumb"></nav>
+            </div>
+
+            <article data-uid="">
+                <!-- *********************** Actual content starts here *********************** -->
+                <h1 style="text-align:center">How to use ExtendedConsole</h1>
+                <p>
+                    <ul>
+                        <li><a href="#Initialize">Initialize</a></li>
+                        <li><a href="#Write">Write colorful text to the console</a></li>
+                        <li><a href="#Menus">Create and run menus</a></li>
+                        <li><a href="#Read">read and parse user input</a></li>
+                        <li><a href="#ClearRows">Clear rows</a></li>
+                    </ul>
+                </p>
+                <p>
+                    <h4 style="text-align:center;" id="Initialize">Initialize</h4>
+                    To use <strong>ExtendedConsole</strong> you must create an instance of the <strong>ExConsole</strong> class.<br />
+                    It's recommended to create a single instance of the <strong>ExConsole</strong> class, as a static member of the <code class="lang-csharp">Program</code> class,
+                    but it is not mandatory.<br />
+                    Here's a typical initialization example:
+                </p>
+                <p>
+<pre><code class="lang-csharp">class Program
+{
+    private static ExConsole exConsole = new ExConsole();
+
+    static void Main(string[] args)
+    {
+        // the rest of your code goes here...
+    }
+}
+</code></pre>
+                    <div style="text-align:center;"><a href="#">Back to the top</a></div>
+                </p>
+                <p>
+                    <h4 style="text-align:center;" id="Write">Using <strong>ExtendedConsole</strong> to write colorful text to the console</h4>
+                    All methods in the <strong>ExtendedConsole</strong> project that writes to the console supports the following xml-based markup.<br />
+                    A <strong><code class="lang-csharp">c</code></strong> tag with <strong><code class="lang-csharp">f</code></strong> or <strong><code class="lang-csharp">b</code></strong> attributes (or a combination of both)
+                    with a value that is the name of a member of the <strong><code class="lang-csharp">ConsoleColor</code></strong> enum.<br />
+
+                    <strong>Code examples:</strong>
+<pre><code class="lang-csharp">// Write "Hello world" where Hello is green and world is yellow:
+exConsole.WriteLine("&lt;c f='green'&gt;Hello&lt;/c&gt; &lt;c f='yellow'&gt;world&lt;/c&gt;");
+
+// Write markup text with unrelated xml tags (and without the newLine at the end):
+exConsole.Write("Supports &lt;c b='darkRed'&gt;unrelated&lt;/c&gt; &lt;xml att='val' at2='val2'&gt;xml tags&lt;/xml&gt;.");
+
+// Write multiple markup lines:
+exConsole.WriteLines(
+    "This method writes multiple lines to the Console",
+    "As any other method in the ExtendedConsole project, it also &lt;c f='black' b='Yellow'&gt;supports markup.&lt;c&gt;"
+);
+</code></pre>
+                    <div style="text-align:center;"><a href="#">Back to the top</a></div>
+                </p>
+                <p>
+                    <h4 style="text-align:center;" id="Menus">Using <strong>ExtendedConsole</strong> to create and run menus</h4>
+                    <strong>ExtendedConsole</strong> supports several types of menus: <br />
+                    You can create a single-choise or muilt-choise menus, or display the members of an enum as a menu.<br /><br />
+
+                    <h6 style="text-align:center;">Single select menu</h6>
+<pre><code class="lang-csharp">// create and run a menu, specifying both the item name and the action to take:
+exConsole.Menu(
+    new MenuDisplayArgs(
+        "What to do next?", 
+        "Please enter the number of your selection.", 
+        invalidSelectionErrorMessage:"Invalid number entered. Please try again."),
+    ("&lt;c f='red'&gt;Do nothing&lt;/c&gt;", null),
+    ("Do this", DoThis),
+    ("Do that", () => DoThat()),
+    ("Go here", () => GoHere(withVariables))
+);
+
+// create and run a menu, specifying only the item names.
+var result = exConsole.Menu(
+    new MenuDisplayArgs(
+        "What to do next?", 
+        clearWhenSelected:false, 
+        invalidSelectionErrorMessage:"Invalid number entered. Please try again."),
+    "&lt;c f='red'&gt;Do nothing&lt;/c&gt;",
+    "Do this",
+    "Do that",
+    "Go here"
+);
+// Both menu overloads returns an int representing the zero-based index of the item chosen.
+</code></pre>
+                    <h6 style="text-align:center;">Create a single-select menu from enum members </h6>
+<pre><code class="lang-csharp">// Create and run a menu from an enum:
+var color = exConsole.ChooseFromEnum<ConsoleColor>(
+   new MenuDisplayArgs(
+       "Choose a foreground color",
+       "Please choose a color.",
+       false, 
+       "Please choose from the above list.")
+);
+
+// Create and run a menu from an enum, allowing the user to choose "none":
+ConsoleColor? color = exConsole.ChooseFromEnum<ConsoleColor>(
+   "&lt;c f='red'&gt;none&lt;/c&gt;", // If the user will choose this option, the ChooseFromEnum method will return null.
+   new MenuDisplayArgs(
+       "Choose a foreground color", 
+       "Please choose a color or '&lt;c f='red&gt;none&lt;/c&gt;' to keep current color.", 
+       invalidSelectionErrorMessage:"Please choose from the above list.")
+);
+</code></pre>
+                    <h6 style="text-align:center;">Create a multiple-select menu</h6>
+<pre><code class="lang-csharp">// Create a multiple-select menu
+var dates = exConsole.MultipleSelectMenu(
+    new MultipleSelectDisplayArgs("Select at least one date.", focusedItemColor:ConsoleColor.Cyan),
+    DateTime.Now,
+    DateTime.Now.AddDays(1),
+    DateTime.Now.AddDays(2),
+    DateTime.Now.AddDays(3)
+);
+
+// Create a multiple-select menu with an injected ToString implementation
+var dates = exConsole.MultipleSelectMenu(
+    new MultipleSelectDisplayArgs("Select at least one date.", focusedItemColor:ConsoleColor.Cyan),
+    d => d.ToString("dd/MM/yyyy");
+    DateTime.Now,
+    DateTime.Now.AddDays(1),
+    DateTime.Now.AddDays(2),
+    DateTime.Now.AddDays(3)
+);
+</code></pre>
+                    <div style="text-align:center;"><a href="#">Back to the top</a></div>
+                </p>
+                <p>
+                    <h4 style="text-align:center;" id="Read">Using <strong>ExtendedConsole</strong> to read and parse user input</h4>
+                    Currently, <strong>ExtendedConsole</strong> supports reading and parsing int, bool and DateTime values from the user.<br />
+                    It also contains methods to help you read and parse your own data types.<br /><br />
+                    Reading int values:
+<pre><code class="lang-csharp">// Read an int:
+var result = exConsole.ReadInt("Please enter an integer value");
+
+// Read an int that meets a specific condition:
+var result = exConsole.ReadInt(
+    "Please enter an integer value between 0 and 5", 
+    i => i > 0 && i < 5
+);
+
+// Read an int that meets a specific condition, with a specific error message:
+var result = exConsole.ReadInt(
+    "Please enter a positive integer", 
+    "I've asked for a &lt;c f='yellow'&gt;positive&lt;c&gt; integer!", 
+    i => i > 0
+);
+</code></pre>
+                    Reading datetime values:
+<pre><code class="lang-csharp">// Read a DateTime:
+var nullableDateTime = exConsole.ReadDateTime(
+    "Please enter a datetime value.", 
+    "Can't parse datetime value under the current culture settings."
+);
+</code></pre>
+                    Reading byte values:<br />
+                    ReadByte is currently not implemented on ExtendedConsole.<br />
+                    This means that to read byte values you need to either use the <code class="lang-csharp">ReadStruct&lt;T&gt;</code> method or the <code class="lang-csharp">ReadUntilConverted&lt;T&gt;</code> method.<br />
+                    The difference between these two methods is that <code class="lang-csharp">ReadStruct&lt;T&gt;</code> returns <code class="lang-csharp">Nullable&lt;T&gt;</code> - if the user enters ^Z it will return null,<br />
+                    While the <code class="lang-csharp">ReadUntilConverted&lt;T&gt;</code> will return a non-nullable value of <code class="lang-csharp">T</code>.
+                    The <code class="lang-csharp">ReadStruct&lt;T&gt;</code> method also has a reference-type counterpart called <code class="lang-csharp">ReadClass&lt;T&gt;</code>.
+<pre><code class="lang-csharp">// read a byte:
+var myByte = exConsole.ReadUntilConverted(
+    "Please enter a number between 0 and 255.",
+    "Invalid input.",
+    str => (byte.TryParse(str, out var res) , res)
+);
+
+// read a nullable byte:
+var nullableByte = exConsole.ReadStruct(
+    "Please enter a number between 0 and 255.",
+    "Invalid input.",
+    str => (byte.TryParse(str, out var res) , res)
+);
+</code></pre>
+                    <div style="text-align:center;"><a href="#">Back to the top</a></div>
+                </p>
+                <p>
+                    <h4 style="text-align:center;" id="ClearRows">Using <strong>ExtendedConsole</strong> to clear rows</h4>
+
+<pre><code class="lang-csharp">// Clear the last row:
+exConsole.ClearLastLine();
+
+// Clear a specific line:
+exConsole.ClearLine(lineIndex); // lineIndex being an int >= 0. A Negative value will throw an ArgumentOutOfRangeExcepton.
+
+// clear a spefied number of lines (from the last line displayed)
+// numberOfLines being an int > 0. A value less than 1 will throw an ArgumentOutOfRangeExcepton.
+exConsole.ClearLastLines(numberOfLines);
+</code></pre>
+                    <div style="text-align:center;"><a href="#">Back to the top</a></div>
+                </p>
+                <!-- *********************** Actual content ends here   *********************** -->
+            </article>
+
+            <div class="contribution d-print-none">
+            </div>
+
+            <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+        </div>
+
+        <div class="affix">
+            <nav id="affix"></nav>
+        </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+        <div class="container-xxl">
+            <div class="flex-fill">
+                <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,341 +1,320 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ExConsoleMenu
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ExConsoleMenu
-   ">
-    <meta name="generator" content="docfx 2.57.2.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class ExConsoleMenu
+ |  Extended Console  </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExConsoleMenu
+ |  Extended Console  ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Peled-Zohar/ExtendedConsole/new/master/apiSpec/new?filename=ExtendedConsole_ExConsoleMenu.md&amp;value=---%0Auid%3A%20ExtendedConsole.ExConsoleMenu%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt=" Extended Console "> &nbsp;
+             Extended Console 
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="ExtendedConsole.ExConsoleMenu">
-  
-  
-  <h1 id="ExtendedConsole_ExConsoleMenu" data-uid="ExtendedConsole.ExConsoleMenu" class="text-break">Class ExConsoleMenu
+
+        <article data-uid="ExtendedConsole.ExConsoleMenu">
+
+
+
+  <h1 id="ExtendedConsole_ExConsoleMenu" data-uid="ExtendedConsole.ExConsoleMenu" class="text-break">
+    Class ExConsoleMenu
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleMenu.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>Provides extension methods for ExConsole to support simple menus.</p>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ExtendedConsole.html">ExtendedConsole</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ExtendedConsole.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides extension methods for ExConsole to support simple menus.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ExConsoleMenu</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ExtendedConsole.html">ExtendedConsole</a></h6>
-  <h6><strong>Assembly</strong>: ExtendedConsole.dll</h6>
-  <h5 id="ExtendedConsole_ExConsoleMenu_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static class ExConsoleMenu</code></pre>
   </div>
-  <h3 id="methods">Methods
-  </h3>
-  
-  
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ExConsoleMenu</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="ExtendedConsole_ExConsoleMenu_Menu_" data-uid="ExtendedConsole.ExConsoleMenu.Menu*"></a>
-  <h4 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_String___" data-uid="ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,ExtendedConsole.MenuDisplayArgs,System.String[])">Menu(ExConsole, MenuDisplayArgs, String[])</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_String___" data-uid="ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,ExtendedConsole.MenuDisplayArgs,System.String[])">
+  Menu(ExConsole, MenuDisplayArgs, params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleMenu.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Displays a menu to the user and invokes the action the user chooses.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static int Menu(this ExConsole self, MenuDisplayArgs displayArgs, params string[] items)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a></td>
-        <td><span class="parametername">displayArgs</span></td>
-        <td><p>An instance of the <a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a> class holding the display configuration of the menu.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">items</span></td>
-        <td><p>The items of the menu.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>An integer representing the user's choice.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_String____examples">Examples</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>displayArgs</code> <a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a></dt>
+    <dd><p>An instance of the <a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a> class holding the display configuration of the menu.</p>
+</dd>
+    <dt><code>items</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>The items of the menu.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>An integer representing the user's choice.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_String____examples">Examples</h4>
   <p>Create and run a menu with the specified items, &quot;What to do next?&quot; as a title,<br>
 &quot;Please enter the number of your selection.&quot; displayed below the items,
 and &quot;Invalid number entered. Please try again.&quot;, if the user enters an invalid value.
 This menu does not execute anything, it only returns the zero-based index of the item selected by the user</p>
-<pre><code> var selection = exConsole.Menu(
-    new MenuDisplayArgs(&quot;What to do next?&quot;, &quot;Please enter the number of your selection.&quot;, invalidSelectionErrorMessage:&quot;Invalid number entered. Please try again.&quot; )
-    &quot;&lt;c f=&apos;Yellow&apos;>quit&lt;c>&quot;,
-    &quot;Do this&quot;,
-    &quot;Do that&quot;
- );</code></pre>
+<pre><code class="lang-csharp">var selection = exConsole.Menu(
+   new MenuDisplayArgs("What to do next?", "Please enter the number of your selection.", invalidSelectionErrorMessage:"Invalid number entered. Please try again." )
+   "&lt;c f='Yellow'&gt;quit&lt;c&gt;",
+   "Do this",
+   "Do that"
+);</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> or any of it's properties are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> is empty or when <code data-dev-comment-type="paramref" class="paramref">items</code> are not supplied.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when any of the text properties of <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code> or <code class="paramref">displayArgs</code> or any of it's properties are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">displayArgs</code> is empty or when <code class="paramref">items</code> are not supplied.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when any of the text properties of <code class="paramref">displayArgs</code> isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
   <a id="ExtendedConsole_ExConsoleMenu_Menu_" data-uid="ExtendedConsole.ExConsoleMenu.Menu*"></a>
-  <h4 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_ValueTuple_System_String_System_Action____" data-uid="ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,ExtendedConsole.MenuDisplayArgs,System.ValueTuple{System.String,System.Action}[])">Menu(ExConsole, MenuDisplayArgs, (String Title, Action Action)[])</h4>
+
+  <h3 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_ValueTuple_System_String_System_Action____" data-uid="ExtendedConsole.ExConsoleMenu.Menu(ExtendedConsole.ExConsole,ExtendedConsole.MenuDisplayArgs,System.ValueTuple{System.String,System.Action}[])">
+  Menu(ExConsole, MenuDisplayArgs, params (string Title, Action Action)[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleMenu.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Displays a menu to the user and invokes the action the user chooses.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static int Menu(this ExConsole self, MenuDisplayArgs displayArgs, params (string Title, Action Action)[] items)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><span class="parametername">self</span></td>
-        <td><p>The current instance of ExConsole.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a></td>
-        <td><span class="parametername">displayArgs</span></td>
-        <td><p>An instance of the <a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a> class holding the display configuration of the menu.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Action</span>&gt;[]</td>
-        <td><span class="parametername">items</span></td>
-        <td><p>The items of the menu.
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>self</code> <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of ExConsole.</p>
+</dd>
+    <dt><code>displayArgs</code> <a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a></dt>
+    <dd><p>An instance of the <a class="xref" href="ExtendedConsole.MenuDisplayArgs.html">MenuDisplayArgs</a> class holding the display configuration of the menu.</p>
+</dd>
+    <dt><code>items</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.action-.title">Title</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.action-.action">Action</a>)[]</dt>
+    <dd><p>The items of the menu.
 Each item contains a title and an action to perform, should the user choses this item.
 null can be passed in as the action if the item selection should perform no action.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>An integer representing the user's choice.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_ValueTuple_System_String_System_Action_____examples">Examples</h5>
-  <p>Create and run a menu with the specified title and items, that will disapear after the user selected an item.</p>
-<pre><code> var selection = exConsole.Menu(
-     new MenuDisplayArgs(&quot;What to do next?&quot;),
-     (&quot;&lt;c f=&apos;Yellow&apos;>quit&lt;c>&quot;, null),
-     (&quot;Do this&quot;, () => DoThis(3)),
-     (&quot;Do that&quot;, DoThat)
- );</code></pre>
+</dd>
+  </dl>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentNullException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">self</code> or <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> or any of it's properties are null.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> is empty or when <code data-dev-comment-type="paramref" class="paramref">items</code> are not supplied.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when any of the text properties of <code data-dev-comment-type="paramref" class="paramref">displayArgs</code> isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>An integer representing the user's choice.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_ValueTuple_System_String_System_Action_____examples">Examples</h4>
+  <p>Create and run a menu with the specified title and items, that will disapear after the user selected an item.</p>
+<pre><code class="lang-csharp">var selection = exConsole.Menu(
+    new MenuDisplayArgs("What to do next?"),
+    ("&lt;c f='Yellow'&gt;quit&lt;c&gt;", null),
+    ("Do this", () =&gt; DoThis(3)),
+    ("Do that", DoThat)
+);</code></pre>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Thrown when <code class="paramref">self</code> or <code class="paramref">displayArgs</code> or any of it's properties are null.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when <code class="paramref">displayArgs</code> is empty or when <code class="paramref">items</code> are not supplied.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when any of the text properties of <code class="paramref">displayArgs</code> isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsoleMenu.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

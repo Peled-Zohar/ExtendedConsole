@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "name": "Docs",
+      "href": "docs/introduction.html",
+      "tocHref": "docs/toc.html",
+      "topicHref": "docs/introduction.html",
+      "topicUid": "introduction"
+    },
+    {
+      "name": "API",
+      "href": "api/ExtendedConsole.html",
+      "tocHref": "api/toc.html",
+      "topicHref": "api/ExtendedConsole.html",
+      "topicUid": "ExtendedConsole"
+    }
+  ],
+  "pdf": false
+}

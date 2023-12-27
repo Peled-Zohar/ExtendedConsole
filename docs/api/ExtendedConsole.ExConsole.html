@@ -1,606 +1,551 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ExConsole
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ExConsole
-   ">
-    <meta name="generator" content="docfx 2.57.2.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class ExConsole
+ |  Extended Console  </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ExConsole
+ |  Extended Console  ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Peled-Zohar/ExtendedConsole/new/master/apiSpec/new?filename=ExtendedConsole_ExConsole.md&amp;value=---%0Auid%3A%20ExtendedConsole.ExConsole%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <script type="module" src="./../public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt=" Extended Console "> &nbsp;
+             Extended Console 
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="ExtendedConsole.ExConsole">
-  
-  
-  <h1 id="ExtendedConsole_ExConsole" data-uid="ExtendedConsole.ExConsole" class="text-break">Class ExConsole
+
+        <article data-uid="ExtendedConsole.ExConsole">
+
+
+
+  <h1 id="ExtendedConsole_ExConsole" data-uid="ExtendedConsole.ExConsole" class="text-break">
+    Class ExConsole
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsole.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>Provides support for using an xml based markup text in console applications.</p>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ExtendedConsole.html">ExtendedConsole</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ExtendedConsole.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Provides support for using an xml based markup text in console applications.</p>
 <p>
 Markup contains text and control tags to set the foreground and background color of the text. 
 Color names are limited to members of the ConsoleColor enum, but are case insensitive.
 </p>
 <p>
 Markup example: 
-<pre><code>&lt;c f=&apos;Yellow&apos;>yellow text&lt;c b=&apos;blue&apos;> on blue background.&lt;/c>&lt;/c></code></pre>
-</p>
+<pre><code class="lang-csharp">&lt;c f='Yellow'&gt;yellow text&lt;c b='blue'&gt; on blue background.&lt;/c&gt;&lt;/c&gt;</code></pre>
+
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ExConsole</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="ExtendedConsole.html">ExtendedConsole</a></h6>
-  <h6><strong>Assembly</strong>: ExtendedConsole.dll</h6>
-  <h5 id="ExtendedConsole_ExConsole_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ExConsole</code></pre>
   </div>
-  <h3 id="methods">Methods
-  </h3>
-  
-  
-  <a id="ExtendedConsole_ExConsole_Write_" data-uid="ExtendedConsole.ExConsole.Write*"></a>
-  <h4 id="ExtendedConsole_ExConsole_Write_System_String_" data-uid="ExtendedConsole.ExConsole.Write(System.String)">Write(String)</h4>
-  <div class="markdown level1 summary"><p>Writes the specified markup to the console.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ExConsole Write(string markup)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">markup</span></td>
-        <td><p>Markup text to write.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsole_Write_System_String__examples">Examples</h5>
-  <p>Write &quot;Hello World!&quot;, cyan on a dark gray background.</p>
-<pre><code>exConsole.Write(&quot;&lt;c f=&apos;cyan&apos; b=&apos;darkgray&apos;>Hello World!&lt;c>&quot;);</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when markup text isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ExtendedConsole_ExConsole_Write_" data-uid="ExtendedConsole.ExConsole.Write*"></a>
-  <h4 id="ExtendedConsole_ExConsole_Write_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="ExtendedConsole.ExConsole.Write(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">Write(String, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
-  <div class="markdown level1 summary"><p>Changes console colors to the specified colors, and writes the specified markup to the console.</p>
-<p>Note: This method is deprecated and will be removed in future versions.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.&quot;)]
-public ExConsole Write(string markup, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">markup</span></td>
-        <td><p>Markup text to write.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
-        <td><span class="parametername">foregroundColor</span></td>
-        <td><p>Foreground color.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
-        <td><span class="parametername">backgroundColor</span></td>
-        <td><p>Background color.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsole_Write_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor___examples">Examples</h5>
-  <p>Write &quot;Hello World!&quot; in black on a magenta background, followed by &quot;How are you?&quot; in black on a white background.</p>
-<pre><code>exConsole.Write(&quot;Hello world! &lt;c b=&apos;white&apos; f=&apos;black&apos;>How are you?&lt;c>&quot;, ConsoleColor.Black, ConsoleColor.Magenta);</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when markup text isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ExtendedConsole_ExConsole_WriteLine_" data-uid="ExtendedConsole.ExConsole.WriteLine*"></a>
-  <h4 id="ExtendedConsole_ExConsole_WriteLine_System_String_" data-uid="ExtendedConsole.ExConsole.WriteLine(System.String)">WriteLine(String)</h4>
-  <div class="markdown level1 summary"><p>Writes the specified markup to the console, advances the cursor to the next line.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ExConsole WriteLine(string markup)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">markup</span></td>
-        <td><p>Markup text to write.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsole_WriteLine_System_String__examples">Examples</h5>
-  <p>Write &quot;Hello World!&quot;, black on a white background,
-and advance the cursor to the next line.</p>
-<pre><code>exConsole.WriteLine(&quot;&lt;c b=&apos;white&apos; f=&apos;black&apos;>Hello World!&lt;c>&quot;);</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when markup text isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ExtendedConsole_ExConsole_WriteLine_" data-uid="ExtendedConsole.ExConsole.WriteLine*"></a>
-  <h4 id="ExtendedConsole_ExConsole_WriteLine_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="ExtendedConsole.ExConsole.WriteLine(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">WriteLine(String, Nullable&lt;ConsoleColor&gt;, Nullable&lt;ConsoleColor&gt;)</h4>
-  <div class="markdown level1 summary"><p>Changes console colors to the specified colors, and writes the specified markup to the console.
-Advances the cursor to the next line.</p>
-<p>Note: This method is deprecated and will be removed in future versions.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.&quot;)]
-public ExConsole WriteLine(string markup, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">markup</span></td>
-        <td><p>Markup text to write.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
-        <td><span class="parametername">foregroundColor</span></td>
-        <td><p>Foreground color.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.ConsoleColor</span>&gt;</td>
-        <td><span class="parametername">backgroundColor</span></td>
-        <td><p>Background color.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsole_WriteLine_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor___examples">Examples</h5>
-  <p>Write &quot;Hello World!&quot; in magenta, followed by &quot;How are you?&quot; in black on a white background. Advance the cursor to the next line.</p>
-<pre><code>exConsole.WriteLine(&quot;Hello world! &lt;c b=&apos;white&apos; f=&apos;black&apos;>How are you?&lt;c>&quot;, ConsoleColor.Magenta, null);</code></pre>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when markup text isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="ExtendedConsole_ExConsole_WriteLines_" data-uid="ExtendedConsole.ExConsole.WriteLines*"></a>
-  <h4 id="ExtendedConsole_ExConsole_WriteLines_System_String___" data-uid="ExtendedConsole.ExConsole.WriteLines(System.String[])">WriteLines(String[])</h4>
-  <div class="markdown level1 summary"><p>Writes multiple markup lines to the console.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ExConsole WriteLines(params string[] lines)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span>[]</td>
-        <td><span class="parametername">lines</span></td>
-        <td><p>Lines of markup text to write.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></td>
-        <td><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="ExtendedConsole_ExConsole_WriteLines_System_String____examples">Examples</h5>
-  <p>Write &quot;Hello World!&quot; in yellow,
-&quot;This is exConsole writing multiple markup lines&quot; in the next line, with exConsole in green, and
-&quot;To the Console.&quot; in the last line. Advance the cursor to the next line.</p>
-<pre><code>exConsole.WriteLines(
-    &quot;&lt;c f=&apos;Yellow&apos;>Hello World!&lt;c>&quot;,
-    &quot;This is &lt;c f=&apos;green&apos;>exConsole&lt;c> writing multiple markup lines&quot;,
-    &quot;To the Console.&quot;
-);</code></pre>
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ExConsole</span></div>
+    </dd>
+  </dl>
 
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Xml.XmlException</span></td>
-        <td><p>Thrown when markup text isn't properly formatted xml.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleChooseFromEnum.html#ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_ExtendedConsole_MenuDisplayArgs_">ExConsoleChooseFromEnum.ChooseFromEnum&lt;T&gt;(ExConsole, String, MenuDisplayArgs)</a>
-  </div>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
   <div>
       <a class="xref" href="ExtendedConsole.ExConsoleChooseFromEnum.html#ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_">ExConsoleChooseFromEnum.ChooseFromEnum&lt;T&gt;(ExConsole, MenuDisplayArgs)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleClearLines.html#ExtendedConsole_ExConsoleClearLines_ClearCurrentLine_ExtendedConsole_ExConsole_">ExConsoleClearLines.ClearCurrentLine(ExConsole)</a>
-  </div>
-  <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleClearLines.html#ExtendedConsole_ExConsoleClearLines_ClearLine_ExtendedConsole_ExConsole_System_Int32_">ExConsoleClearLines.ClearLine(ExConsole, Int32)</a>
-  </div>
-  <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleClearLines.html#ExtendedConsole_ExConsoleClearLines_ClearLastLine_ExtendedConsole_ExConsole_">ExConsoleClearLines.ClearLastLine(ExConsole)</a>
-  </div>
-  <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleClearLines.html#ExtendedConsole_ExConsoleClearLines_ClearLastLines_ExtendedConsole_ExConsole_System_Int32_">ExConsoleClearLines.ClearLastLines(ExConsole, Int32)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleChooseFromEnum.html#ExtendedConsole_ExConsoleChooseFromEnum_ChooseFromEnum__1_ExtendedConsole_ExConsole_System_String_ExtendedConsole_MenuDisplayArgs_">ExConsoleChooseFromEnum.ChooseFromEnum&lt;T&gt;(ExConsole, string, MenuDisplayArgs)</a>
   </div>
   <div>
       <a class="xref" href="ExtendedConsole.ExConsoleClearLines.html#ExtendedConsole_ExConsoleClearLines_ClearAllLines_ExtendedConsole_ExConsole_">ExConsoleClearLines.ClearAllLines(ExConsole)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_ValueTuple_System_String_System_Action____">ExConsoleMenu.Menu(ExConsole, MenuDisplayArgs, (String Title, Action Action)[])</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleClearLines.html#ExtendedConsole_ExConsoleClearLines_ClearCurrentLine_ExtendedConsole_ExConsole_">ExConsoleClearLines.ClearCurrentLine(ExConsole)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_String___">ExConsoleMenu.Menu(ExConsole, MenuDisplayArgs, String[])</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleClearLines.html#ExtendedConsole_ExConsoleClearLines_ClearLastLine_ExtendedConsole_ExConsole_">ExConsoleClearLines.ClearLastLine(ExConsole)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleMultipleSelectMenu.html#ExtendedConsole_ExConsoleMultipleSelectMenu_MultipleSelectMenu__1_ExtendedConsole_ExConsole_ExtendedConsole_MultipleSelectDisplayArgs___0___">ExConsoleMultipleSelectMenu.MultipleSelectMenu&lt;T&gt;(ExConsole, MultipleSelectDisplayArgs, T[])</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleClearLines.html#ExtendedConsole_ExConsoleClearLines_ClearLastLines_ExtendedConsole_ExConsole_System_Int32_">ExConsoleClearLines.ClearLastLines(ExConsole, int)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleMultipleSelectMenu.html#ExtendedConsole_ExConsoleMultipleSelectMenu_MultipleSelectMenu__1_ExtendedConsole_ExConsole_ExtendedConsole_MultipleSelectDisplayArgs_System_Func___0_System_String____0___">ExConsoleMultipleSelectMenu.MultipleSelectMenu&lt;T&gt;(ExConsole, MultipleSelectDisplayArgs, Func&lt;T, String&gt;, T[])</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleClearLines.html#ExtendedConsole_ExConsoleClearLines_ClearLine_ExtendedConsole_ExConsole_System_Int32_">ExConsoleClearLines.ClearLine(ExConsole, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_String___">ExConsoleMenu.Menu(ExConsole, MenuDisplayArgs, params string[])</a>
+  </div>
+  <div>
+      <a class="xref" href="ExtendedConsole.ExConsoleMenu.html#ExtendedConsole_ExConsoleMenu_Menu_ExtendedConsole_ExConsole_ExtendedConsole_MenuDisplayArgs_System_ValueTuple_System_String_System_Action____">ExConsoleMenu.Menu(ExConsole, MenuDisplayArgs, params (string Title, Action Action)[])</a>
+  </div>
+  <div>
+      <a class="xref" href="ExtendedConsole.ExConsoleMultipleSelectMenu.html#ExtendedConsole_ExConsoleMultipleSelectMenu_MultipleSelectMenu__1_ExtendedConsole_ExConsole_ExtendedConsole_MultipleSelectDisplayArgs_System_Func___0_System_String____0___">ExConsoleMultipleSelectMenu.MultipleSelectMenu&lt;T&gt;(ExConsole, MultipleSelectDisplayArgs, Func&lt;T, string&gt;, params T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="ExtendedConsole.ExConsoleMultipleSelectMenu.html#ExtendedConsole_ExConsoleMultipleSelectMenu_MultipleSelectMenu__1_ExtendedConsole_ExConsole_ExtendedConsole_MultipleSelectDisplayArgs___0___">ExConsoleMultipleSelectMenu.MultipleSelectMenu&lt;T&gt;(ExConsole, MultipleSelectDisplayArgs, params T[])</a>
   </div>
   <div>
       <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_">ExConsoleRead.Pause(ExConsole)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_System_String_">ExConsoleRead.Pause(ExConsole, String)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_Pause_ExtendedConsole_ExConsole_System_String_">ExConsoleRead.Pause(ExConsole, string)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadKey_ExtendedConsole_ExConsole_System_String_System_Boolean_">ExConsoleRead.ReadKey(ExConsole, String, Boolean)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_ConsoleKey_System_String_">ExConsoleRead.ReadBool(ExConsole, ConsoleKey, ConsoleKey, string)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String_">ExConsoleRead.ReadLine(ExConsole, String)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_String_">ExConsoleRead.ReadBool(ExConsole, ConsoleKey, string)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadUntilConverted__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___">ExConsoleRead.ReadUntilConverted&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadClass__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___">ExConsoleRead.ReadClass&lt;T&gt;(ExConsole, string, string, Func&lt;string, (bool Success, T Value)&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___">ExConsoleRead.ReadStruct&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_">ExConsoleRead.ReadDateTime(ExConsole, string, string)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadClass__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___">ExConsoleRead.ReadClass&lt;T&gt;(ExConsole, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_">ExConsoleRead.ReadDateTime(ExConsole, string, string, IFormatProvider, DateTimeStyles)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadValues__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___">ExConsoleRead.ReadValues&lt;T&gt;(ExConsole, String, String, String, Func&lt;String, (Boolean Success, T Value)&gt;)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_">ExConsoleRead.ReadDateTime(ExConsole, string, string, string, IFormatProvider, DateTimeStyles)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_String_">ExConsoleRead.ReadBool(ExConsole, ConsoleKey, String)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String___System_IFormatProvider_System_Globalization_DateTimeStyles_">ExConsoleRead.ReadDateTime(ExConsole, string, string, string[], IFormatProvider, DateTimeStyles)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadBool_ExtendedConsole_ExConsole_System_ConsoleKey_System_ConsoleKey_System_String_">ExConsoleRead.ReadBool(ExConsole, ConsoleKey, ConsoleKey, String)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_">ExConsoleRead.ReadInt(ExConsole, string)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_">ExConsoleRead.ReadInt(ExConsole, String)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_Func_System_Int32_System_Boolean__">ExConsoleRead.ReadInt(ExConsole, string, Func&lt;int, bool&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_Func_System_Int32_System_Boolean__">ExConsoleRead.ReadInt(ExConsole, String, Func&lt;Int32, Boolean&gt;)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_Int32_System_Boolean__">ExConsoleRead.ReadInt(ExConsole, string, string, Func&lt;int, bool&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadInt_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_Int32_System_Boolean__">ExConsoleRead.ReadInt(ExConsole, String, String, Func&lt;Int32, Boolean&gt;)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadKey_ExtendedConsole_ExConsole_System_String_System_Boolean_">ExConsoleRead.ReadKey(ExConsole, string, bool)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_">ExConsoleRead.ReadDateTime(ExConsole, String, String)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String_">ExConsoleRead.ReadLine(ExConsole, string)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_">ExConsoleRead.ReadDateTime(ExConsole, String, String, IFormatProvider, DateTimeStyles)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadLine_ExtendedConsole_ExConsole_System_String_System_String_System_Predicate_System_String__">ExConsoleRead.ReadLine(ExConsole, string, string, Predicate&lt;string&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_IFormatProvider_System_Globalization_DateTimeStyles_">ExConsoleRead.ReadDateTime(ExConsole, String, String, String, IFormatProvider, DateTimeStyles)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadStruct__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___">ExConsoleRead.ReadStruct&lt;T&gt;(ExConsole, string, string, Func&lt;string, (bool Success, T Value)&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadDateTime_ExtendedConsole_ExConsole_System_String_System_String_System_String___System_IFormatProvider_System_Globalization_DateTimeStyles_">ExConsoleRead.ReadDateTime(ExConsole, String, String, String[], IFormatProvider, DateTimeStyles)</a>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadUntilConverted__1_ExtendedConsole_ExConsole_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___">ExConsoleRead.ReadUntilConverted&lt;T&gt;(ExConsole, string, string, Func&lt;string, (bool Success, T Value)&gt;)</a>
   </div>
+  <div>
+      <a class="xref" href="ExtendedConsole.ExConsoleRead.html#ExtendedConsole_ExConsoleRead_ReadValues__1_ExtendedConsole_ExConsole_System_String_System_String_System_String_System_Func_System_String_System_ValueTuple_System_Boolean___0___">ExConsoleRead.ReadValues&lt;T&gt;(ExConsole, string, string, string, Func&lt;string, (bool Success, T Value)&gt;)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ExtendedConsole_ExConsole_Write_" data-uid="ExtendedConsole.ExConsole.Write*"></a>
+
+  <h3 id="ExtendedConsole_ExConsole_Write_System_String_" data-uid="ExtendedConsole.ExConsole.Write(System.String)">
+  Write(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsole.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the specified markup to the console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExConsole Write(string markup)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>markup</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Markup text to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsole_Write_System_String__examples">Examples</h4>
+  <p>Write &quot;Hello World!&quot;, cyan on a dark gray background.</p>
+<pre><code class="lang-csharp">exConsole.Write("&lt;c f='cyan' b='darkgray'&gt;Hello World!&lt;c&gt;");</code></pre>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when markup text isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ExtendedConsole_ExConsole_Write_" data-uid="ExtendedConsole.ExConsole.Write*"></a>
+
+  <h3 id="ExtendedConsole_ExConsole_Write_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="ExtendedConsole.ExConsole.Write(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">
+  Write(string, ConsoleColor?, ConsoleColor?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsole.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes console colors to the specified colors, and writes the specified markup to the console.</p>
+<p>Note: This method is deprecated and will be removed in future versions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.&quot;)]
+public ExConsole Write(string markup, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>markup</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Markup text to write.</p>
+</dd>
+    <dt><code>foregroundColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolecolor">ConsoleColor</a>?</dt>
+    <dd><p>Foreground color.</p>
+</dd>
+    <dt><code>backgroundColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolecolor">ConsoleColor</a>?</dt>
+    <dd><p>Background color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsole_Write_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor___examples">Examples</h4>
+  <p>Write &quot;Hello World!&quot; in black on a magenta background, followed by &quot;How are you?&quot; in black on a white background.</p>
+<pre><code class="lang-csharp">exConsole.Write("Hello world! &lt;c b='white' f='black'&gt;How are you?&lt;c&gt;", ConsoleColor.Black, ConsoleColor.Magenta);</code></pre>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when markup text isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ExtendedConsole_ExConsole_WriteLine_" data-uid="ExtendedConsole.ExConsole.WriteLine*"></a>
+
+  <h3 id="ExtendedConsole_ExConsole_WriteLine_System_String_" data-uid="ExtendedConsole.ExConsole.WriteLine(System.String)">
+  WriteLine(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsole.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the specified markup to the console, advances the cursor to the next line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExConsole WriteLine(string markup)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>markup</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Markup text to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsole_WriteLine_System_String__examples">Examples</h4>
+  <p>Write &quot;Hello World!&quot;, black on a white background,
+and advance the cursor to the next line.</p>
+<pre><code class="lang-csharp">exConsole.WriteLine("&lt;c b='white' f='black'&gt;Hello World!&lt;c&gt;");</code></pre>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when markup text isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ExtendedConsole_ExConsole_WriteLine_" data-uid="ExtendedConsole.ExConsole.WriteLine*"></a>
+
+  <h3 id="ExtendedConsole_ExConsole_WriteLine_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor__" data-uid="ExtendedConsole.ExConsole.WriteLine(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})">
+  WriteLine(string, ConsoleColor?, ConsoleColor?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsole.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Changes console colors to the specified colors, and writes the specified markup to the console.
+Advances the cursor to the next line.</p>
+<p>Note: This method is deprecated and will be removed in future versions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;this method is deprecated and will be removed in future versions.&quot;)]
+public ExConsole WriteLine(string markup, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>markup</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Markup text to write.</p>
+</dd>
+    <dt><code>foregroundColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolecolor">ConsoleColor</a>?</dt>
+    <dd><p>Foreground color.</p>
+</dd>
+    <dt><code>backgroundColor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolecolor">ConsoleColor</a>?</dt>
+    <dd><p>Background color.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsole_WriteLine_System_String_System_Nullable_System_ConsoleColor__System_Nullable_System_ConsoleColor___examples">Examples</h4>
+  <p>Write &quot;Hello World!&quot; in magenta, followed by &quot;How are you?&quot; in black on a white background. Advance the cursor to the next line.</p>
+<pre><code class="lang-csharp">exConsole.WriteLine("Hello world! &lt;c b='white' f='black'&gt;How are you?&lt;c&gt;", ConsoleColor.Magenta, null);</code></pre>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when markup text isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="ExtendedConsole_ExConsole_WriteLines_" data-uid="ExtendedConsole.ExConsole.WriteLines*"></a>
+
+  <h3 id="ExtendedConsole_ExConsole_WriteLines_System_String___" data-uid="ExtendedConsole.ExConsole.WriteLines(System.String[])">
+  WriteLines(params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsole.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes multiple markup lines to the console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExConsole WriteLines(params string[] lines)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd><p>Lines of markup text to write.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a></dt>
+    <dd><p>The current instance of <a class="xref" href="ExtendedConsole.ExConsole.html">ExConsole</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="ExtendedConsole_ExConsole_WriteLines_System_String____examples">Examples</h4>
+  <p>Write &quot;Hello World!&quot; in yellow,
+&quot;This is exConsole writing multiple markup lines&quot; in the next line, with exConsole in green, and
+&quot;To the Console.&quot; in the last line. Advance the cursor to the next line.</p>
+<pre><code class="lang-csharp">exConsole.WriteLines(
+    "&lt;c f='Yellow'&gt;Hello World!&lt;c&gt;",
+    "This is &lt;c f='green'&gt;exConsole&lt;c&gt; writing multiple markup lines",
+    "To the Console."
+);</code></pre>
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.xmlexception">XmlException</a></dt>
+    <dd><p>Thrown when markup text isn't properly formatted xml.</p>
+</dd>
+  </dl>
+
+
+
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Peled-Zohar/ExtendedConsole/blob/master/ExtendedConsole/ExConsole.cs/#L22" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

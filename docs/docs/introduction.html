@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Introduction | Extended Console </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Introduction | Extended Console ">
+
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../public/docfx.min.css">
+    <link rel="stylesheet" href="../public/main.css">
+    <meta name="docfx:navrel" content="../toc.html">
+    <meta name="docfx:tocrel" content="toc.html">
+
+    <meta name="docfx:rel" content="../">
+
+
+
+    <meta name="loc:inThisArticle" content="In this article">
+    <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+    <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+    <meta name="loc:tocFilter" content="Filter by title">
+    <meta name="loc:nextArticle" content="Next">
+    <meta name="loc:prevArticle" content="Previous">
+    <meta name="loc:themeLight" content="Light">
+    <meta name="loc:themeDark" content="Dark">
+    <meta name="loc:themeAuto" content="Auto">
+    <meta name="loc:changeTheme" content="Change theme">
+    <meta name="loc:copy" content="Copy">
+    <meta name="loc:downloadPdf" content="Download PDF">
+</head>
+
+<script type="module" src="./../public/docfx.min.js"></script>
+
+<script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+</script>
+
+
+<body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+        <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+            <div class="container-xxl flex-nowrap">
+                <a class="navbar-brand" href="../index.html">
+                    <img id="logo" class="svg" src="../logo.svg" alt=" Extended Console ">  &nbsp;
+                    Extended Console
+                </a>
+                <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-three-dots"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navpanel">
+                    <div id="navbar">
+                        <form class="search" role="search" id="search">
+                            <i class="bi bi-search"></i>
+                            <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-xxl">
+        <div class="toc-offcanvas">
+            <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <nav class="toc" id="toc"></nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="actionbar">
+                <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <nav id="breadcrumb"></nav>
+            </div>
+
+            <article data-uid="">
+                <!-- *********************** Actual content starts here *********************** -->
+                <h1 style="text-align:center">An introduction to ExtendedConsole</h1>
+                <p>
+                    <br />
+                    The <strong>ExtendedConsole</strong> project was created after writing many .Net console applications, 
+                    and finding myself spending way too much time and effort on doing what should be, in my humble opinion, simple and trivial tasks.
+                </p>
+                <p>
+                    Things like highlighting parts of the output text, validating and parsing user inputs, 
+                    and creating simple menus - all of these tasks seems to have been, for the lack of a better term, 
+                    neglected when it comes to console applications.
+                </p>
+                <p>
+                    The <strong>ExtendedConsole</strong> project is here to provide easy-to-use solutions to these tasks.
+                </p>
+                <p>
+                    First and foremost, it supports a super-simple XML markup
+                    for setting the foreground and background color of the text being written to the Console. <br />
+                    The markup contains only one XML tag - "c" (for color) with two optional attributes: "f" and "b"
+                    (for foreground and background respectively). This means no more breaking up your strings to multiple code lines -
+                    just to color a specific part of your code - using <strong>ExtendedConsole</strong> it's just a simple call to <code>WriteLine.</code>
+                </p>
+                <p>
+                    Your basic Hello world looks like this:
+                    <pre><code class="lang-csharp">class Program
+{
+    private static ExConsole exConsole = new ExConsole();
+
+    static void Main(string[] args)
+    {
+        exConsole.WriteLine("&lt;c f='darkBlue' b='yellow'&gt;Hello &lt;c f='magenta'&gt;world!&lt;/c&gt;&lt;/c&gt;");
+    }
+}
+</code></pre>
+                </p>
+                <p>
+                    One more feature is the different <code class="lang-csharp">Menu</code> methods.<br />
+                    <strong>ExtendedConsole</strong> makes creating, displaying and executing menus easy, 
+                    be it a single select or multi select menu, or choosing a value from an enum - All of these are just a simple method call.
+                </p>
+                <p>
+                    Also, ever had to get an int value from the user?<br />
+                    Your code can get quite cumbersome if any input from the user must be handled in it's own loop - <strong>ExtendedConsole</strong> provides methods for that too: <br />
+                    A few methods such as <code class="lang-csharp">ReadInt</code>, <code class="lang-csharp">ReadBool</code> and <code class="lang-csharp">ReadDateTime</code>,
+                    as well as methods that you can hook up your own types for parsing user input directly -
+                    <code class="lang-csharp">ReadClass&lt;T&gt;</code>, <code class="lang-csharp">ReadStruct&lt;T&gt;</code> and <code class="lang-csharp">ReadUntilConverted&lt;T&gt;</code> -
+                    for those times when you just can't let the user continue without entering a value (this method will not allow the users to escape the read loop even using <code>^Z</code>).
+
+                    And the best thing about this project - it's super easy to extend. <br />
+                    All you need to do is write extension methods, most of them can use the already existing extension methods
+                    (that's what the <code class="lang-csharp">ReadClass&lt;T&gt;</code>, <code class="lang-csharp">ReadStruct&lt;T&gt;</code> and <code class="lang-csharp">ReadUntilConverted&lt;T&gt;</code> are there for).
+                </p>
+                <!-- *********************** Actual content ends here   *********************** -->
+            </article>
+
+            <div class="contribution d-print-none">
+            </div>
+
+            <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+        </div>
+
+        <div class="affix">
+            <nav id="affix"></nav>
+        </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+        <div class="container-xxl">
+            <div class="flex-fill">
+                <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
