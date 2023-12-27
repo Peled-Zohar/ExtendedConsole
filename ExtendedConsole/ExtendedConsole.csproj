@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,10 +6,9 @@
     <Company />
     <NeutralLanguage>en</NeutralLanguage>
     <Description>Provides a set of methods to make your life as a programmer easier when writing a Console application.</Description>
-    <PackageLicenseUrl>https://github.com/Peled-Zohar/ExtendedConsole/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://peled-zohar.github.io/ExtendedConsole/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Peled-Zohar/ExtendedConsole</RepositoryUrl>
-    <Copyright />
+    <Copyright>Zohar Peled</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>7.3</LangVersion>
     <PackageReleaseNotes>
@@ -24,7 +23,26 @@
 
   <PropertyGroup>
     <DocumentationFile>C:\Development\ExtendedConsole\ExtendedConsole\ExtendedConsole.xml</DocumentationFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>.Net;c#;Console</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>ExtendedConsole.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\ExtendedConsole.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <None Update="icon.png">
