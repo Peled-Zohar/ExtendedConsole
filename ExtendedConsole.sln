@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingExtendedConsole", "Usi
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "docs", "docs\", "{07A7D914-245B-4061-9FF4-B2222325A0B7}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_52413"
 		Debug.AspNetCompiler.PhysicalPath = "docs\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52413\"
