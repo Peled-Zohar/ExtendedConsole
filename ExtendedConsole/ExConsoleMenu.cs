@@ -74,10 +74,14 @@ namespace ExtendedConsole
             {
                 self.WriteLine($"{i}. {items[i]}");
             }
-            var result = ExConsoleRead.ReadInt(self, displayArgs.PleaseSelectText, displayArgs.InvalidSelectionErrorMessage, i => i > -1 && i < items.Length);
+            var result = self.ReadInt(displayArgs.PleaseSelectText, displayArgs.InvalidSelectionErrorMessage, i => i > -1 && i < items.Length);
             if (displayArgs.ClearWhenSelected)
             {
                 self.ClearLastLines(Console.CursorTop - cursorTop);
+            }
+            if(displayArgs.ShowSelectedItem)
+            {
+                self.WriteLine(items[result]);
             }
             return result;
 

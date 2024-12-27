@@ -38,7 +38,8 @@ namespace UsingExtendedConsole
         private static int StringsMenu()
         {
             var result = exConsole.Menu(
-                new MenuDisplayArgs("Demonstraiting ExConsole - strings menu, clearWhenSelected = false", clearWhenSelected:false),
+                new MenuDisplayArgs("Demonstraiting ExConsole - strings menu, clearWhenSelected = false", clearWhenSelected:false, showSelectedItem: true
+                ),
                 "<c f='red'>Quit</c>",
                 "WriteLine",
                 "Multiple Select Menus",
@@ -77,7 +78,7 @@ namespace UsingExtendedConsole
         }
 
         private static int ActionsMenu()
-            => exConsole.Menu(new MenuDisplayArgs("Demonstraiting ExConsole - actions menu, clearWhenSelected = true", clearWhenSelected: true),
+            => exConsole.Menu(new MenuDisplayArgs("Demonstraiting ExConsole - actions menu, clearWhenSelected = true", clearWhenSelected: true, showSelectedItem:true),
                 ("<c f='red'>Quit</c>", null),
                 ("WriteLine", WriteLineMethods),
                 ("Multiple Select Menus", MultipleSelectMenus),

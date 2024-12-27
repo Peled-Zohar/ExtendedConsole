@@ -12,11 +12,12 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>7.3</LangVersion>
     <PackageReleaseNotes>
-		Changes from previous version:
-		1. Added a ReadLine overload that validates the entered string and returns it if it's valid
-		2. Updated documentation
-	</PackageReleaseNotes>
-    <Version>2.1.0</Version>
+      Changes from previous version:
+      1. Added a boolean property to MenuDisplayArgs called ShowSelectedItem.
+      2. Added a constructor to populate this property as well, with a default value of false.
+      3. Marked the already-existing constructor as obsolete for removal in future versions.
+    </PackageReleaseNotes>
+    <Version>2.2.0</Version>
     <PackageIconUrl>https://raw.githubusercontent.com/Peled-Zohar/ExtendedConsole/master/ExtendedConsole.png</PackageIconUrl>
     <ApplicationIcon>extendedconsole.ico</ApplicationIcon>
   </PropertyGroup>
