@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Xml.Linq;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Web;
 
 namespace ExtendedConsole
 {
@@ -18,7 +20,7 @@ namespace ExtendedConsole
         internal static TextBuilder ParseMarkeup(string markup)
         {
             var textBuilder = new TextBuilder();
-
+            markup = XmlEncode(markup);
             markup = $"<ExtendedConsoleMarkup>{markup}</ExtendedConsoleMarkup>";
             var element = XElement.Parse(markup, LoadOptions.PreserveWhitespace);
             if (element.FirstNode != null)
@@ -43,7 +45,7 @@ namespace ExtendedConsole
             var element = node as XElement;
             if (element is null)
             {
-                textBuilder.AddText(node.ToString(SaveOptions.DisableFormatting));
+                textBuilder.AddText(XmlDecode(node.ToString(SaveOptions.DisableFormatting)));
             }
             else
             {
@@ -136,6 +138,33 @@ namespace ExtendedConsole
                 WriteAttributes(textBuilder, nextAttribute);
             }
         }
+
+        private static string XmlEncode(string markup)
+        {
+            markup = ReplaceToBBCode(markup);
+            markup = HttpUtility.HtmlEncode(markup);
+            return ReplaceToXmlCode(markup);
+        }
+
+        private static string ReplaceToBBCode(string xmlCode)
+        {
+            string intermediate = xmlCode
+                .Replace("<c ", "[c ")
+                .Replace("</c>", "[/c]");
+            return Regex.Replace(intermediate, @"(?<=\[c [^<>]*)>", "]");
+        }
+
+        private static string ReplaceToXmlCode(string bbCode)
+        {
+            string intermediate = bbCode
+                .Replace("[c ", "<c ")
+                .Replace("[/c]", "</c>")
+                .Replace("&#39;", "'");
+            return Regex.Replace(intermediate, @"(?<=<c [^\[\]]*)\]", ">");
+        }
+
+        private static string XmlDecode(string markup) 
+            => HttpUtility.HtmlDecode(markup);
     }
 
 
