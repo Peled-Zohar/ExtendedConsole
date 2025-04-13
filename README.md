@@ -1,4 +1,8 @@
 # ExtendedConsole
+[![NuGet](https://img.shields.io/nuget/v/ExtendedConsole.svg)](https://www.nuget.org/packages/ExtendedConsole)
+[![NuGet](https://img.shields.io/nuget/dt/ExtendedConsole.svg)](https://www.nuget.org/packages/ExtendedConsole)
+
+
 Provides a set of methods to make your life as a programmer easier when writing a Console application.
 
 It has methods for writing simple markup text to help you easily control the color of your output,  
